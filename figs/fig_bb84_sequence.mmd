@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant A as Alice
+    participant B as Bob
+    Note over A: 1. Random bits +<br/>random bases (+/x)
+    A->>B: 2. Send encoded qubits<br/>(quantum channel)
+    Note over B: 3. Random measurement<br/>bases + measure
+    A->>B: 4. Announce bases used
+    B->>A: 4. Announce bases used
+    Note over A,B: 5. Sifting: keep only<br/>matching-basis bits
+    A->>B: 6. Reveal sample bits
+    Note over A,B: 7. Estimate QBER,<br/>error correction,<br/>privacy amplification
+    Note over A,B: Final secret key
