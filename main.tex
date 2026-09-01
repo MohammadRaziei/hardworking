@@ -1,0 +1,125 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\graphicspath{{./}{figs/}}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows.meta,positioning,calc,decorations.pathreplacing,shadows,fit}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgfgantt}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage[hidelinks,colorlinks=true,linkcolor=blue!50!black,citecolor=teal!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage[numbers,square,sort&compress]{natbib}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{geometry}
+\geometry{a4paper,top=3cm,bottom=3cm,left=2.8cm,right=2.8cm}
+\linespread{1.5}
+\usepackage[extrafootnotefeatures]{xepersian}
+\settextfont{XB Niloofar}
+\setlatintextfont{Times New Roman}
+\setdigitfont{Yas}
+
+%======================= تنظیمات ظاهری =======================
+\definecolor{navydeep}{RGB}{20,40,90}
+\definecolor{goldacc}{RGB}{180,140,40}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\Huge\color{navydeep}}
+  {\filright\Large فصل \thechapter}
+  {8pt}
+  {\filright}
+\titlespacing*{\chapter}{0pt}{-10pt}{25pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small پروپوزال طرح ملی زیرساخت توزیع کلید کوانتومی و رمزنگاری پساکوانتومی}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{قضیه}[chapter]
+\newtheorem{definition}{تعریف}[chapter]
+\newtheorem{corollary}{نتیجه}[chapter]
+
+\newcommand{\Cite}[1]{\lr{\cite{#1}}}
+
+%======================= اطلاعات سند =======================
+\title{\textbf{\Huge پروپوزال طرح ملی\\[6pt]
+پیاده‌سازی زیرساخت توزیع کلید کوانتومی \lr{(QKD)}\\
+و رمزنگاری پساکوانتومی \lr{(PQC)}\\[4pt]
+\Large با تمرکز بر امنیت سایبری و شبکهٔ بانکی کلان‌شهر تهران}}
+\author{تهیه‌شده جهت ارائه به: \\ صندوق نوآوری و شکوفایی و معاونت علمی، فناوری و اقتصاد دانش‌بنیان ریاست‌جمهوری}
+\date{مرداد \lr{1405} -- آگوست \lr{2026}}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{1cm}
+{\large \lr{Islamic Republic of Iran}}\\[0.3cm]
+{\large معاونت علمی، فناوری و اقتصاد دانش‌بنیان ریاست‌جمهوری}\\[1.7cm]
+
+\rule{\linewidth}{1pt}\\[0.6cm]
+{\Huge \bfseries \color{navydeep} پروپوزال طرح ملی}\\[0.4cm]
+{\huge \bfseries پیاده‌سازی زیرساخت توزیع کلید کوانتومی}\\[0.2cm]
+{\Large \lr{(Quantum Key Distribution -- QKD)}}\\[0.5cm]
+{\huge \bfseries و رمزنگاری پساکوانتومی}\\[0.2cm]
+{\Large \lr{(Post-Quantum Cryptography -- PQC)}}\\[0.6cm]
+{\large با تمرکز بر امنیت سایبری، زیرساخت‌های حیاتی و شبکهٔ بانکی کلان‌شهر تهران}\\[0.6cm]
+\rule{\linewidth}{1pt}\\[2cm]
+
+\begin{tikzpicture}
+\node[draw=navydeep,thick,rounded corners,inner sep=14pt,fill=navydeep!4]{
+\begin{minipage}{0.72\linewidth}
+\centering
+\textbf{کلیدواژه‌ها:} \lr{QKD}، رمزنگاری پساکوانتومی، \lr{BB84}، گره مورد اعتماد، امنیت بانکی، \lr{ML-KEM}، \lr{ML-DSA}، زیرساخت کلان‌شهری، تهران
+\end{minipage}
+};
+\end{tikzpicture}
+
+\vfill
+
+{\large تهیه‌شده جهت ارائه به:}\\
+{\large \bfseries صندوق نوآوری و شکوفایی و معاونت علمی، فناوری و اقتصاد دانش‌بنیان ریاست‌جمهوری}\\[1cm]
+{\large مرداد \lr{1405} -- آگوست \lr{2026}}
+\vspace{1cm}
+\end{titlepage}
+
+\pagenumbering{gobble}
+\include{chapters/00-executive-summary}
+\clearpage
+\tableofcontents
+%\clearpage
+%\listoffigures
+%\clearpage
+%\listoftables
+\clearpage
+\pagenumbering{arabic}
+
+%=====================================================================
+
+\include{chapters/01-introduction}
+\include{chapters/02-qkd-theory}
+\include{chapters/03-qkd-architecture}
+\include{chapters/04-pqc}
+\include{chapters/05-hybrid-qkd-pqc}
+\include{chapters/06-banking-applications}
+\include{chapters/07-global-experience}
+\include{chapters/08-tehran-implementation}
+\include{chapters/09-equipment-and-cost}
+\include{chapters/10-security-risk}
+\include{chapters/11-roadmap}
+\include{chapters/12-conclusions}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}

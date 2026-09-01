@@ -1,0 +1,53 @@
+\chapter{رویکرد ترکیبی \lr{QKD} و \lr{PQC}: معماری دفاع در عمق}
+%=====================================================================
+
+\section{چرا نه \lr{QKD} به‌تنهایی، نه \lr{PQC} به‌تنهایی؟}
+
+بررسی تطبیقی این دو فناوری در جدول \ref{tab:compare} خلاصه شده است. نتیجهٔ کلیدی آن است که این دو رویکرد \textbf{رقیب یکدیگر نیستند، بلکه مکمل‌اند}؛ همان‌گونه که مدیر ارشد فناوری اطلاعات \lr{JPMorgan Chase} نیز اعلام کرده، راهبرد این بانک بر پایهٔ «مهار دوگانه» \lr{(Dual Remediation)} یعنی استفادهٔ هم‌زمان از \lr{PQC} و \lr{QKD} است \Cite{jpmorgan2024qcan}.
+
+\begin{table}[htbp]
+\centering
+\caption{مقایسهٔ فنی \lr{QKD} و \lr{PQC} \Cite{arxiv2502critical}}
+\label{tab:compare}
+\small
+\begin{tabular}{p{3.4cm}p{5.3cm}p{5.3cm}}
+\toprule
+\textbf{معیار} & \textbf{\lr{QKD}} & \textbf{\lr{PQC}} \\
+\midrule
+مبنای امنیت & قوانین فیزیک (اثبات‌پذیر اطلاعاتی) & دشواری محاسباتی (فرضی، قابل‌شکست با پیشرفت ریاضیات) \\
+نیاز به زیرساخت & فیبر تاریک اختصاصی یا کانال ماهواره‌ای؛ سرمایه‌گذاری سنگین سخت‌افزاری & صرفاً به‌روزرسانی نرم‌افزاری؛ قابل‌اجرا روی شبکهٔ موجود \\
+محدودیت برد & $\sim100$--$200$ کیلومتر بدون گرهٔ مورد اعتماد & نامحدود (مانند رمزنگاری کلاسیک) \\
+مقیاس‌پذیری & محدود؛ هزینهٔ بالای هر گره/پیوند & بسیار بالا؛ هزینهٔ نهایی نزدیک به صفر \\
+ریسک اصلی & آسیب‌پذیری گرهٔ مورد اعتماد؛ حملات کانال جانبی سخت‌افزاری (مانند کوری‌کردن آشکارساز) & کشف احتمالی ضعف ریاضی در آینده (نظیر سرنوشت \lr{SIKE} و \lr{Rainbow}) \\
+گواهی و استانداردسازی & هنوز فاقد استاندارد جهانی یکپارچهٔ گواهی امنیتی؛ پراکندگی نهادی \Cite{iiss2026governance} & دارای استاندارد نهایی و پذیرفته‌شدهٔ \lr{NIST} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{معماری لایه‌ای پیشنهادی}
+
+معماری پیشنهادی این طرح، ترکیب کلید تولیدشده توسط \lr{QKD} و کلید مشتق‌شده از \lr{ML-KEM} از طریق یک تابع \textbf{ترکیب‌کنندهٔ کلید} \lr{(Key Combiner)} -- معمولاً بر پایهٔ عملگر \lr{XOR} یا یک تابع اشتقاق کلید \lr{(KDF)} -- است؛ به این ترتیب، حتی در صورت شکست کامل یکی از دو مکانیزم (چه شکست ریاضی \lr{PQC} و چه نفوذ فیزیکی به گرهٔ مورد اعتماد \lr{QKD})، امنیت کلید نهایی همچنان از طریق مکانیزم دیگر تضمین می‌شود. شکل \ref{fig:layered} این معماری را نشان می‌دهد.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  layer/.style={rectangle,draw,thick,minimum width=9.4cm,minimum height=1cm,align=center,font=\small}
+]
+\node[layer,fill=red!10] (l1) at (0,0) {لایهٔ کاربردی و بانکی \lr{(Application / Banking)}};
+\node[layer,fill=orange!10] (l2) at (0,-1.15) {سامانهٔ مدیریت کلید \lr{(KMS)}};
+\node[layer,fill=yellow!15] (l3) at (0,-2.3) {ترکیب‌کنندهٔ کلید ترکیبی \lr{(Hybrid Key Combiner)}};
+\node[layer,fill=green!10,minimum width=4.5cm] (l4a) at (-2.5,-3.45) {لایهٔ \lr{QKD}};
+\node[layer,fill=blue!10,minimum width=4.5cm] (l4b) at (2.5,-3.45) {لایهٔ \lr{PQC (ML-KEM)}};
+\node[layer,fill=gray!15] (l5) at (0,-4.6) {شبکهٔ کلاسیک / فیبر نوری};
+\draw[-{Stealth[length=2mm]}] (l1) -- (l2);
+\draw[-{Stealth[length=2mm]}] (l2) -- (l3);
+\draw[-{Stealth[length=2mm]}] (l3.south -| l4a) -- (l4a.north);
+\draw[-{Stealth[length=2mm]}] (l3.south -| l4b) -- (l4b.north);
+\draw[-{Stealth[length=2mm]}] (l4a.south) -- (l5.north -| l4a);
+\draw[-{Stealth[length=2mm]}] (l4b.south) -- (l5.north -| l4b);
+\end{tikzpicture}
+\caption{معماری لایه‌ای ترکیبی \lr{QKD + PQC} پیشنهادی برای طرح تهران}
+\label{fig:layered}
+\end{figure}
+
+%=====================================================================
