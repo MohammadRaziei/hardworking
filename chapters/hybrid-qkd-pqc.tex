@@ -34,12 +34,12 @@
 \begin{tikzpicture}[
   layer/.style={rectangle,draw,thick,minimum width=9.4cm,minimum height=1cm,align=center,font=\small}
 ]
-\node[layer,fill=red!10] (l1) at (0,0) {لایهٔ کاربردی و بانکی \lr{(Application / Banking)}};
-\node[layer,fill=orange!10] (l2) at (0,-1.15) {سامانهٔ مدیریت کلید \lr{(KMS)}};
-\node[layer,fill=yellow!15] (l3) at (0,-2.3) {ترکیب‌کنندهٔ کلید ترکیبی \lr{(Hybrid Key Combiner)}};
-\node[layer,fill=green!10,minimum width=4.5cm] (l4a) at (-2.5,-3.45) {لایهٔ \lr{QKD}};
-\node[layer,fill=blue!10,minimum width=4.5cm] (l4b) at (2.5,-3.45) {لایهٔ \lr{PQC (ML-KEM)}};
-\node[layer,fill=gray!15] (l5) at (0,-4.6) {شبکهٔ کلاسیک / فیبر نوری};
+\node[layer,fill=red!10] (l1) at (0,0) {\rl{لایهٔ کاربردی و بانکی \lr{(Application / Banking)}}};
+\node[layer,fill=orange!10] (l2) at (0,-1.15) {\rl{سامانهٔ مدیریت کلید \lr{(KMS)}}};
+\node[layer,fill=yellow!15] (l3) at (0,-2.3) {\rl{ترکیب‌کنندهٔ کلید ترکیبی \lr{(Hybrid Key Combiner)}}};
+\node[layer,fill=green!10,minimum width=4.5cm] (l4a) at (-2.5,-3.45) {\rl{لایهٔ \lr{QKD}}};
+\node[layer,fill=blue!10,minimum width=4.5cm] (l4b) at (2.5,-3.45) {\rl{لایهٔ \lr{PQC (ML-KEM)}}};
+\node[layer,fill=gray!15] (l5) at (0,-4.6) {\rl{شبکهٔ کلاسیک / فیبر نوری}};
 \draw[-{Stealth[length=2mm]}] (l1) -- (l2);
 \draw[-{Stealth[length=2mm]}] (l2) -- (l3);
 \draw[-{Stealth[length=2mm]}] (l3.south -| l4a) -- (l4a.north);

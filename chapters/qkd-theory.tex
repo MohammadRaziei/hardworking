@@ -26,12 +26,12 @@
   node distance=1.2cm,
   box/.style={rectangle,draw,thick,rounded corners,minimum width=2.6cm,minimum height=1cm,align=center,fill=blue!8},
 ]
-\node[box] (alice) {\lr{Alice}\\(فرستنده)};
-\node[box,right=6.3cm of alice] (bob) {\lr{Bob}\\(گیرنده)};
+\node[box] (alice) {\lr{Alice}\\\rl{(فرستنده)}};
+\node[box,right=6.3cm of alice] (bob) {\lr{Bob}\\\rl{(گیرنده)}};
 \draw[-{Stealth[length=3mm]},thick,blue!60!black] (alice) -- node[above,font=\footnotesize]{\rl{کانال کوانتومی (فوتون‌های تکی)}} (bob);
 \draw[-{Stealth[length=3mm]},thick,red!60!black] ($(alice.south)+(0,-0.4)$) -- node[below,font=\footnotesize]{کانال کلاسیک (تطبیق پایه، تصحیح خطا، تقطیر محرمانگی)} ($(bob.south)+(0,-0.4)$);
-\node[below=1.1cm of alice, align=right, font=\footnotesize] (a2) {\lr{1.} تولید بیت‌های تصادفی\\\lr{2.} انتخاب تصادفی پایه ($+/\times$)\\\lr{3.} کدگذاری و ارسال قوبیت‌ها};
-\node[below=1.1cm of bob, align=right, font=\footnotesize] (b2) {\lr{1.} انتخاب تصادفی پایهٔ اندازه‌گیری\\\lr{2.} اندازه‌گیری قوبیت‌ها\\\lr{3.} غربال‌سازی کلید \lr{(Key Sifting)}};
+\node[below=1.1cm of alice, align=right, font=\footnotesize] (a2) {\rl{\lr{1.} تولید بیت‌های تصادفی}\\\rl{\lr{2.} انتخاب تصادفی پایه ($+/\times$)}\\\rl{\lr{3.} کدگذاری و ارسال قوبیت‌ها}};
+\node[below=1.1cm of bob, align=right, font=\footnotesize] (b2) {\rl{\lr{1.} انتخاب تصادفی پایهٔ اندازه‌گیری}\\\rl{\lr{2.} اندازه‌گیری قوبیت‌ها}\\\rl{\lr{3.} غربال‌سازی کلید \lr{(Key Sifting)}}};
 \end{tikzpicture}
 \caption{شمای کلی پروتکل \lr{BB84}: تبادل کلید کوانتومی بین \lr{Alice} و \lr{Bob}}
 \label{fig:bb84}
