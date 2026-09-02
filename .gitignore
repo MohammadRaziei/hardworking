@@ -32,3 +32,4 @@ Thumbs.db
 .vscode/
 
 /*.pdf
+*.synctex(busy)
