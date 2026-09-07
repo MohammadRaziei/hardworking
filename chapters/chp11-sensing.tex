@@ -1,0 +1,627 @@
+\chapter{حسگری کوانتومی و رادارهای کوانتومی}
+\label{chap:11}
+
+\section{تخمین فاز کوانتومی}
+\label{sec:11-1}
+
+ما انتظار داریم که عملگر تعداد فوتون\LTRfootnote{Photon number operator} $\hat{N}$ و عملگر فاز\LTRfootnote{Phase operator} $\hat{\phi}$ نشان‌دهنده عملگرهای مزدوج کانونی\LTRfootnote{Canonically conjugate operators} باشند، به‌طوری که جابه‌جاگر\LTRfootnote{Commutator} آن‌ها منجر به رابطه عدم قطعیت\LTRfootnote{Uncertainty relation} شود که محدودیت‌های فیزیکی را بر اندازه‌گیری‌های فاز\LTRfootnote{Phase measurements} به‌صورت زیر اعمال می‌کند:
+\begin{equation}
+	\Delta \phi \Delta N \geq 1,
+	\label{eq:11-1}
+\end{equation}
+که در آن $\Delta \phi$ و $\Delta N$ به‌ترتیب نشان‌دهنده عدم قطعیت‌ها در فاز و تعداد فوتون هستند. بیایید حالت همدوس\LTRfootnote{Coherent state} را که به‌صورت زیر نمایش داده می‌شود، در نظر بگیریم:
+\begin{equation}
+	|\alpha\rangle = e^{-|\alpha|^2/2} \sum_{n} \frac{\alpha^n}{\sqrt{n!}} |n\rangle;
+	\label{eq:11-2}
+\end{equation}
+که در آن $\alpha = \alpha_I + j\alpha_Q$ یک عدد مختلط است و $|n\rangle$ حالت‌های فوک\LTRfootnote{Fock states} (حالت‌های تعداد فوتون) هستند که کِت‌های ویژه\LTRfootnote{Eigenkets} عملگر تعداد محسوب می‌شوند؛ یعنی $\hat{N}|n\rangle = n|n\rangle$. مقدار چشم‌داشتی\LTRfootnote{Expected value} عملگر تعداد به‌صورت زیر است:
+\begin{equation}
+	\bar{N} = \langle \alpha | \hat{N} | \alpha \rangle = \langle \alpha | a^\dagger a | \alpha \rangle = \underbrace{\langle \alpha | a^\dagger}_{\alpha^* \langle \alpha |} \underbrace{a | \alpha \rangle}_{\alpha | \alpha \rangle} = |\alpha|^2
+	\label{eq:11-3}
+\end{equation}
+از سوی دیگر، مقدار چشم‌داشتی مجذور عملگر تعداد برابر است با:
+\begin{equation}
+	\begin{aligned}
+		\langle \hat{N}^2 \rangle &= \langle \alpha | \hat{N}^2 | \alpha \rangle = \langle \alpha | a^\dagger a a^\dagger a | \alpha \rangle = \underbrace{\langle \alpha | a^\dagger}_{\alpha^* \langle \alpha |} a a^\dagger \underbrace{a | \alpha \rangle}_{\alpha | \alpha \rangle} \\
+		&= |\alpha|^2 \langle \alpha | \underbrace{a a^\dagger}_{a^\dagger a + \hat{1}} | \alpha \rangle = |\alpha|^4 + |\alpha|^2 = \bar{N}^2 + \bar{N}
+		\label{eq:11-4}
+	\end{aligned}
+\end{equation}
+که در آن از رابطه جابه‌جایی\LTRfootnote{Commutation relation} بنیادی عملگرهای نابودی و تولید، یعنی $[a, a^\dagger] = \hat{1}$ استفاده کردیم که در آن $\hat{1}$ عملگر همانی\LTRfootnote{Identity operator} است.
+واریانس\LTRfootnote{Variance} متناظر برابر است با:
+\begin{equation}
+	\sigma^2(\hat{N}) = \text{Var}(\hat{N}) = \langle \hat{N}^2 \rangle - \langle \hat{N} \rangle^2 = \bar{N}^2 + \bar{N} - \bar{N}^2 = \bar{N}
+	\label{eq:11-5}
+\end{equation}
+و عدم قطعیت کسری\LTRfootnote{Fractional uncertainty} در تعداد فوتون به‌صورت زیر خواهد بود:
+\begin{equation}
+	\frac{\sigma(N)}{\bar{N}} = \frac{\sqrt{\bar{N}}}{\bar{N}} = \frac{1}{\sqrt{\bar{N}}} \xrightarrow{\bar{N} \to \infty} 0
+	\label{eq:11-6}
+\end{equation}
+احتمال آشکارسازی $n$ فوتون توسط رابطه زیر داده می‌شود:
+\begin{equation}
+	P_n = |\langle n | \alpha \rangle|^2 = e^{-|\alpha|^2} \frac{|\alpha|^{2n}}{n!} = e^{-\bar{N}} \frac{\bar{N}^n}{n!}
+	\label{eq:11-7}
+\end{equation}
+که نشان‌دهنده یک توزیع پواسون\LTRfootnote{Poisson distribution} با مقدار میانگین $|\alpha|^2$ است.
+از نامساوی هایزنبرگ در رابطه \eqref{eq:11-1}، محدودیت اندازه‌گیری فاز زیر را به‌دست می‌آوریم:
+\begin{equation}
+	\Delta \phi \geq \frac{1}{\sqrt{\bar{N}}}
+	\label{eq:11-8}
+\end{equation}
+که معمولاً با عنوان حد کوانتومی استاندارد\LTRfootnote{Standard quantum limit (SQL)} (\lr{SQL}) شناخته می‌شود.
+
+متأسفانه، از دهه $1960$ به‌خوبی شناخته شده است که برای به‌دست آوردن روابط جابه‌جایی مناسب، $\exp(j\hat{\phi})$ باید یکانی\LTRfootnote{Unitary} باشد، در حالی که $\hat{\phi}$ باید هرمیتی\LTRfootnote{Hermitian} باشد \cite{1,2,3,4,5}. برای حل این مسئله، دیراک\LTRfootnote{Dirac} بازتعریف عملگرهای تولید و نابودی را به‌صورت زیر پیشنهاد کرد \cite{1}:
+\begin{equation}
+	\hat{a}^\dagger = \sqrt{\hat{N}} e^{-j\hat{\phi}}, \quad \hat{a} = e^{j\hat{\phi}} \sqrt{\hat{N}}
+	\label{eq:11-9}
+\end{equation}
+که در آن $\hat{\phi}$ عملگر هرمیتی فاز است. از رابطه جابه‌جایی $[a, a^\dagger] = \hat{1}$، به‌دست می‌آوریم:
+\begin{equation}
+	e^{j\hat{\phi}} \hat{N} e^{-j\hat{\phi}} = \hat{N} + \hat{1}
+	\label{eq:11-10}
+\end{equation}
+متأسفانه، عملگر نمایی $\exp(j\hat{\phi})$ یکانی نیست زیرا:
+\begin{equation}
+	\underbrace{e^{j\hat{\phi}}}_{\hat{a}\hat{N}^{-1/2}} \underbrace{e^{-j\hat{\phi}}}_{\hat{N}^{-1/2}\hat{a}^\dagger} = \hat{a} \hat{N}^{-1} \hat{a}^\dagger \neq \hat{1}
+	\label{eq:11-11}
+\end{equation}
+بارنت\LTRfootnote{Barnett} و پگ\LTRfootnote{Pegg} عملگرهای نمایی یکانی را در مرجع \cite{2} بنا کردند:
+\begin{equation}
+	e^{j\hat{\phi}} = \sum_{n=0}^{N} |n\rangle \langle n+1|, \quad e^{-j\hat{\phi}} = \sum_{n=0}^{N} |n+1\rangle \langle n|
+	\label{eq:11-12}
+\end{equation}
+اکنون عملگر نمایی یکانی است:
+\begin{equation}
+	e^{j\hat{\phi}} (e^{j\hat{\phi}})^\dagger = (e^{j\hat{\phi}})^\dagger e^{j\hat{\phi}} = \hat{1}
+	\label{eq:11-13}
+\end{equation}
+متأسفانه، حالت‌های با شماره منفی به‌لحاظ فیزیکی وجود ندارند. رایج‌ترین رویکرد برای این مسئله، به‌کارگیری عملگر غیرهرمیتی ساسکیند-گلوگوور\LTRfootnote{Susskind-Glogower operator} است \cite{3,4,5}:
+\begin{equation}
+	\begin{aligned}
+		\hat{E} &= e^{j\hat{\phi}} = (\hat{N} + \hat{1})^{-1/2} \hat{a} = (\hat{a}\hat{a}^\dagger)^{-1/2} \hat{a} = \sum_{n=0}^{\infty} |n\rangle \langle n+1| \\
+		\Rightarrow \hat{E}^\dagger &= e^{-j\hat{\phi}} = \hat{a}^\dagger (\hat{N} + \hat{1})^{-1/2} = \hat{a}^\dagger (\hat{a}\hat{a}^\dagger)^{-1/2} = \sum_{n=0}^{\infty} | n+1 \rangle \langle n|
+		\label{eq:11-14}
+	\end{aligned}
+\end{equation}
+به‌وضوح، رابطه زیر برقرار است:
+\begin{equation}
+	\hat{E} \hat{E}^\dagger = \sum_{n=0}^{\infty} \sum_{m=0}^{\infty} |n\rangle \langle n+1 | m+1 \rangle \langle m| = \sum_{n=0}^{\infty} |n\rangle \langle n| = \hat{1}
+	\label{eq:11-15}
+\end{equation}
+اما متأسفانه:
+\begin{equation}
+	\hat{E}^\dagger \hat{E} = \sum_{n=0}^{\infty} \sum_{m=0}^{\infty} |n+1\rangle \langle n | m \rangle \langle m+1| = \sum_{n=0}^{\infty} |n+1\rangle \langle n+1| = \hat{1} - |0\rangle \langle 0| \neq \hat{1}
+	\label{eq:11-16}
+\end{equation}
+و به بیان دقیق، عملگر نمایی یکانی نیست. با این حال، برای میانگین تعداد فوتون $n \geq 1$، این عملگر تقریباً یکانی است. از سوی دیگر، دو عملگر زیر که از عملگر نمایی مشتق شده‌اند، یکانی هستند:
+\begin{equation}
+	\hat{C} = \frac{\hat{E} + \hat{E}^\dagger}{2}, \quad \hat{S} = \frac{\hat{E} - \hat{E}^\dagger}{2j}
+	\label{eq:11-17}
+\end{equation}
+و می‌توانند به‌عنوان مشاهده‌پذیر\LTRfootnote{Observables} استفاده شوند. این عملگرها آنالوگ $\cos \phi$ و $\sin \phi$ هستند و در رابطه جابه‌جایی زیر صدق می‌کنند:
+\begin{equation}
+	[\hat{C}, \hat{S}] = \frac{j}{2} |0\rangle \langle 0|
+	\label{eq:11-18}
+\end{equation}
+و همچنین در اتحاد شبه-مثلثاتی زیر:
+\begin{equation}
+	\hat{C}^2 + \hat{S}^2 = \hat{1} - \frac{1}{2} |0\rangle \langle 0|
+	\label{eq:11-19}
+\end{equation}
+
+از آنجا که دو رابطه جابه‌جایی زیر برقرار هستند:
+\begin{equation}
+	[\hat{C}, \hat{N}] = j\hat{S}, \quad [\hat{S}, \hat{N}] = -j\hat{C},
+	\label{eq:11-20}
+\end{equation}
+روابط عدم قطعیت متناظر عبارتند از:
+\begin{equation}
+	\Delta\hat{N} \Delta\hat{C} \geq \frac{1}{2} |\langle \hat{S} \rangle|, \quad \Delta\hat{N} \Delta\hat{S} \geq \frac{1}{2} |\langle \hat{C} \rangle|.
+	\label{eq:11-21}
+\end{equation}
+
+\subsection{تداخل‌سنجی کوانتومی}
+\label{subsec:11-1-1}
+بیایید تداخل‌سنج ماخ-زندر\LTRfootnote{Mach–Zehnder interferometer (MZI)} (\lr{MZI}) را با دو پورت ورودی ($I_1$ و $I_2$) و دو پورت خروجی ($O_1$ و $O_2$)، مطابق شکل \ref{fig:11-1} در نظر بگیریم. این دستگاه شامل دو تقسیم‌کننده پرتو متعادل (\lr{BBS}) و دو آینه است. فوتونی که وارد پورت ورودی $I_1$ می‌شود، دو مسیر ممکن برای رسیدن به \lr{BBS} دوم دارد: مسیر بالایی و مسیر پایینی. وقتی فوتون در امتداد مسیر بالایی حرکت می‌کند، جابه‌جایی فاز $\phi$ را کسب می‌کند. حالتی که در آن فوتون \lr{BBS} اول را در امتداد مسیر بالایی ترک می‌کند، می‌توان با $|u\rangle = |1\rangle$ نشان داد و حالتی که فوتون مسیر پایینی را انتخاب می‌کند، با $|l\rangle = |0\rangle$ نمایش داده می‌شود. هنگام مشاهده نتایج پورت‌های خروجی، ما نمی‌توانیم مسیری را که فوتون در آن حرکت کرده است مشخص کنیم، بنابراین حالت فوتونی که به \lr{BBS} دوم می‌رسد را می‌توان به‌صورت حالت برهم‌نهی $|\psi\rangle = 2^{-1/2}(|0\rangle + |1\rangle)$ توصیف کرد. با توجه به اینکه تعداد فوتون $n$ در این حالت نمی‌تواند از $1$ تجاوز کند، عملگر $\hat{C}$ به فضای زیر محدود (کوتاه\LTRfootnote{Truncated}) می‌شود:
+\begin{equation}
+	\hat{C} = 2^{-1}(|0\rangle \langle 1| + |1\rangle \langle 0|),
+	\label{eq:11-22}
+\end{equation}
+با انتخاب پایه محاسباتی به‌صورت $CB = \{|0\rangle = [1 \quad 0]^T, |1\rangle = [0 \quad 1]^T \}$, نتیجه می‌گیریم که عملگر $\hat{C}$ با عملگر پاولی-\lr{X}\LTRfootnote{Pauli-X operator} از طریق رابطه زیر مرتبط است:
+\begin{equation}
+	\hat{C} = 2^{-1}(|0\rangle \langle 1| + |1\rangle \langle 0|) = 2^{-1} \underbrace{\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}}_{X} = 2^{-1}X.
+	\label{eq:11-23}
+\end{equation}
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.7\textwidth]{fig11-1}
+	\caption{تداخل‌سنج ماخ-زندر با جابه‌جایی فاز در شاخه بالایی. \lr{BBS}: تقسیم‌کننده پرتو متعادل.}
+	\label{fig:11-1}
+\end{figure}
+
+از آنجایی که $X^2 = \ones$ است، داریم $\hat{C}^2 = 2^{-2}\ones$. با محاسبه مقادیر میانگین $\hat{C}$ و $\hat{C}^2$ نسبت به حالت $|\psi\rangle$، به‌دست می‌آوریم:
+\begin{equation}
+	\begin{aligned}
+		\langle \hat{C} \rangle &= \langle \psi | \hat{C} | \psi \rangle = 2^{-2} \left( \langle 1| e^{-j\phi} + \langle 0| \right) X \left( |0\rangle + e^{j\phi}|1\rangle \right) \\
+		&= 2^{-1} \frac{e^{j\phi} + e^{-j\phi}}{2} = 2^{-1} \cos \phi, \\
+		\langle \hat{C}^2 \rangle &= \langle \psi | \underbrace{\hat{C}^2}_{2^{-2}\ones} | \psi \rangle = 1/4.
+		\label{eq:11-24}
+	\end{aligned}
+\end{equation}
+عدم قطعیت اندازه‌گیری مشاهده‌پذیر $\hat{C}$ اکنون برابر است با:
+\begin{equation}
+	\Delta \hat{C} = \sqrt{\langle \hat{C}^2 \rangle - \langle \hat{C} \rangle^2} = 2^{-1} \sqrt{1 - \cos^2 \phi} = 2^{-1} |\sin \phi|.
+	\label{eq:11-25}
+\end{equation}
+پاسخ‌دهی فاز\LTRfootnote{Phase responsivity} به‌صورت زیر داده می‌شود:
+\begin{equation}
+	\left| \frac{d\langle \hat{C} \rangle}{d\phi} \right| = \frac{1}{2} |\sin \phi|.
+	\label{eq:11-26}
+\end{equation}
+هنگامی که اندازه‌گیری را $N$ بار تکرار می‌کنیم، بر اساس تئوری آمار انتظار داریم که واریانس $N$ برابر کاهش یابد و انحراف معیار\LTRfootnote{Standard deviation} $N^{1/2}$ برابر کمتر شود. حالت ورودی کلی را می‌توان به‌صورت $|\psi_R\rangle = |\psi\rangle^{\otimes N} = |\psi\rangle \otimes \dots \otimes |\psi\rangle$ نمایش داد. مشاهده‌پذیر متناظر به‌صورت $\hat{C}_R = \sum_{n=1}^N \hat{C}^{(n)}$ داده می‌شود. برای سادگی، از ضریب $1/2$ در $\hat{C}$ صرف‌نظر می‌کنیم. مقدار چشم‌داشتی مشاهده‌پذیر $\hat{C}_R$ برابر است با:
+\begin{equation}
+	\langle \hat{C}_R \rangle = \langle \psi_R | \hat{C}_R | \psi_R \rangle = N \cos \phi.
+	\label{eq:11-27}
+\end{equation}
+علاوه بر این، چون $\hat{C}^2 = \ones$ است، واریانس $\hat{C}_R$ با فرض $N$ تحقق برابر است با:
+\begin{equation}
+	(\Delta \hat{C}_R)^2 = N (\langle \hat{C}^2 \rangle - \langle \hat{C} \rangle^2) = N (1 - \cos^2 \phi) = N \sin^2 \phi.
+	\label{eq:11-28}
+\end{equation}
+بنابراین، عدم قطعیت تخمین فاز را می‌توان مشابه مرجع \cite{6} ارزیابی کرد:
+\begin{equation}
+	\Delta \phi_{SQL} = \frac{\Delta \hat{C}_R}{\left| \frac{d\langle \hat{C}_R \rangle}{d\phi} \right|} = \frac{N^{1/2} |\sin \phi|}{N |\sin \phi|} = \frac{1}{\sqrt{N}}.
+	\label{eq:11-29}
+\end{equation}
+
+\subsection{رژیم فوق‌حساس و حد هایزنبرگ}
+\label{subsec:11-1-2}
+هنگامی که از $N$ فوتون مستقل برای تعیین تخمین فاز استفاده می‌شود، عدم قطعیت به $N^{-1/2}$ محدود می‌گردد. زمانی که $N$ فوتون مورد استفاده در تخمین فاز درهم‌تنیده باشند، می‌توانیم به حساسیتی بهتر از \lr{SQL} دست یابیم. این رژیم با عنوان رژیم فوق‌حساس\LTRfootnote{Supersensitive regime} شناخته می‌شود و می‌گوییم که حسگر کوانتومی مربوطه، فوق‌حساس\LTRfootnote{Supersensitive} است \cite{7}.
+برای این منظور، می‌توانیم از حالت‌های \lr{NOON} استفاده کنیم که به‌صورت زیر تعریف می‌شوند:
+\begin{equation}
+	|\psi_N\rangle = 2^{-1/2}(|N0\rangle + |0N\rangle) = 2^{-1/2}(|N\rangle |0\rangle + |0\rangle |N\rangle).
+	\label{eq:11-30}
+\end{equation}
+
+که حالت‌هایی با درهم‌تنیدگی بالا هستند و اغلب در کاربردهای مختلف حسگری کوانتومی به کار می‌روند. بیایید نمادگذاری $|n\rangle_u |m\rangle_l$ را برای نشان دادن حالت کوانتومی شامل $n$ فوتون در شاخه بالایی و $m$ فوتون در شاخه پایینی تداخل‌سنج \lr{MZI} معرفی کنیم. ما علاقه‌مند به اندازه‌گیری اختلاف فاز ایجاد شده در هنگام عبور فوتون‌ها از مسیر بالایی هستیم. به دلیل درهم‌تنیدگی، جابه‌جایی‌های فاز ناشی از $N$ فوتون به‌طور جمعی عمل کرده تا جابه‌جایی فاز $N\phi$ را اعمال کنند؛ در نتیجه حالت کوانتومی که به $\text{\lr{BBS}}_o$ می‌رسد را می‌توان به‌صورت زیر نمایش داد:
+\begin{equation}
+	|\psi_N\rangle = 2^{-1/2} (e^{jN\phi}|N0\rangle + |0N\rangle).
+	\label{eq:11-31}
+\end{equation}
+برای اندازه‌گیری جابه‌جایی فاز $\phi$، آشکارساز باید مشاهده‌پذیر\LTRfootnote{Observable} زیر را اندازه‌گیری کند:
+\begin{equation}
+	\hat{O}_N = |0N\rangle \langle N0| + |N0\rangle \langle 0N|.
+	\label{eq:11-32}
+\end{equation}
+مقدار چشم‌داشتی این عملگر را می‌توان به‌صورت زیر تعیین کرد:
+\begin{equation}
+	\begin{aligned}
+		\langle \hat{O}_N \rangle &= \langle \psi_N | \hat{O}_N | \psi_N \rangle = \langle \psi_N | (|0N\rangle \langle N0| + |N0\rangle \langle 0N|) (|0N\rangle + e^{jN\phi}|N0\rangle) \\
+		&= \frac{1}{2} (\langle 0N| + \langle N0|e^{-jN\phi}) (|N0\rangle + e^{jN\phi}|0N\rangle) = \frac{1}{2} (e^{-jN\phi} + e^{jN\phi}) = \cos(N\phi).
+		\label{eq:11-33}
+	\end{aligned}
+\end{equation}
+با توجه به اینکه:
+\begin{equation}
+	\begin{aligned}
+		\hat{O}_N^2 &= (|0N\rangle \langle N0| + |N0\rangle \langle 0N|) (|0N\rangle \langle N0| + |N0\rangle \langle 0N|) \\
+		&= |0N\rangle \langle 0N| + |N0\rangle \langle N0| = \ones,
+		\label{eq:11-34}
+	\end{aligned}
+\end{equation}
+که در آن $\ones$ عملگر همانی است، تعیین می‌کنیم که مقدار چشم‌داشتی $\hat{O}_N^2$ صرفاً برابر است با $\langle \hat{O}_N^2 \rangle = \langle \psi_N | \hat{O}_N^2 | \psi_N \rangle = \langle \psi_N | \psi_N \rangle = 1$؛ بنابراین واریانس مشاهده‌پذیر به‌صورت زیر در می‌آید:
+\begin{equation}
+	(\Delta \hat{O}_N)^2 = \langle \hat{O}_N^2 \rangle - \langle \hat{O}_N \rangle^2 = 1 - \cos^2(N\phi) = \sin^2(N\phi).
+	\label{eq:11-35}
+\end{equation}
+اکنون عدم قطعیت تخمین فاز برای حالت ورودی \lr{NOON} را می‌توان به‌صورت زیر ارزیابی کرد:
+\begin{equation}
+	\Delta \phi_{HL} = \frac{\Delta \hat{O}_N}{\left| \frac{d\langle \hat{O}_N \rangle}{d\phi} \right|} = \frac{|\sin(N\phi)|}{N|\sin(N\phi)|} = \frac{1}{N},
+	\label{eq:11-36}
+\end{equation}
+که با عنوان حد هایزنبرگ\LTRfootnote{Heisenberg limit} شناخته می‌شود. بنابراین، با استفاده از حالت‌های درهم‌تنیده به‌عنوان حالت‌های ورودی حسگر کوانتومی، می‌توانیم عملکردی بهتر از \lr{SQL} داشته باشیم. در مقایسه با حالت‌های غیردرهم‌تنیده، می‌توانیم با استفاده از حالت‌های بیشینه درهم‌تنیده\LTRfootnote{Maximally entangled states}، حساسیت فاز را به میزان $N^{1/2}$ برابر بهبود بخشیم.
+
+حالت \lr{NOON} دوفوتونی را می‌توان به راحتی با به‌کارگیری اثر هونگ-او-ماندل\LTRfootnote{Hong–Ou–Mandel (HOM) effect} \cite{8,9} به‌دست آورد (فصل \ref{chap:10} را ببینید). حالت‌های \lr{NOON} مرتبه بالاتر را می‌توان با استفاده از تبدیل پایین‌رتبه پارامتری خودبه‌خودی\LTRfootnote{Spontaneous parametric downconversion (SPDC)} (\lr{SPDC}) \cite{9,10,11,12,13} و به‌دنبال آن فرآیند پس‌گزینش\LTRfootnote{Postselection} برای دستیابی به حالت‌های درهم‌تنیده مطلوب تولید کرد \cite{14,15,16,17}.
+
+\section{اطلاعات فیشر کوانتومی و کران کرامر-رائو کوانتومی}
+\label{sec:11-2}
+اجازه دهید به‌اختصار تخمین نااریب و کران کرامر-رائو\LTRfootnote{Cramér–Rao bound} کلاسیک را مرور کنیم \cite{6, 18, 19}.
+
+\subsection{کران کرامر-رائو}
+\label{subsec:11-2-1}
+اطلاعات فیشر\LTRfootnote{Fisher information} متناظر با مقدار اطلاعاتی است که یک متغیر تصادفی $X$ درباره پارامتر مجهول $\theta$ حمل می‌کند. فرض کنید $f(x|\theta)$ نشان‌دهنده تابع چگالی احتمال\LTRfootnote{Probability density function (PDF)} شرطی $x$ به شرط $\theta$ باشد. تخمین‌گر نااریب\LTRfootnote{Unbiased estimator} $\tilde{\theta}(x)$ تخمین‌گری است که برای آن مقدار چشم‌داشتی خطای تخمین صرف‌نظر از مقدار $\theta$ صفر باشد؛ یعنی می‌توانیم بنویسیم:
+\begin{equation}
+	\langle \tilde{\theta}(x) - \theta | \theta \rangle = \int [\tilde{\theta}(x) - \theta] f(x|\theta) dx = 0.
+	\label{eq:11-37}
+\end{equation}
+مشتق جزئی خطای تخمین نیز صفر است؛ یعنی:
+\begin{equation}
+	\frac{\partial}{\partial \theta} \int [\tilde{\theta}(x) - \theta] f(x|\theta) dx = 0.
+	\label{eq:11-38}
+\end{equation}
+با اعمال قاعده مشتق ضرب، به‌دست می‌آوریم:
+\begin{equation}
+	\underbrace{-\int f(x|\theta) dx}_{1} + \int [\tilde{\theta}(x) - \theta] \underbrace{\frac{\partial}{\partial \theta} f(x|\theta)}_{f(x|\theta) \frac{\partial}{\partial \theta} \log f(x|\theta)} dx = 0
+	\implies \int [\tilde{\theta}(x) - \theta] f(x|\theta) \frac{\partial}{\partial \theta} \log f(x|\theta) dx = 1
+	\label{eq:11-39}
+\end{equation}
+از آنجا که با جایگذاری $f(x|\theta) = \sqrt{f(x|\theta)} \sqrt{f(x|\theta)}$ در معادله قبلی و با اعمال نامساوی بونیاکوفسکی-کوشی-شوارتز\LTRfootnote{Bunyakovsky–Cauchy–Schwarz inequality}، خواهیم داشت:
+\begin{equation}
+	\begin{aligned}
+		1 &= \left\{ \int [\tilde{\theta}(x) - \theta] \sqrt{f(x|\theta)} \sqrt{f(x|\theta)} \frac{\partial}{\partial \theta} \log f(x|\theta) dx \right\}^2 \\
+		&\leq \underbrace{\int [\tilde{\theta}(x) - \theta]^2 f(x|\theta) dx}_{\text{Var}(\tilde{\theta})} \cdot \underbrace{\int \left[ \frac{\partial}{\partial \theta} \log f(x|\theta) \right]^2 f(x|\theta) dx}_{I_F(\theta)} \\
+		&\leq \text{Var}(\tilde{\theta}) I_F(\theta),
+	\end{aligned}
+	\label{eq:11-40}
+\end{equation}
+و جمله دوم در رابطه \eqref{eq:11-40} به‌عنوان اطلاعات فیشر شناخته می‌شود. با توجه به اینکه مشتق جزئی $\log f(x|\theta)$ به‌عنوان امتیاز\LTRfootnote{Score} (نشان‌دهنده تندیِ تابع درست‌نمایی لگاریتمی\LTRfootnote{Log-likelihood function}) شناخته می‌شود، می‌توانیم اطلاعات فیشر را به‌عنوان مقدار میانگین امتیاز تعریف کنیم. علاوه بر این، با توجه به اینکه $\langle \partial \log f(x|\theta) / \partial \theta \rangle = 0$ است، می‌توانیم اطلاعات فیشر را به‌عنوان واریانس امتیاز نیز تعریف کنیم.
+
+نامساوی قبلی را می‌توان به‌صورت زیر بازنویسی کرد:
+\begin{equation}
+	\text{Var}(\tilde{\theta}) \geq \frac{1}{I_F(\theta)}, \quad I_F(\theta) = \int \left[ \frac{\partial}{\partial \theta} \log f(x|\theta) \right]^2 f(x|\theta) dx,
+	\label{eq:11-41}
+\end{equation}
+
+که معمولاً به‌عنوان کران کرامر-رائو شناخته می‌شود. در حسگری کلاسیک توزیع‌سده\LTRfootnote{Distributed classical sensing}، ما از $M$ حسگر کلاسیک برای اندازه‌گیری پارامتر یکسان $\theta$ استفاده می‌کنیم و با میانگین‌گیری از نتایج اندازه‌گیری‌ها، می‌توانیم واریانس تخمین‌گر نااریب را $M$ برابر کاهش دهیم، در حالی که انحراف معیار $\sigma(\tilde{\theta})$ به میزان $\sqrt{M}$ برابر کاهش می‌یابد؛ یعنی:
+\begin{equation}
+	\text{Var}_M(\tilde{\theta}) = \sigma_M^2(\tilde{\theta}) \geq \frac{1}{M I_F(\theta)},
+	\label{eq:11-42}
+\end{equation}
+که نشان‌دهنده حد استاندارد برای حسگری توزیع‌شده است.
+
+\subsection{کران کرامر-رائو کوانتومی}
+\label{subsec:11-2-2}
+اطلاعات فیشر کوانتومی\LTRfootnote{Quantum Fisher information (QFI)} (\lr{QFI}) معادل کوانتومیِ اطلاعات فیشر کلاسیک است. \lr{QFI} برای حالت $\rho$ نسبت به مشاهده‌پذیر $\hat{O}$ را می‌توان به‌صورت زیر تعریف کرد:
+\begin{equation}
+	Q_F(\rho, \hat{O}) = 2 \sum_{m,n} \frac{(\lambda_m - \lambda_n)^2}{\lambda_m + \lambda_n} |\langle \lambda_m | \hat{O} | \lambda_n \rangle|^2,
+	\label{eq:11-43}
+\end{equation}
+که در آن $\lambda_k$ مقادیر ویژه $\rho$ و $|\lambda_k\rangle$ کِت‌های ویژه متناظر هستند؛ یعنی $\rho|\lambda_k\rangle = \lambda_k|\lambda_k\rangle$.
+
+در این مرحله، مناسب است که حسگری کوانتومی را به‌صورت تبدیل یکانی\LTRfootnote{Unitary transformation} سیستم توصیف‌شده توسط عملگر چگالی\LTRfootnote{Density operator} $\rho$ فرمول‌بندی کنیم، همان‌طور که در شکل \ref{fig:11-2} تصویر شده است. پارامتر مجهول $\theta$ در یک تبدیل یکانی $\hat{U}(\theta) = \exp(-j\hat{H}\theta)$ نهفته است، که در آن عملگر هرمیتی\LTRfootnote{Hermitian operator} $\hat{H}$ به‌عنوان مولد\LTRfootnote{Generator} تبدیل عمل می‌کند \cite{20}. در حسگری کوانتومی، ما حالت کوانتومی اولیه را که با عملگر چگالی $\rho_0$ نشان داده می‌شود، آماده‌سازی کرده و آن را از دستگاه حسگری کوانتومی (که با تبدیل یکانی $\hat{U}(\theta)$ بازنمایی می‌شود) عبور می‌دهیم تا حالت خروجی $\rho_\theta$ از طریق تبدیل زیر به‌دست آید:
+\begin{equation}
+	\rho_\theta = \hat{U}(\theta) \rho_0 \hat{U}^\dagger(\theta) = e^{-j\hat{H}\theta} \rho_0 e^{j\hat{H}\theta}.
+	\label{eq:11-44}
+\end{equation}
+در این حالت، \lr{QFI} دقت تخمین آماری پارامتر $\theta$ را به‌صورت زیر محدود می‌کند:
+\begin{equation}
+	\text{Var}_M(\tilde{\theta}) = \sigma_M^2(\tilde{\theta}) \geq \frac{1}{M Q_F(\rho, \hat{O})},
+	\label{eq:11-45}
+\end{equation}
+که با نام کران کرامر-رائو کوانتومی\LTRfootnote{Quantum Cramér–Rao bound} شناخته می‌شود و در آن $M$ نشان‌دهنده تعداد اندازه‌گیری‌های مستقل است.
+
+\lr{QFI} را همچنین می‌توان به‌عنوان مقدار چشم‌داشتی مجذور مشتق لگاریتمی متقارن\LTRfootnote{Symmetric logarithmic derivative (SLD)} (\lr{SLD}) یعنی $L_\rho^2$ تعریف کرد؛ به عبارت دیگر:
+\begin{equation}
+	Q_F(\rho, \hat{O}) = \langle L_\rho^2(\hat{O}) \rangle = \text{Tr}(\rho L_\rho^2(\hat{O})),
+	\label{eq:11-46}
+\end{equation}
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.7\textwidth]{fig11-2}
+	\caption{مدل حسگری کوانتومی برای تخمین پارامتر $\theta$.}
+	\label{fig:11-2}
+\end{figure}
+
+که در آن \textit{مشتق لگاریتمی متقارن}\LTRfootnote{Symmetric logarithmic derivative (SLD)} (\lr{SLD}) را می‌توان به‌طور ضمنی طبق مراجع \cite{21,22} به‌صورت زیر تعریف کرد:
+\begin{equation}
+	j[\rho, \hat{O}] = \frac{1}{2} \{ \rho, L_{\rho}(\hat{O}) \},
+	\label{eq:11-47}
+\end{equation}
+که در آن $[\cdot, \cdot]$ نشان‌دهنده جابه‌جاگر و $\{\cdot, \cdot\}$ نشان‌دهنده پادجابه‌جاگر\LTRfootnote{Anticommutator} است. همچنین می‌توان آن را برحسب مقادیر ویژه $\lambda_m$ و کِت‌های ویژه $|\lambda_m\rangle$ از $\rho$ طبق مرجع \cite{23} به‌صورت زیر بیان کرد:
+\begin{equation}
+	L_{\rho}(\hat{O}) = 2j \sum_{m,n} \frac{\lambda_m - \lambda_n}{\lambda_m + \lambda_n} \langle \lambda_m | \hat{O} | \lambda_n \rangle |\lambda_m\rangle \langle \lambda_n |, \quad \rho = \sum_{m} \lambda_m |\lambda_m\rangle \langle \lambda_m |.
+	\label{eq:11-48}
+\end{equation}
+عملگر \lr{SLD} نسبت به $\hat{O}$ خطی است و هنگامی که عملگر هرمیتی باشد، \lr{SLD} نیز هرمیتی خواهد بود. اگر حالت $\rho$ یک حالت خالص\LTRfootnote{Pure state} باشد، یعنی $\rho = |\psi\rangle \langle \psi|$، آنگاه \lr{SLD} صرفاً به‌صورت زیر است:
+\begin{equation}
+	L_{\rho}(\hat{O}) = 2 \frac{\partial \rho}{\partial \theta} = 2j(-H\rho + \rho H),
+	\label{eq:11-49}
+\end{equation}
+بنابراین \lr{QFI} به‌صورت زیر در می‌آید:
+\begin{equation}
+	\begin{aligned}
+		Q_F(\rho, \hat{O}) &= \langle L_{\rho}^2(\hat{O}) \rangle = \langle \psi | L_{\rho}^2(\hat{O}) | \psi \rangle \\
+		&= -4 \left[ \langle \psi | H | \psi \rangle^2 \underbrace{\langle \psi | \psi \rangle}_{1} - \langle \psi | H | \psi \rangle \langle \psi | H | \psi \rangle \right. \\
+		&\quad \left. - \underbrace{\langle \psi | \psi \rangle}_{1} \langle \psi | H^2 | \psi \rangle \underbrace{\langle \psi | \psi \rangle}_{1} + \langle \psi | H | \psi \rangle \langle \psi | H | \psi \rangle \right] \\
+		&= 4 [ \langle \psi | H^2 | \psi \rangle - \langle \psi | H | \psi \rangle^2 ] = 4\text{Var}(H)_{\theta}.
+		\label{eq:11-50}
+	\end{aligned}
+\end{equation}
+بنابراین، \lr{QFI} برای حالت‌های خالص چهار برابر بیشتر از واریانس هامیلتونی\LTRfootnote{Hamiltonian} است. برای حالت‌های مخلوط، \lr{QFI} محدب\LTRfootnote{Convex} است، به شرطی که احتمالات متناظر مستقل از پارامتر $\theta$ باشند. در نهایت، \lr{QFI} را می‌توان برحسب وفاداری اولمان\LTRfootnote{Uhlmann fidelity} $F(\rho_1, \rho_2) = [\text{Tr}(\sqrt{\sqrt{\rho_1} \rho_2 \sqrt{\rho_1}})]^2$ به‌صورت زیر تعریف کرد:
+\begin{equation}
+	Q_F(\rho_{\theta}) = \lim_{\xi \to 0} 8 \{ [ 1 - \sqrt{F(\rho_{\theta}, \rho_{\theta+\xi})} ] / \xi^2 \}.
+	\label{eq:11-51}
+\end{equation}
+
+\section{حسگری کوانتومی توزیع‌شده}
+\label{sec:11-3}
+شمای مفهومی مفهوم \textit{حسگری کوانتومی توزیع‌شده}\LTRfootnote{Distributed quantum sensing (DQS)} (\lr{DQS}) \cite{20, 25, 26} در شکل \ref{fig:11-3} ارائه شده است. بر اساس حالت کوانتومی اولیه $\rho_0$، ماژول کوانتومی منبع یک حالت کاوشگر\LTRfootnote{Probe state} درهم‌تنیده چندقسمتی\LTRfootnote{Multipartite} تولید می‌کند که بین $M$ حسگر برای اسکن یک شیء مورد نظر به اشتراک گذاشته می‌شود. نتایج اندازه‌گیری به‌دست آمده توسط $M$ حسگر به‌صورت (کلاسیک) پس‌پردازش می‌شوند تا یک پارامتر سراسری معین از شیء اسکن‌شده تعیین گردد. از سوی دیگر، در حسگری کلاسیک توزیع‌شده، حالت کوانتومی $M$ حسگر می‌تواند تفکیک‌پذیر باشد؛ یعنی می‌توان آن را به‌صورت یک ضرب تانسوری\LTRfootnote{Tensor product} $\rho_1 \otimes \dots \otimes \rho_M$ نوشت.
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.7\textwidth]{fig11-3}
+	\caption{مفهوم حسگری کوانتومی توزیع‌شده برای ورودی‌های درهم‌تنیده.}
+	\label{fig:11-3}
+\end{figure}
+
+سناریوی حسگری توزیع‌شده را می‌توان با یک عملگر یکانی\LTRfootnote{Unitary operator} توصیف کرد که حاصل‌ضرب $M$ عملگر یکانی است، یعنی $\hat{U}(\bm{\theta}) = \bigotimes_{m=1}^{M} \hat{U}_m(\theta_m)$، که در آن هر واحد یکانی یک پارامتر را اندازه‌گیری می‌کند. تبدیل زیر حالت کوانتومی خروجی را توصیف می‌کند:
+\begin{equation}
+	\rho_M(\bm{\theta}) = \hat{U}(\bm{\theta}) \rho_M \hat{U}^\dagger(\bm{\theta}); \quad \bm{\theta} = [\theta_1, \dots, \theta_M],
+	\label{eq:11-52}
+\end{equation}
+که در آن $\rho_M$ حالت کاوشگر درهم‌تنیده\LTRfootnote{Entangled probe state} ورودی است. در \lr{DQS}، ما به جای تخمین تمام پارامترهای مجهول، به تخمین پارامتر سراسری\LTRfootnote{Global parameter} علاقه‌مند هستیم. این امر با محاسبه میانگین وزنی\LTRfootnote{Weighted average} به‌صورت زیر حاصل می‌شود:
+\begin{equation}
+	\bar{\theta} = \sum_{m=1}^{M} w_m \theta_m = \bm{w} \cdot \bm{\theta}^T; \quad \bm{w} = [w_1, \dots, w_M]; \quad w_m \geq 0; \quad \sum_{m=1}^{M} w_m = 1.
+	\label{eq:11-53}
+\end{equation}
+در موارد خاصی که $w_m = 1/M$ و $\theta_m = \theta$ باشد، می‌توانیم از \lr{SQL} فراتر رفته و با استفاده از حالت کاوشگر درهم‌تنیده به حد هایزنبرگ\LTRfootnote{Heisenberg limit} دست یابیم.
+
+اکنون عملیات حسگری کوانتومی مشترک را روی حالت خالص $M$-کاوشگری $|\psi_M\rangle$ در نظر بگیرید:
+\begin{equation}
+	\rho_M(\theta) = \hat{U}_{\otimes M}(\theta) |\psi_M\rangle \langle \psi_M | \hat{U}_{\otimes M}^\dagger(\theta); \quad \hat{U}_{\otimes M}(\theta) = e^{j\theta \sum_m \hat{H}_m},
+	\label{eq:11-54}
+\end{equation}
+که در آن مولدها\LTRfootnote{Generators} $\hat{H}_m$ بر کاوشگرهای مختلف اعمال می‌شوند. بر اساس رابطه \eqref{eq:11-50}، \lr{QFI} به‌صورت زیر در می‌آید:
+\begin{equation}
+	Q_F(\rho(\theta)) = 4\text{Var} \left( \sum_m \hat{H}_m \right)_{|\psi_M\rangle} = 4 \left[ \langle \psi_M | \left( \sum_m \hat{H}_m \right)^2 |\psi_M\rangle - \langle \psi_M | \sum_m \hat{H}_m |\psi_M\rangle^2 \right].
+	\label{eq:11-55}
+\end{equation}
+هنگامی که حالت خالص $|\psi_M\rangle$ را بتوان به‌صورت ضرب تانسوری از حالت‌های (لزوماً غیریکسان) $|\psi_m\rangle$ ($m=1, \dots, M$) نشان داد، یعنی $|\psi_M\rangle = |\psi_1\rangle \otimes \dots \otimes |\psi_M\rangle$، جمله اول در معادله قبلی را می‌توان به‌صورت زیر نمایش داد:
+\begin{equation}
+	\langle \psi_M | \left( \sum_m \hat{H}_m \right)^2 |\psi_M\rangle = \sum_m \langle \psi_m | \hat{H}_m^2 |\psi_m\rangle + \sum_{m \neq m'} \sum_{m'} \langle \psi_m | \hat{H}_m |\psi_m\rangle \langle \psi_{m'} | \hat{H}_{m'} |\psi_{m'}\rangle,
+	\label{eq:11-56}
+\end{equation}
+و پس از جایگذاری آن در معادله قبلی، ویژگی جمع‌پذیری\LTRfootnote{Additivity property} زیر را برای \lr{QFI} در حالت‌های تفکیک‌پذیر\LTRfootnote{Separable states} استخراج می‌کنیم:
+\begin{equation}
+	Q_F \left( U^{\otimes M}(\theta) \bigotimes_{m=1}^{M} |\psi_m\rangle \right) = \sum_m Q_F(U_m(\theta) |\psi_m\rangle).
+	\label{eq:11-57}
+\end{equation}
+زمانی که مولدهای اعمال شده بر کاوشگرهای مختلف یکسان باشند، یعنی $\hat{H}_m = \hat{H}$ و $|\psi_m\rangle = |\psi\rangle$، به‌دست می‌آوریم:
+\begin{equation}
+	Q_F (U^{\otimes M}(\theta) \bigotimes_{m=1}^{M} |\psi\rangle) = M \cdot Q_F(U(\theta) |\psi\rangle).
+	\label{eq:11-58}
+\end{equation}
+که بدین ترتیب کران کرامر-رائو کوانتومی در رابطه \eqref{eq:11-45} اثبات می‌شود. رابطه \eqref{eq:11-57} برای حالت‌های درهم‌تنیده چندقسمتی\LTRfootnote{Multipartite entangled states} معتبر نیست.
+
+موردی را در نظر بگیرید که در آن حالت‌های کاوشگر در فضایی $D$-بعدی زندگی می‌کنند، مانند اتم‌ها، مراکز نیتروژن-تهی‌جا\LTRfootnote{Nitrogen-vacancy centers} یا سیستم‌های متغیر پیوسته با قطع تعداد فوتون\LTRfootnote{Photon-number cutoff} محدود. بنابراین ما اساساً با سیستم‌های متغیر گسسته\LTRfootnote{Discrete-variable systems} \cite{27,28,29} سروکار داریم که کِت‌های ویژه مولدهای $\hat{H}$ در آن‌ها بصورت $|\lambda_n\rangle$ بوده و در رابطه $\hat{H}|\lambda_n\rangle = \lambda_n |\lambda_n\rangle$ صدق می‌کنند. فرض کنید $\lambda_{\max}$ و $\lambda_{\min}$ به‌ترتیب نشان‌دهنده بیشینه و کمینه مقادیر ویژه باشند. هر جمله در مجموعِ رابطه \eqref{eq:11-57} به $Q_F(U_m(\theta) |\psi_m\rangle) \leq (\lambda_{\max} - \lambda_{\min})^2$ محدود می‌شود و کران بالا\LTRfootnote{Upper bound (UB)} برای حالت ورودی تفکیک‌پذیر به‌صورت زیر خواهد بود:
+\begin{equation}
+	Q_F \left( U^{\otimes M}(\theta) \bigotimes_{m=1}^{M} |\psi_m\rangle \right) \leq Q_F^{\max, C} = M(\lambda_{\max} - \lambda_{\min})^2.
+	\label{eq:11-59}
+\end{equation}
+مولد سراسری را نمی‌توان برای حالت کاوشگر درهم‌تنیده به‌صورت مجموع مولدهای مستقل تجزیه کرد. بیشینه و کمینه مقادیر ویژه متناظر به‌ترتیب برابر با $M \lambda_{\max}$ و $M \lambda_{\min}$ هستند. \lr{QFI} اکنون از بالا به‌صورت زیر محدود می‌شود:
+\begin{equation}
+	Q_F (U^{\otimes M}(\theta) |\psi_M\rangle) \leq Q_F^{\max, \text{Ent}} = (M\lambda_{\max} - M\lambda_{\min})^2 = M^2 (\lambda_{\max} - \lambda_{\min})^2.
+	\label{eq:11-60}
+\end{equation}
+بر اساس کران کرامر-رائو کوانتومی، مقیاس‌های دقت به‌صورت $\sigma_M(\tilde{\theta}) \sim 1/M$ هستند که همان حد هایزنبرگ است. بیشینه \lr{QFI} توسط حالت برهم‌نهی $|\psi_M\rangle = 2^{-1/2} (|\lambda_{\max}\rangle^{\otimes M} + |\lambda_{\min}\rangle^{\otimes M})$ حاصل می‌شود.
+
+\subsubsection{حسگری کوانتومی توزیع‌شده برای جابه‌جایی‌های هم‌فاز}
+\label{sec:11-3-1}
+در این زیربخش، ما با جابه‌جایی هم‌فاز\LTRfootnote{In-phase displacement} سروکار داریم و بنابراین مولد توسط $\hat{H} = \hat{I}$ توصیف می‌شود که در آن $\hat{I}$ عملگر هم‌فاز\LTRfootnote{In-phase operator} است. زمانی که در واحد نویز شات\LTRfootnote{Shot-noise unit (SNU)} بیان شود، عملگرهای هم‌فاز و مربعی با عملگرهای تولید $a^\dagger$ و نابودی $a$ از طریق روابط $\hat{I} = a^\dagger + a$ و $\hat{Q} = j(a^\dagger - a)$ مرتبط هستند. بنابراین عملگر جابه‌جایی $D(\alpha)$ نگاشت زیر را انجام می‌دهد:
+
+عملگر جابه‌جایی $D(\alpha)$ نگاشت زیر را انجام می‌دهد:
+\begin{equation}
+	D(\alpha)\bm{x} = \bm{x} + \bm{a}; \quad \bm{x} = \begin{bmatrix} \hat{I} \\ \hat{Q} \end{bmatrix}; \quad \bm{a} = \begin{bmatrix} \text{Re}\{\alpha\} \\ \text{Im}\{\alpha\} \end{bmatrix} = \begin{bmatrix} \alpha_I \\ \alpha_Q \end{bmatrix}.
+	\label{eq:11-61}
+\end{equation}
+در این پروتکل حسگری کوانتومی، درهم‌تنیدگی با کمک اپتیک خطی و حالت‌های خلأ فشرده تک‌مُد\LTRfootnote{Single-mode squeezed-vacuum (SMSV)} (\lr{SMSV}) ایجاد می‌شود، همان‌طور که در شکل \ref{fig:11-4} تصویر شده است؛ جایی که از جابه‌جایی‌ها و وزن‌های یکسان استفاده می‌کنیم.
+
+از تعاریف عملگرهای هم‌فاز و مربعی، نتیجه می‌گیریم که $\hat{I}^2 + \hat{Q}^2 = 4a^\dagger a + 2\ones$ است؛ بنابراین:
+$\text{Var}(\hat{I}) + \text{Var}(\hat{Q}) \geq 4 \cdot \frac{1}{2} = 2$ و $N_s = \langle a^\dagger a \rangle$ با فرض اینکه مقادیر میانگین برابر با صفر باشند، محدودیت انرژی است. از اصل عدم قطعیت و محدودیت انرژی نتیجه می‌گیریم که $\text{Var}(\hat{I})$ زمانی بیشینه می‌شود که حالت ورودی یک حالت خلأ فشرده باشد، که در این صورت \lr{QFI} بهینه به‌صورت زیر خواهد بود:
+\begin{equation}
+	Q_F(\hat{U}(\theta)|\psi\rangle) = 4(\sqrt{N_s} + \sqrt{N_s + 1})^2.
+	\label{eq:11-62}
+\end{equation}
+بر اساس روابط \eqref{eq:11-57} و \eqref{eq:11-58}، نتیجه می‌گیریم که \lr{QFI} برای $M$ کاوشگر تفکیک‌پذیر از بالا به‌صورت زیر محدود می‌شود:
+\begin{equation}
+	Q_F(\hat{U}^{\otimes M}(\theta) | \psi_M \rangle) \leq Q_F^{\max, C} = 4M(\sqrt{N_s/M} + \sqrt{N_s/M + 1})^2;
+	\label{eq:11-63}
+\end{equation}
+که در آن بیشینه \lr{QFI} زمانی حاصل می‌شود که ورودی یک ضرب تانسوری از حالت‌های \lr{SMSV} مستقل و با توزیع یکسان (\lr{i.i.d.}) باشد.
+برای یک حالت ورودی درهم‌تنیده، \lr{QFI} توسط رابطه زیر داده می‌شود:
+\begin{equation}
+	Q_F(\hat{U}^{\otimes M}(\theta) | \psi_M \rangle) = 4M \text{Var}(\hat{I})_{|\psi_M\rangle}; \quad \hat{I} = \sum_{m} M^{-1/2} \hat{I}_m;
+	\label{eq:11-64}
+\end{equation}
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.7\textwidth]{fig11-4}
+	\caption{طرح حسگری کوانتومی توزیع‌شده برای اندازه‌گیری جابه‌جایی‌ها روی مؤلفه‌های هم‌فاز با وزن‌ها و جابه‌جایی‌های یکسان.}
+	\label{fig:11-4}
+\end{figure}
+
+و عملگرهای مؤلفه مربعی سراسری\LTRfootnote{Global quadrature operators} متناظر در رابطه جابه‌جایی صدق کرده و می‌توان آن‌ها را با یک تبدیل خطی غیرفعال\LTRfootnote{Passive linear transformation} اعمال شده بر عملگرهای مؤلفه مربعی تک‌مُدِ ورودی به‌دست آورد. بنابراین، می‌توانیم مؤلفه‌های مربعی سراسری را ناشی از عبور ورودی‌های تک‌مُد از یک آرایه \lr{BBS}\LTRfootnote{Balanced beam splitter (BBS) array} تفسیر کنیم که عملکرد آن توسط عملگر $\hat{B}^\dagger$ توصیف می‌شود. با توجه به اینکه انرژی در طول تبدیل آرایه تقسیم‌کننده پرتو حفظ می‌شود، رویکردی که تمام انرژی را روی مُد سراسری متمرکز کرده و سایر مُدها را در حالت‌های خلأ نگه می‌دارد، نشان‌دهنده راه حل بهینه است \cite{20}. بنابراین، مسئله چندمُدی به یک مسئله تک‌مُدی کاهش می‌یابد و \lr{QFI} از بالا به‌صورت زیر محدود می‌شود:
+\begin{equation}
+	Q_F(\hat{U}^{\otimes M}(\theta) | \psi_M \rangle) \leq Q_F^{\max, \text{Ent}} = 4M(\sqrt{N_s} + \sqrt{N_s + 1})^2 \xrightarrow{N_s \gg 1} 16 M N_s.
+	\label{eq:11-65}
+\end{equation}
+بنابراین، کاهش یکانی\LTRfootnote{Unitary reduction} زیر معتبر است \cite{20}:
+\begin{equation}
+	\hat{B}^\dagger D^{\otimes M}(\theta) \hat{B} = D(\sqrt{M}\theta) D^{\otimes (M-1)}(0).
+	\label{eq:11-66}
+\end{equation}
+از کران کرامر-رائو کوانتومی، کران حساسیت زیر را به‌دست می‌آوریم:
+\begin{equation}
+	\text{Var}_M(\tilde{\theta}) = \sigma_M^2(\tilde{\theta}) \geq \frac{1}{M(\sqrt{N_s} + \sqrt{N_s + 1})^2},
+	\label{eq:11-67}
+\end{equation}
+که در آن علامت تساوی، طبق رابطه \eqref{eq:11-66}، زمانی برقرار است که حالت ورودی در پورت ۱ از \lr{BBS} یک حالت \lr{SMSV} باشد.
+
+برای در نظر گرفتن نقایص، ما از کانال‌های بوزونی با تلفات خالص\LTRfootnote{Pure-loss Bosonic channels} $N(T_m)$ با گذردهی $T_m$ استفاده می‌کنیم که در شکل \ref{fig:11-4} نشان داده شده است و توسط تبدیل بوگولیوبوف\LTRfootnote{Bogoliubov transform} توصیف می‌شود:
+\begin{equation}
+	\hat{a} \to \sqrt{T_m}\hat{a} + \sqrt{1 - T_m}\hat{e} = \sqrt{T_m}(\hat{a} + \sqrt{1/T_m - 1}\hat{e}),
+	\label{eq:11-68}
+\end{equation}
+که در آن $\hat{e}$ عملگر نابودی مُد محیط\LTRfootnote{Environment mode} است. از آنجا که $M$ حسگر وجود دارد، $M$ کانال با تلفات خالص برای گذردهی‌های $(T_1, \dots, T_M) = T$ وجود خواهد داشت. حالت کاوش‌شده درهم‌تنیده با اعمال حالت \lr{SMSV} در پورت ورودی ۱ از آرایه \lr{BBS} آماده می‌شود. هر مُد کاوشگر $\hat{a}_m$ از کانال بوزونی با تلفات خالص و گیت جابه‌جایی $D(\theta)$ عبور می‌کند و مؤلفه مربعی هم‌فاز (حقیقی) $\text{Re}\{\hat{a}'_m\} = \hat{I}'_m$ توسط آشکارساز هموداین برای به‌دست آوردن $\text{Re}\{\theta_m\}$ اندازه‌گیری می‌شود. تخمین پارامتر $\theta$ با پس‌پردازش داده‌های کلاسیک به‌صورت $\tilde{\theta} = M^{-1}\sum_m \theta_m$ انجام می‌شود. حالت مشترک در ورودی آشکارسازهای هموداینِ گره‌های حسگر را می‌توان به‌صورت زیر نمایش داد:
+\begin{equation}
+	\rho_{M,N_s,T} = \bigotimes_{m=1}^M D_m(\theta_m) \underbrace{\bigotimes_{m=1}^M N_m(T_m) \rho_{M,N_s}}_{\rho_{M,N_s,T}^{(\text{eqv})}} \bigotimes_{m=1}^M D_m^\dagger(\theta_m) = \bigotimes_{m=1}^M D_m(\theta_m) \rho_{M,N_s,T}^{(\text{eqv})} \bigotimes_{m=1}^M D_m^\dagger(\theta_m),
+	\label{eq:11-69}
+\end{equation}
+که در آن $\rho_{M,N_s,T}^{(\text{eqv})}$ عملگر چگالیِ حالت درهم‌تنیده معادل است که نشان‌دهنده اثر کانال‌های با تلفات خالص بر حالت ورودی درهم‌تنیده می‌باشد. در غیاب نقایص، واریانس تخمین توسط رابطه \eqref{eq:11-67} داده می‌شود. با مدل‌سازی نقایص با استفاده از کانال‌های بوزونی با تلفات خالص، باید تلفات را لحاظ کنیم و با فرض اینکه همه کانال‌ها دارای گذردهی یکسان $T_m = T$ هستند، باید رابطه \eqref{eq:11-65} را در $T$ ضرب کنیم. با توجه به اینکه واریانس حالت خلأ بر اساس مدل کانال با تلفات خالص در رابطه \eqref{eq:11-66} برابر با ۱ (در واحد \lr{SNU}) است، باید جمله دیگری را برای واریانس تخمین‌گر اضافه کنیم که $(1-T) \cdot 1/M$ است تا به حساسیت درهم‌تنیدگی زیر دست یابیم:
+\begin{equation}
+	\sigma_{M, \text{Ent}}^2(\tilde{\theta}) = \frac{T}{M(\sqrt{N_s} + \sqrt{N_s + 1})^2} + \frac{1 - T}{M}.
+	\label{eq:11-70}
+\end{equation}
+با استفاده از تحلیل دقیق‌تر و به‌کارگیری تعریف \lr{QFI} مبتنی بر وفاداری اولمان (رابطه \eqref{eq:11-51}) برای حالت گاوسی بهینه (در این مورد، حالت \lr{SMSV})، همان حساسیت درهم‌تنیدگی که در معادله قبلی داده شد، به‌دست می‌آید، همان‌طور که در مرجع \cite{20} نشان داده شده است.
+
+برای یک حالت ورودی تفکیک‌پذیر، نقطه شروع ما رابطه \eqref{eq:11-63} است و با اعمال همان رویکرد به‌کار رفته برای حالت ورودی درهم‌تنیده، به حساسیت زیر دست می‌یابیم:
+\begin{equation}
+	\text{Var}_M(\tilde{\theta}) \geq \sigma_{M, \text{Sep}}^2(\tilde{\theta}) = \frac{T}{M(\sqrt{N_s/M} + \sqrt{N_s/M + 1})^2} + \frac{1 - T}{M};
+	\label{eq:11-71}
+\end{equation}
+که در آن علامت تساوی متناظر با ضرب حالت‌های \lr{SMSV} است که نشان‌دهنده حالت بهینه در این سناریو می‌باشد.
+
+با بررسی دقیق شکل \ref{fig:11-4}، نتیجه می‌گیریم که می‌توانیم به جای استفاده از $M$ آشکارساز هموداین، از یک آرایه ترکیب‌کننده پرتو\LTRfootnote{Beam-combiner array} متعادل که توسط عملگر $\hat{B}$ توصیف می‌شود و یک آشکارساز هموداین واحد استفاده کنیم. علاوه بر این، از آنجا که عملگر آرایه \lr{BBS} یعنی $\hat{B}^\dagger$ با کانال‌های بوزونی با تلفات خالص جابه‌جا می‌شود، به مدار معادل نشان داده شده در شکل \ref{fig:11-5} می‌رسیم.
+با اعمال ویژگی کاهش یکانی داده شده در رابطه \eqref{eq:11-66}، مدل معادل \lr{DQS} را می‌توان بیشتر ساده کرد، همان‌طور که در شکل \ref{fig:11-6} نشان داده شده است. این مدل از نظر پیاده‌سازی چندان مرتبط نیست و صرفاً برای ساده‌سازی تحلیل حساسیت به کار می‌رود. از سوی دیگر، مدل شکل \ref{fig:11-5} می‌تواند به‌عنوان یک پیاده‌سازی جایگزین تنها با یک آشکارساز هموداین استفاده شود.
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.7\textwidth]{fig11-5}
+	\caption{مدل معادل برای حسگری کوانتومی توزیع‌شده جهت اندازه‌گیری جابه‌جایی‌ها روی مؤلفه‌های هم‌فاز با وزن‌ها و جابه‌جایی‌های یکسان.}
+	\label{fig:11-5}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.7\textwidth]{fig11-6}
+	\caption{مدل معادل ساده‌شده برای حسگری کوانتومی توزیع‌شده جهت اندازه‌گیری جابه‌جایی‌ها روی مؤلفه‌های هم‌فاز با وزن‌ها و جابه‌جایی‌های یکسان.}
+	\label{fig:11-6}
+\end{figure}
+
+برای حالت ورودی خالص، می‌توانیم \lr{QFI} را از طریق واریانس مولد نشان دهیم؛ بنابراین، می‌توانیم رابطه \eqref{eq:11-65} را که مربوط به حالت ورودی درهم‌تنیده است، تعمیم دهیم تا کران بالا\LTRfootnote{Upper bound (UB)} (\lr{UB}) برای \lr{QFI} به‌صورت زیر به‌دست آید:
+\begin{equation}
+	Q_F(U^{\otimes M}(\theta)|\psi_M\rangle) \leq Q_F^{(\text{Ent., UB})} = T \cdot 4M(\sqrt{N_s} + \sqrt{N_s + 1})^2 + (1 - T) \cdot 4M,
+	\label{eq:11-72}
+\end{equation}
+که در آن جمله اول متناظر با واریانس سیگنال پس از کانال‌های با تلفات خالص است، در حالی که جمله دوم متناظر با توان نویز معرفی شده توسط کانال‌ها می‌باشد. کران پایین\LTRfootnote{Lower bound (LB)} (\lr{LB}) واریانس تخمین‌گر صرفاً معکوسِ \lr{UB} مربوط به \lr{QFI} خواهد بود؛ یعنی می‌توانیم بنویسیم:
+\begin{equation}
+	\sigma_{M, \text{Ent., LB}}^2(\tilde{\theta}) = \frac{1}{Q_F^{(\text{Ent., UB})}} = \frac{1}{T \cdot 4M(\sqrt{N_s} + \sqrt{N_s + 1})^2 + (1 - T) \cdot 4M}.
+	\label{eq:11-73}
+\end{equation}
+برای حالت ورودی تفکیک‌پذیر، به شیوه‌ای مشابه، می‌توانیم رابطه \eqref{eq:11-63} را تعمیم دهیم تا \lr{UB} زیر برای \lr{QFI} به‌دست آید:
+\begin{equation}
+	Q_F^{(\text{Sep., UB})} = T \cdot 4M(\sqrt{N_s/M} + \sqrt{N_s/M + 1})^2 + (1 - T) \cdot 4M.
+	\label{eq:11-74}
+\end{equation}
+\lr{LB} واریانس تخمین‌گر برای یک حالت ورودی تفکیک‌پذیر، معکوسِ \lr{UB} مربوط به \lr{QFI} است؛ یعنی می‌توانیم بنویسیم:
+\begin{equation}
+	\sigma_{M, \text{Sep., LB}}^2(\tilde{\theta}) = \frac{1}{Q_F^{(\text{Sep., UB})}} = \frac{1}{T \cdot 4M(\sqrt{N_s/M} + \sqrt{N_s/M + 1})^2 + (1 - T) \cdot 4M}.
+	\label{eq:11-75}
+\end{equation}
+
+\subsection{حسگری کوانتومی توزیع‌شده کلی برای جابه‌جایی‌های هم‌فاز}
+\label{subsec:11-3-2}
+در این زیربخش، ما با تخمین میانگین وزنی دلخواه از اندازه‌گیری‌های هموداین سروکار داریم که در آن جابه‌جایی‌ها متفاوت هستند و نقایص در حسگرهای کوانتومی توسط کانال‌های بوزونی با تلفات خالص متفاوت با گذردهی $T_m$ ($m = 1, \dots, M$) مدل‌سازی می‌شوند، همان‌طور که در شکل \ref{fig:11-7} نشان داده شده است. فرض کنید $\theta_m$ ($m = 1, \dots, M$) نشان‌دهنده جابه‌جایی اندازه‌گیری شده توسط $m$-امین حسگر باشد و هدف، تخمین میانگین وزنی کلی $\theta = \sum_m w_m \theta_m$ است که در آن $w_m$ وزن‌های متناظر هستند. مدهای ورودی $\hat{a}_m$ در یک حالت کاوشگر درهم‌تنیده هستند که از یک حالت \lr{SMSV} در پورت $1$ و حالت‌های خلأ در سایر پورت‌های ورودی با کمک یک آرایه تقسیم‌کننده پرتو نامتعادل\LTRfootnote{Unbalanced beam-splitter array} با ضرایب کوپلینگ مناسب انتخاب شده، تولید شده‌اند.
+
+برای تعیین حالت کاوشگر درهم‌تنیده بهینه، از روابط هم‌ارزی استفاده خواهیم کرد. ابتدا می‌توانیم تقسیم‌کننده پرتو $\hat{B}$ را در مقابل آشکارسازهای هموداین قرار دهیم و این درج را در حوزه دیجیتال جبران کنیم تا \lr{QFI} تحت تأثیر قرار نگیرد. همچنین می‌توانیم عملگر همانی $\ones = \hat{B}\hat{B}^\dagger$ را بین کانال‌های با تلفات خالص و عملگرهای جابه‌جایی قرار دهیم تا به مدل معادل در شکل \ref{fig:11-8-a} برسیم. با انتخاب مناسب عملگر تقسیم‌کننده پرتو $\hat{B}$، می‌توانیم تبدیل زیر را انجام دهیم \cite{20}:
+\begin{equation}
+	\hat{B}^\dagger \left( \bigotimes_{m=1}^M D(\theta_m) \right) \hat{B} = D\left(\frac{\theta}{w}\right) \bigotimes_{m=2}^M D(\theta'_m); \quad w = \left( \sum_m w_m^2 \right)^{-1/2};
+	\label{eq:11-76}
+\end{equation}
+در حالی که سایر پارامترهای $\theta'_m$ ($m = 2, \dots, M$) مستقل از پارامتر مورد نظر $\theta$ هستند. با استفاده از این ویژگی، مدار معادل ارائه شده در شکل \ref{fig:11-8-b} را ایجاد کردیم و به‌وضوح، برای به‌دست آوردن تخمینی از $\theta$، نیاز داریم که اولین مد خروجی $\hat{a}''_1$ را اندازه‌گیری کنیم.
+
+بر اساس تبدیل رابطه \eqref{eq:11-76} و عملکرد کانال‌های با تلفات خالص در رابطه \eqref{eq:11-68}، می‌توانیم اولین مد خروجی $\hat{a}''_1$ را به‌صورت زیر بیان کنیم \cite{20, 25}:
+\begin{equation}
+	\hat{a}''_1 = \sum_{m=1}^M \frac{w_m}{W} T_m^{1/2} \hat{a}_m + \text{vacuum terms} = T^{1/2} \hat{b}_1 + \text{vacuum terms}; \quad W = \left( \sum_m T_m w_m^2 \right)^{1/2};
+	\label{eq:11-77}
+\end{equation}
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.7\textwidth]{fig11-7}
+	\caption{طرح حسگری کوانتومی توزیع‌شده کلی برای اندازه‌گیری جابه‌جایی‌ها روی مؤلفه‌های هم‌فاز.}
+	\label{fig:11-7}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+%	\subfigure[]{\label{fig:11-8-a}\includegraphics[width=0.45\textwidth]{fig11-8a}}
+	\hfill
+%	\subfigure[]{\label{fig:11-8-b}\includegraphics[width=0.45\textwidth]{fig11-8b}}
+	\caption{مدل معادل برای طرح حسگری کوانتومی توزیع‌شده کلی جهت اندازه‌گیری جابه‌جایی‌ها روی مؤلفه‌های هم‌فاز.}
+	\label{fig:11-8}
+\end{figure}
+
+با $T = \sum_m T_m w_m^2 / W^2$. از رابطه \eqref{eq:11-77} نتیجه می‌گیریم که ورودی تک‌مُد $\hat{b}_1$ برهم‌نهی مدهای $\hat{a}_m$ است، یعنی $\hat{b}_1 = \sum_m T_m^{1/2} \hat{a}_m w_m / W$. اولین مُد خروجی $\hat{a}''_1$ با عبور مُد ورودی $\hat{b}_1$ از یک کانال بوزونی با تلفات خالص با گذردهی مؤثر $T$ به‌دست می‌آید. با توجه به محدودیت انرژی $N_s = \sum_m N_m$، حالت گاوسی بهینه با اعمال آرایه تقسیم‌کننده پرتو $\hat{A}^\dagger$ روی حالت \lr{SMSV} در مُد $\hat{b}_1$ (در پورت ورودی $1$) و حالت‌های خلأ در سایر پورت‌های ورودی حاصل می‌شود.
+تخمین‌گر $\tilde{\theta} = \sum_m w_m \text{Re}\{\hat{a}'_m\}$ نااریب است و مشابه رابطه \eqref{eq:11-70}، حداقل واریانس تخمین‌گر به‌صورت زیر داده می‌شود:
+\begin{equation}
+	\sigma_{M, \text{Ent.}}^2(\tilde{\theta}) = \frac{w^2}{4} \left[ \frac{T}{(\sqrt{N_s} + \sqrt{N_s + 1})^2} + 1 - T \right].
+	\label{eq:11-78}
+\end{equation}
+
+برای حالت کاوشگر ورودی تفکیک‌پذیر، حالت‌های ورودی بهینه حاصل‌ضرب حالت‌های \lr{SMSV} هستند و واریانس متناظر تخمین‌گر برابر است با \cite{20, 25}:
+\begin{equation}
+	\sigma_{M, \text{Sep.}}^2(\tilde{\theta}) = \min_{\sum_m N_m = N_s} \sum_{m} \frac{w_m^2}{4} \left[ \frac{T_m}{(\sqrt{N_m} + \sqrt{N_m + 1})^2} + 1 - T_m \right].
+	\label{eq:11-79}
+\end{equation}
+همان‌طور که انتظار می‌رفت، با قرار دادن $T_m = T$، $\theta_m = \theta$ و $w_m = M^{-1/2}$، روابط \eqref{eq:11-78} و \eqref{eq:11-79} به روابط \eqref{eq:11-70} و \eqref{eq:11-71} کاهش می‌یابند.
+
+\section{رادارهای کوانتومی}
+\label{sec:11-4}
+انگیزه کلیدی در پس مطالعات رادار کوانتومی\LTRfootnote{Quantum radar}، غلبه بر حد کوانتومی حسگرهای کلاسیک است \cite{7}. مزایای بالقوه رادارهای کوانتومی نسبت به رادارهای کلاسیک را می‌توان به‌صورت زیر خلاصه کرد: احتمال آشکارسازی بهتر در رژیم نسبت سیگنال به نویز (\lr{SNR}) پایین، احتمال آشکارسازی هدف بهتر، بهبود آشکارسازی از میان ابرها و مه در صورت استفاده از فوتون‌های مایکروویو، تاب‌آوری بهتر در برابر جمینگ\LTRfootnote{Jamming}، بهبود کیفیت تصویربرداری رادار با روزنه مصنوعی\LTRfootnote{Synthetic-aperture radar (SAR)}، دشواری بیشتر در ردیابی رادارهای کوانتومی نسبت به همتایان کلاسیک، و داشتن سطح مقطع راداری\LTRfootnote{Radar cross section (RCS)} بالاتر. با این حال، پیاده‌سازی آن‌ها به‌طور قابل‌توجهی دشوارتر است. دو طرح پایه رادار کوانتومی عبارتند از: (۱) رادار کوانتومی تداخل‌سنجی\LTRfootnote{Interferometric quantum radar} با مفهومی مشابه تداخل‌سنجی کوانتومی که پیش‌تر بحث شد، و (۲) رادار تابش کوانتومی\LTRfootnote{Quantum illumination radar} که از مفهوم حسگری تابش کوانتومی\LTRfootnote{Quantum illumination} پیشنهادی توسط پروفسور سث لوید\LTRfootnote{Seth Lloyd} از \lr{MIT} استفاده می‌کند \cite{30}.
+
+بسته به پدیده کوانتومی زیربنایی مورد استفاده، حسگرهای کوانتومی را می‌توان به سه نوع طبقه‌بندی کرد \cite{7, 31}:
+\begin{itemize}
+	\item \textbf{نوع ۱:} حسگر کوانتومی که حالت‌های کوانتومی نوری را ارسال می‌کند که با گیرنده درهم-تنیده نیستند.
+	\item \textbf{نوع ۲:} حسگری که حالت‌های کلاسیک نور را ارسال می‌کند اما از آشکارسازهای کوانتومی برای بهبود عملکرد بهره می‌برد.
+	\item \textbf{نوع ۳:} یک فرستنده کوانتومی که حالت‌های کوانتومی درهم-تنیده با حالت‌های مرجعِ موجود در گیرنده را گسیل می‌کند.
+\end{itemize}
+رادار تک-فوتونی که در شکل \ref{fig:11-9} نشان داده شده است، به حسگرهای کوانتومی نوع ۱ تعلق دارد و مشابه رادارهای کلاسیک عمل می‌کند اما از یک پالس تک-فوتونی استفاده می‌نماید. این نوع رادار کوانتومی دارای سطح مقطع راداری (\lr{RCS}) بزرگتری نسبت به رادارهای کلاسیک است \cite{7}.
+
+آشکارسازی و فاصله‌یابی لیزری کوانتومی (\lr{LADAR})\LTRfootnote{Quantum laser detection and ranging (LADAR)} یک حسگر کوانتومی نوع ۲ است که از فناوری \textit{لیدار}\LTRfootnote{Light detection and ranging (LIDAR)} استفاده می‌کند \cite{7, 32, 33, 34}. از آنجا که \lr{LADAR} در رژیم‌های مرئی و نزدیک‌مرئی عمل می‌کند، باریکه لیزر نمی‌تواند از میان ابرها و مه عبور کند. از سوی دیگر، چون طول‌موج‌های عملیاتی بسیار کمتر از رادارهای کلاسیک است، \lr{LADAR} دارای تفکیک‌پذیری طیفی بهتری است.
+
+رادارهای کوانتومی مبتنی بر فوتون درهم-تنیده به حسگرهای کوانتومی نوع ۳ تعلق دارند و اصول عملکردی مربوطه در شکل \ref{fig:11-10} تصویر شده است. منبع درهم-تنیده یک جفت فوتون درهم-تنیده، یعنی فوتون‌های سیگنال\LTRfootnote{Signal photon} و آیدلر (کمکی)\LTRfootnote{Idler photon} را تولید می‌کند. فوتون آیدلر در حافظه کوانتومی گیرنده نگهداری می‌شود، در حالی که فوتون سیگنال از طریق یک کانال نویزی، پراتلاف و با تلاطم اتمسفری به سمت هدف ارسال می‌گردد. رادار فوتون بازتابیده را آشکار کرده و از همبستگی کوانتومی برای بهبود حساسیت و احتمال آشکارسازی هدف بهره‌برداری می‌شود.
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.6\textwidth]{fig11-9}
+	\caption{مفهوم رادار کوانتومی تک-فوتونی (تک-ایستگاهی).}
+	\label{fig:11-9}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.7\textwidth]{fig11-10}
+	\caption{مفهوم رادار کوانتومی به کمک فوتون‌های درهم-تنیده (دو-ایستگاهی).}
+	\label{fig:11-10}
+\end{figure}
+
+\subsection{رادارهای کوانتومی تداخل‌سنجی}
+\label{subsec:11-4-1}
+رادارهای کوانتومی تداخل‌سنجی\LTRfootnote{Interferometric quantum radars} از مفاهیم تداخل‌سنجی کوانتومی معرفی‌شده در بخش \ref{sec:11-1} استفاده می‌کنند. ما در بخش \ref{subsec:11-1-2} نشان دادیم که حالت‌های \lr{NOON} درهم‌تنیده می‌توانند به حد هایزنبرگ دست یابند. با این حال، در رادارهای کوانتومی تداخل‌سنجی، حالت \lr{NOON} در کانال اتمسفری انتشار یافته و پدیده‌های پراش\LTRfootnote{Diffraction}، جذب\LTRfootnote{Absorption}، پراکندگی\LTRfootnote{Scattering} و تلاطم\LTRfootnote{Turbulence} را از خود نشان می‌دهد. برای در نظر گرفتن اثرات پراش، جذب و پراکندگی، می‌توانیم از یک ساختار آبشاری\LTRfootnote{Cascade} از کانال‌های بوزونی گرمایی پراتلاف (یا تقسیم‌کننده‌های پرتو) مطابق با مراجع \cite{7,35,36} استفاده کنیم که در شکل \ref{fig:11-11} نشان داده شده است. جزئیات مربوط به $i$-امین تقسیم‌کننده پرتو ارائه شده است. $\hat{a}_{in}^{(i)}$ و $\hat{a}_{out}^{(i)}$ به‌ترتیب نشان‌دهنده عملگرهای نابودی باریکه نور ورودی و خروجی هستند. مُد $\hat{a}_{s}^{(i)}$ برای توصیف نوری که توسط محیط جذب یا پراکنده شده است، استفاده می‌شود. ما از $\hat{b}^{(i)}$ برای نشان دادن نور پس‌زمینه\LTRfootnote{Background light} وارد شده توسط محیط استفاده می‌کنیم. انتشار فوتون در یک زنجیره آبشاری از تقسیم‌کننده‌های پرتو را می‌توان با تبدیل زیر برای عملگر نابودی توصیف کرد \cite{7}:
+\begin{equation}
+	\hat{a}(u) \to e^{-\alpha(u)z/2 + jk(u)z} \hat{a}(u) + j \sqrt{\alpha(u)} \int_{0}^{z} e^{-[\alpha(u)/2 + jk(u)](z-z')} \hat{b}(u) dz', \quad k(u) = \frac{u n(u)}{c};
+	\label{eq:11-80}
+\end{equation}
+که در آن $n(u)$ ضریب شکست\LTRfootnote{Refraction index} وابسته به فرکانس محیط و $\alpha(u)$ ضریب تضعیف\LTRfootnote{Attenuation coefficient} با در نظر گرفتن هر دو اثر جذب و پراکندگی است.
+
+بیایید حالت \lr{NOON} را برحسب عملگرهای تولید بیان کنیم:
+\begin{equation}
+	|\psi_N\rangle = 2^{-1/2}(|N0\rangle + |0N\rangle) = 2^{-1/2} \left[ \frac{(\hat{a}_1^\dagger)^N}{\sqrt{N!}} |0\rangle_1 |0\rangle_2 + \frac{(\hat{a}_2^\dagger)^N}{\sqrt{N!}} |0\rangle_1 |0\rangle_2 \right].
+	\label{eq:11-81}
+\end{equation}
+با فرض اینکه هر مؤلفه در محیط‌های مختلفی که با ضرایب شکست $n_1$ و $n_2$ و ضرایب تضعیف $\alpha_1$ و $\alpha_2$ مشخص می‌شوند انتشار یابند، و مسافت‌های انتشار $L_1$ و $L_2$ باشند، حالت \lr{NOON} پس از انتشار به‌صورت زیر توصیف می‌شود:
+\begin{equation}
+	|\psi_N\rangle' = \frac{e^{-[\alpha_1(u)/2 + jk_1(u)]NL_1}}{\sqrt{2N!}} (\hat{a}_1^\dagger)^N |0\rangle_1 |0\rangle_2 + \frac{e^{-[\alpha_2(u)/2 + jk_2(u)]NL_2}}{\sqrt{2N!}} (\hat{a}_2^\dagger)^N |0\rangle_1 |0\rangle_2 + |\psi_{\text{other}}\rangle;
+	\label{eq:11-82}
+\end{equation}
+که در آن از $|\psi_{\text{other}}\rangle$ برای توصیف سایر حالت‌های ناشی از تابش پس‌زمینه که خارج از پایه \lr{NOON} پراکنده می‌شوند، استفاده شده است.
+
+\begin{figure}[ht]
+	\centering
+	% \includegraphics[width=0.8\textwidth]{fig11-11}
+	\caption{مدل‌سازی اثرات تضعیف نور توسط مجموعه‌ای آبشاری از کانال‌های بوزونی گرمایی پراتلاف.}
+	\label{fig:11-11}
+\end{figure}
+
+
+
+
+
+
+
+

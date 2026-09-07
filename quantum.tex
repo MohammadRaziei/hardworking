@@ -1,0 +1,125 @@
+\documentclass[12pt,a4paper]{book}
+
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{dsfont}
+
+\usepackage{float}
+
+\usepackage{placeins}
+\usepackage{subfigure}
+
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage[table]{xcolor} 
+\usepackage{multicol,multirow}
+\usepackage[numbers]{natbib}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{array,cellspace}
+
+%\usepackage[backend=biber, style=numeric]{biblatex}
+\usepackage{hyperref}
+%\hypersetup{backref,colorlinks,linktocpage=true}
+
+\usepackage{setspace}
+\linespread{1.7}
+
+
+
+\usepackage[extrafootnotefeatures]{xepersian}
+\settextfont[Scale=1.1]{XB Niloofar} % در صورت نیاز تغییر بده
+\setlatintextfont{Times New Roman}
+\setmathdigitfont{Yas}
+
+
+\let\oldmathds\mathds\renewcommand{\mathds}[1]{{\SwitchToDefaultMathDigits\oldmathds{#1}}}
+
+
+\newtheorem{theorem}{قضیه} % ساختار ساده
+\newtheorem{lemma}[theorem]{لم} % شماره‌گذاری وابسته به قضیه
+\newtheorem{definition}{تعریف} % محیطی مستقل با شماره‌گذاری مجزا
+
+\definecolor{tablezebra}{gray}{0.95}
+\setlength{\arrayrulewidth}{1pt}
+
+\newcommand{\zeros}{\bm{\textrm{\lr{0}}}}
+\newcommand{\ones}{\mathds{1}}
+
+
+\def\arraystretch{1}
+\setlength\cellspacetoplimit{8pt}
+\setlength\cellspacebottomlimit{8pt}
+
+
+%\bibliographystyle{ieeetr}
+%\addbibresource{chapters/refs/ref6}
+
+\begin{document}
+	
+	%======================
+	% Title Page
+	%======================
+	\begin{titlepage}
+		\centering
+		
+		\vspace*{2cm}
+		
+		{\Huge \textbf{ارتباطات کوانتومی،
+				شبکه‌های کوانتومی و
+				حسگری کوانتومی}
+		}\\[0.8cm]
+		
+		{
+			\Large \lr{Quantum Communication,
+				Quantum Networks, and
+				Quantum Sensing}
+		}
+		
+		\vspace{2cm}
+		
+		{\large نویسنده:}\\[0.5cm]
+		
+		\lr{Ivan B. Djordjevic}
+		
+		\vfill
+		
+		{\large مترجم:}\\[0.5cm]
+		محمد رضیئی فیجانی\\
+اسماعیل اسکندری
+		
+		\vspace{1cm}
+		
+		{\large \today}
+		
+	\end{titlepage}
+	
+	%======================
+	% Table of Contents
+	%======================
+	\twocolumnfootnotes	
+	\include{chapters/forwards}
+		
+	\tableofcontents
+	\newpage
+	
+	
+
+	\include{chapters/chp1-introduction}
+	\include{chapters/chp4-physical-security}
+	\include{chapters/chp6-qkd}
+	\chapter{}\chapter{}\chapter{}
+	\include{chapters/chp7-qkd}
+	\include{chapters/chp8-dv-qkd}
+%	\include{chapters/chp11-sensing}
+	\include{chapters/chp12-pqc}
+	\bibliographystyle{plainnat-fa}
+	\bibliography{ref}
+
+
+	
+\end{document}
