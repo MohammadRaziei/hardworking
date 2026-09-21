@@ -1,0 +1,559 @@
+% ============================================================
+%  پروپوزال رویداد مخابرات کوانتومی — همراه اول
+%  کامپایلر: XeLaTeX
+% ============================================================
+\documentclass[a4paper,12pt]{article}
+
+% ── بسته‌های اصلی ──────────────────────────────────────────
+\usepackage{fontspec}
+
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgffor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{eso-pic}   % برای پس‌زمینه صفحه
+
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, decorations.pathreplacing, calc}
+
+% ── تنظیمات صفحه ──────────────────────────────────────────
+\geometry{
+  a4paper,
+  top=2.5cm, bottom=2.5cm,
+  left=2.5cm, right=2.5cm,
+  headheight=1.5cm
+}
+
+\usepackage{xepersian}
+
+% ── فونت‌ها ────────────────────────────────────────────────
+% فونت پیش‌فرض: XB Niloofar (اگر نصب نیست، IranNastaliq یا هر فونت فارسی موجود)
+% برای تغییر، نام فونت را در خطوط زیر عوض کنید
+\settextfont{XB Niloofar}
+\setdigitfont{XB Niloofar}
+
+% فونت انگلیسی
+\newfontfamily\enfont{TeX Gyre Termes}
+
+% ── پالت رنگ (بر پایه هویت همراه اول: آبی عمیق + جزئیات کوانتوم) ─
+\definecolor{mci-blue}{HTML}{003A70}      % آبی اصلی همراه اول
+\definecolor{mci-accent}{HTML}{0074C8}    % آبی روشن‌تر
+\definecolor{mci-gold}{HTML}{C8973A}      % طلایی برای تأکید
+\definecolor{mci-light}{HTML}{E8F1FA}     % پس‌زمینه روشن
+\definecolor{mci-dark}{HTML}{1A1A2E}      % تیره برای متن روی رنگ
+\definecolor{mci-gray}{HTML}{5A6A7A}      % خاکستری متن ثانویه
+\definecolor{mci-border}{HTML}{B0C4D8}    % رنگ خطوط
+
+% ── تنظیمات هایپرلینک ─────────────────────────────────────
+\hypersetup{
+  colorlinks=true,
+  linkcolor=mci-blue,
+  urlcolor=mci-accent,
+  pdfauthor={تیم تحقیق و فناوری همراه اول},
+  pdftitle={پروپوزال رویداد مخابرات کوانتومی}
+}
+
+% ── سرصفحه و پاصفحه ──────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{mci-blue}\leaders\hrule height \headrulewidth\hfill}}
+\fancyhead[R]{\small\color{mci-gray} تیم تحقیق و فناوری — همراه اول}
+\fancyhead[L]{\small\color{mci-gray} پروپوزال رویداد کوانتوم}
+\fancyfoot[C]{\small\color{mci-gray}\thepage}
+
+% ── عنوان‌بندی بخش‌ها ─────────────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\color{mci-blue}}
+  {\thesection.}{0.5em}{}
+  [\textcolor{mci-accent}{\titlerule[1.5pt]}]
+
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{mci-dark}}
+  {\thesubsection.}{0.5em}{}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% ── دستورات کمکی ─────────────────────────────────────────
+\newcommand{\placeholder}[1]{%
+  \textcolor{mci-gold}{\textbf{[[ #1 ]]}}%
+}
+
+\newcommand{\speakercard}[4]{%
+  % #1 نام  #2 سمت  #3 دانشگاه  #4 موضوع سخنرانی
+  \begin{mdframed}[
+    linecolor=mci-border,
+    backgroundcolor=mci-light,
+    roundcorner=4pt,
+    innertopmargin=8pt,
+    innerbottommargin=8pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt,
+    linewidth=1pt
+  ]
+  {\bfseries\color{mci-blue} #1}\\[2pt]
+  {\small\color{mci-gray} #2 \textbar\ #3}\\[4pt]
+  {\small\itshape موضوع: #4}
+  \end{mdframed}
+  \vspace{4pt}
+}
+
+% ─────────────────────────────────────────────────────────
+\begin{document}
+\settextfont{XB Niloofar}[Script=Arabic]
+
+% ════════════════════════════════════════════════════════
+%  صفحه کاور
+% ════════════════════════════════════════════════════════
+\begin{titlepage}
+
+% پس‌زمینه گرادیان
+\begin{tikzpicture}[remember picture, overlay]
+  % نوار بالایی
+  \fill[mci-blue]
+    (current page.north west) rectangle
+    ([yshift=-6cm]current page.north east);
+  % نوار پایینی باریک
+  \fill[mci-accent]
+    ([yshift=1.2cm]current page.south west) rectangle
+    (current page.south east);
+  % خطوط تزئینی «مدار کوانتومی»
+  \foreach \i in {1,...,6}{
+    \draw[mci-accent, opacity=0.15, line width=0.6pt]
+      ([xshift=\i*1.8cm, yshift=-6cm]current page.north west)
+      -- ([xshift=\i*1.8cm]current page.south west);
+  }
+  % دایره‌های کوانتومی نمادین
+  \draw[mci-gold, opacity=0.25, line width=1pt]
+    ([xshift=3cm, yshift=-3cm]current page.north east) circle (2.5cm);
+  \draw[mci-gold, opacity=0.15, line width=0.8pt]
+    ([xshift=3cm, yshift=-3cm]current page.north east) circle (4cm);
+  % لوگو placeholder
+  \node[anchor=north east] at ([xshift=-1.5cm, yshift=-0.8cm]current page.north east){%
+    \placeholder{لوگو همراه اول}
+  };
+\end{tikzpicture}
+
+\vspace*{1cm}
+
+% عنوان اصلی روی نوار آبی
+{\color{white}\fontsize{22}{30}\selectfont\bfseries
+  \begin{center}
+    رویداد تخصصی
+  \end{center}
+}
+
+{\color{mci-gold}\fontsize{28}{38}\selectfont\bfseries
+  \begin{center}
+    مخابرات کوانتومی\\[6pt]
+    و رمزنگاری پساکوانتومی
+  \end{center}
+}
+
+\vspace{1.2cm}
+
+{\color{white}\large
+  \begin{center}
+    Quantum Communications \& Post-Quantum Cryptography
+  \end{center}
+}
+
+\vspace{3cm}
+
+% کادر اطلاعات رویداد
+\begin{center}
+\begin{tikzpicture}
+  \node[
+    draw=mci-border,
+    fill=white,
+    rounded corners=6pt,
+    inner sep=16pt,
+    text width=12cm,
+    align=right
+  ]{
+    \begin{tabular}{r l}
+      \textbf{\color{mci-blue}نام رویداد:}   & \placeholder{نام کامل رویداد} \\[6pt]
+      \textbf{\color{mci-blue}تاریخ:}        & \placeholder{تاریخ برگزاری (شمسی/میلادی)} \\[6pt]
+      \textbf{\color{mci-blue}مکان:}         & سالن همایش‌های ساختمان ستاره ونک \\[6pt]
+      \textbf{\color{mci-blue}برگزارکننده:}  & تیم تحقیق و فناوری — همراه اول \\
+    \end{tabular}
+  };
+\end{tikzpicture}
+\end{center}
+
+\vfill
+
+{\small\color{mci-gray}\center{این سند محرمانه است و صرفاً جهت بررسی داخلی تهیه شده است.}}
+
+\end{titlepage}
+
+% ════════════════════════════════════════════════════════
+%  بخش ۱: مقدمه و اهداف
+% ════════════════════════════════════════════════════════
+\section{مقدمه و اهداف رویداد}
+
+تیم تحقیق و فناوری همراه اول در نظر دارد یک رویداد تخصصی یک‌روزه در حوزه
+\textbf{مخابرات کوانتومی} و \textbf{رمزنگاری پساکوانتومی (PQC)} برگزار نماید.
+این رویداد با هدف ایجاد بستری برای تبادل دانش، برندینگ واحد تحقیقات، و معرفی
+دستاوردهای علمی تیم طراحی شده است.
+
+\subsection{اهداف اصلی}
+
+\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
+  \item برندینگ و معرفی تیم تحقیق و فناوری همراه اول در سطح جامعه علمی-فناوری کشور
+  \item برگزاری سخنرانی‌های تخصصی با حضور اساتید برجسته دانشگاهی و پژوهشگران
+  \item رونمایی رسمی از کتاب ترجمه‌شده توسط تیم: \placeholder{عنوان کتاب}
+  \item ایجاد شبکه ارتباطی بین متخصصان صنعت و دانشگاه در حوزه امنیت کوانتومی
+  \item آشنایی مخاطبان با الگوریتم‌های مقاوم در برابر کوانتوم و استانداردهای NIST PQC
+\end{itemize}
+
+\subsection{محورهای تخصصی رویداد}
+
+\begin{center}
+\begin{tikzpicture}[
+  topic/.style={
+    draw=mci-blue, fill=mci-light,
+    rounded corners=5pt, text width=5.2cm,
+    align=center, minimum height=1.2cm,
+    font=\small\bfseries\color{mci-blue}
+  },
+  node distance=0.5cm and 0.4cm
+]
+  \node[topic] (t1) {مخابرات کوانتومی\\{\footnotesize\color{mci-gray}QKD \& Quantum Networks}};
+  \node[topic, right=of t1] (t2) {رمزنگاری پساکوانتومی\\{\footnotesize\color{mci-gray}NIST PQC Standards}};
+  \node[topic, below=of t1] (t3) {امنیت شبکه پساکوانتومی\\{\footnotesize\color{mci-gray}Network Security}};
+  \node[topic, right=of t3] (t4) {الگوریتم‌های مقاوم\\{\footnotesize\color{mci-gray}Lattice, Hash-based, ...}};
+\end{tikzpicture}
+\end{center}
+
+% ════════════════════════════════════════════════════════
+%  بخش ۲: سخنرانان مدعو
+% ════════════════════════════════════════════════════════
+\newpage
+\section{سخنرانان مدعو}
+
+\speakercard
+  {دکتر اقلیدس}
+  {\placeholder{سمت / رشته تخصصی}}
+  {\placeholder{وابستگی دانشگاهی}}
+  {\placeholder{موضوع سخنرانی}}
+
+\speakercard
+  {دکتر جواد صالحی}
+  {استاد تمام — مهندسی برق}
+  {دانشگاه صنعتی شریف}
+  {\placeholder{موضوع سخنرانی}}
+
+\speakercard
+  {علی رضاخانی}
+  {\placeholder{سمت / مرتبه علمی}}
+  {دانشگاه صنعتی شریف}
+  {\placeholder{موضوع سخنرانی}}
+
+\speakercard
+  {محمد رضایی}
+  {\placeholder{سمت / مرتبه علمی}}
+  {دانشگاه صنعتی شریف}
+  {\placeholder{موضوع سخنرانی}}
+
+\speakercard
+  {امیر یوسفی}
+  {\placeholder{سمت / مرتبه علمی}}
+  {EPFL — سوئیس}
+  {\placeholder{موضوع سخنرانی}}
+
+\speakercard
+  {محمد لامعی رشتی}
+  {\placeholder{سمت / مرتبه علمی}}
+  {پژوهشگاه دانش‌های بنیادی (IPM)}
+  {\placeholder{موضوع سخنرانی}}
+
+% ════════════════════════════════════════════════════════
+%  بخش ۳: برنامه زمانی — سناریوی اول (با نهار)
+% ════════════════════════════════════════════════════════
+\newpage
+\section{برنامه زمانی — سناریوی اول (با پذیرایی نهار)}
+
+\begin{center}
+{\small\color{mci-gray}زمان کل: ۸:۳۰ تا ۱۷:۳۰}
+\end{center}
+
+\vspace{0.4cm}
+
+\begin{tikzpicture}[
+  slot/.style={
+    draw=mci-border, fill=white,
+    rounded corners=3pt,
+    minimum height=0.9cm,
+    text width=11cm,
+    inner xsep=8pt, align=right,
+    font=\small
+  },
+  break/.style={
+    draw=mci-accent!40, fill=mci-light,
+    rounded corners=3pt,
+    minimum height=0.9cm,
+    text width=11cm,
+    inner xsep=8pt, align=right,
+    font=\small\color{mci-gray}
+  },
+  timebox/.style={
+    text width=2.2cm, align=left,
+    font=\small\bfseries\color{mci-blue}
+  }
+]
+
+\def\ypos{0}
+\def\ystep{-1.1}
+
+% ردیف اول — پذیرش
+\node[timebox] at (0,\ypos) {۸:۳۰ – ۹:۰۰};
+\node[break] at (7,\ypos) {ثبت‌نام و پذیرش شرکت‌کنندگان};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% افتتاحیه
+\node[timebox] at (0,\ypos) {۹:۰۰ – ۹:۳۰};
+\node[slot] at (7,\ypos) {\textbf{مراسم افتتاحیه} — معرفی تیم تحقیق و فناوری همراه اول};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% سخنرانی ۱
+\node[timebox] at (0,\ypos) {۹:۳۰ – ۱۰:۱۵};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی اول} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% سخنرانی ۲
+\node[timebox] at (0,\ypos) {۱۰:۱۵ – ۱۱:۰۰};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی دوم} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% استراحت صبح
+\node[timebox] at (0,\ypos) {۱۱:۰۰ – ۱۱:۲۰};
+\node[break] at (7,\ypos) {پذیرایی — استراحت};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% سخنرانی ۳
+\node[timebox] at (0,\ypos) {۱۱:۲۰ – ۱۲:۰۵};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی سوم} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% نهار
+\node[timebox] at (0,\ypos) {۱۲:۰۵ – ۱۳:۳۰};
+\node[break] at (7,\ypos) {ناهار و نماز};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% رونمایی کتاب
+\node[timebox] at (0,\ypos) {۱۳:۳۰ – ۱۴:۱۵};
+\node[slot,draw=mci-gold,fill=mci-gold!8] at (7,\ypos)
+  {\textbf{\color{mci-gold}رونمایی از کتاب} — \placeholder{عنوان کتاب}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% سخنرانی ۴
+\node[timebox] at (0,\ypos) {۱۴:۱۵ – ۱۵:۰۰};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی چهارم} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% سخنرانی ۵
+\node[timebox] at (0,\ypos) {۱۵:۰۰ – ۱۵:۴۵};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی پنجم} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% استراحت بعدازظهر
+\node[timebox] at (0,\ypos) {۱۵:۴۵ – ۱۶:۰۰};
+\node[break] at (7,\ypos) {پذیرایی — استراحت};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% سخنرانی ۶
+\node[timebox] at (0,\ypos) {۱۶:۰۰ – ۱۶:۴۵};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی ششم} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+% اختتامیه
+\node[timebox] at (0,\ypos) {۱۶:۴۵ – ۱۷:۳۰};
+\node[slot,fill=mci-blue!8,draw=mci-blue] at (7,\ypos)
+  {\textbf{\color{mci-blue}اختتامیه} — جمع‌بندی، پرسش و پاسخ، عکس یادگاری};
+
+\end{tikzpicture}
+
+% ════════════════════════════════════════════════════════
+%  بخش ۴: برنامه زمانی — سناریوی دوم (بدون نهار)
+% ════════════════════════════════════════════════════════
+\newpage
+\section{برنامه زمانی — سناریوی دوم (بدون پذیرایی نهار)}
+
+\begin{center}
+{\small\color{mci-gray}زمان کل: ۸:۳۰ تا ۱۳:۳۰}
+\end{center}
+
+\vspace{0.4cm}
+
+\begin{tikzpicture}[
+  slot/.style={
+    draw=mci-border, fill=white,
+    rounded corners=3pt, minimum height=0.9cm,
+    text width=11cm, inner xsep=8pt, align=right,
+    font=\small
+  },
+  break/.style={
+    draw=mci-accent!40, fill=mci-light,
+    rounded corners=3pt, minimum height=0.9cm,
+    text width=11cm, inner xsep=8pt, align=right,
+    font=\small\color{mci-gray}
+  },
+  timebox/.style={
+    text width=2.2cm, align=left,
+    font=\small\bfseries\color{mci-blue}
+  }
+]
+
+\def\ypos{0}
+\def\ystep{-1.1}
+
+\node[timebox] at (0,\ypos) {۸:۳۰ – ۹:۰۰};
+\node[break] at (7,\ypos) {ثبت‌نام و پذیرش شرکت‌کنندگان};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+\node[timebox] at (0,\ypos) {۹:۰۰ – ۹:۲۰};
+\node[slot] at (7,\ypos) {\textbf{مراسم افتتاحیه} — معرفی تیم تحقیق و فناوری};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+\node[timebox] at (0,\ypos) {۹:۲۰ – ۱۰:۰۰};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی اول} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+\node[timebox] at (0,\ypos) {۱۰:۰۰ – ۱۰:۴۰};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی دوم} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+\node[timebox] at (0,\ypos) {۱۰:۴۰ – ۱۱:۰۰};
+\node[break] at (7,\ypos) {پذیرایی — استراحت};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+\node[timebox] at (0,\ypos) {۱۱:۰۰ – ۱۱:۴۰};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی سوم} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+\node[timebox] at (0,\ypos) {۱۱:۴۰ – ۱۲:۲۰};
+\node[slot] at (7,\ypos) {\textbf{سخنرانی چهارم} — \placeholder{موضوع} | \placeholder{سخنران}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+\node[timebox] at (0,\ypos) {۱۲:۲۰ – ۱۳:۰۰};
+\node[slot,draw=mci-gold,fill=mci-gold!8] at (7,\ypos)
+  {\textbf{\color{mci-gold}رونمایی از کتاب} — \placeholder{عنوان کتاب}};
+
+\pgfmathsetmacro\ypos{\ypos+\ystep}
+\node[timebox] at (0,\ypos) {۱۳:۰۰ – ۱۳:۳۰};
+\node[slot,fill=mci-blue!8,draw=mci-blue] at (7,\ypos)
+  {\textbf{\color{mci-blue}اختتامیه} — جمع‌بندی، پرسش و پاسخ};
+
+\end{tikzpicture}
+
+% ════════════════════════════════════════════════════════
+%  بخش ۵: معرفی کتاب
+% ════════════════════════════════════════════════════════
+\newpage
+\section{معرفی کتاب}
+
+\begin{mdframed}[
+  linecolor=mci-gold,
+  linewidth=2pt,
+  backgroundcolor=mci-gold!5,
+  roundcorner=6pt,
+  innertopmargin=14pt,
+  innerbottommargin=14pt,
+  innerleftmargin=14pt,
+  innerrightmargin=14pt
+]
+
+\begin{minipage}{0.2\textwidth}
+  \centering
+  \placeholder{تصویر جلد}
+\end{minipage}
+\hfill
+\begin{minipage}{0.76\textwidth}
+  \textbf{\large\color{mci-blue}\placeholder{عنوان فارسی کتاب}}\\[4pt]
+  {\color{mci-gray}\placeholder{عنوان انگلیسی / اصلی کتاب}}\\[8pt]
+  \textbf{مترجمان:} \placeholder{نام مترجمان}\\[4pt]
+  \textbf{ناشر:} \placeholder{نام ناشر}\\[4pt]
+  \textbf{سال انتشار:} \placeholder{سال}\\[8pt]
+  {\small این کتاب توسط اعضای تیم تحقیق و فناوری همراه اول ترجمه شده
+  و یکی از منابع اصلی آموزشی در حوزه \placeholder{موضوع کتاب} محسوب می‌شود.}
+\end{minipage}
+
+\end{mdframed}
+
+% ════════════════════════════════════════════════════════
+%  بخش ۶: اطلاعات مخاطبان هدف و مشخصات اجرایی
+% ════════════════════════════════════════════════════════
+\section{مخاطبان هدف}
+
+\begin{itemize}[rightmargin=0.5cm, itemsep=3pt]
+  \item متخصصان حوزه مخابرات و امنیت اطلاعات در شرکت‌های فناوری
+  \item دانشجویان و پژوهشگران دانشگاهی در رشته‌های مرتبط
+  \item مدیران و تصمیم‌گیرندگان حوزه امنیت سایبری
+  \item علاقه‌مندان به فناوری‌های نوظهور کوانتومی
+\end{itemize}
+
+\section{مشخصات اجرایی}
+
+\begin{tabularx}{\textwidth}{>{\bfseries\color{mci-blue}}r X}
+  \toprule
+  مکان برگزاری & سالن همایش‌های ساختمان ستاره ونک \\
+  \midrule
+  ظرفیت تخمینی & \placeholder{تعداد نفر} نفر \\
+  \midrule
+  زبان رویداد & فارسی (با اسلایدهای انگلیسی) \\
+  \midrule
+  ضبط و پخش & \placeholder{آنلاین / فقط حضوری} \\
+  \midrule
+  هزینه ثبت‌نام & \placeholder{رایگان / مبلغ} \\
+  \bottomrule
+\end{tabularx}
+
+% ════════════════════════════════════════════════════════
+%  صفحه پایانی
+% ════════════════════════════════════════════════════════
+\newpage
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[mci-blue]
+    (current page.north west) rectangle
+    ([yshift=-4cm]current page.north east);
+  \fill[mci-accent]
+    ([yshift=1.2cm]current page.south west) rectangle
+    (current page.south east);
+\end{tikzpicture}
+
+\vspace*{0.8cm}
+{\color{white}\Large\bfseries\center{با سپاس از توجه شما}}
+
+\vspace{2cm}
+
+\begin{center}
+\begin{mdframed}[
+  linecolor=mci-border,
+  backgroundcolor=mci-light,
+  roundcorner=6pt,
+  innertopmargin=16pt, innerbottommargin=16pt,
+  innerleftmargin=20pt, innerrightmargin=20pt
+]
+  {\large\bfseries\color{mci-blue} تیم تحقیق و فناوری}\\[4pt]
+  {\color{mci-gray} شرکت ارتباطات سیار ایران (همراه اول)}\\[12pt]
+  \textbf{ایمیل:} \placeholder{آدرس ایمیل تماس}\\[4pt]
+  \textbf{وبسایت:} \placeholder{آدرس وبسایت}\\[4pt]
+  \placeholder{لوگو همراه اول}
+\end{mdframed}
+\end{center}
+
+\end{document}
+
