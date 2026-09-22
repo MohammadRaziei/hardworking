@@ -56,7 +56,7 @@
 	colorlinks=true,
 	linkcolor=mci-blue,
 	urlcolor=mci-accent,
-	pdfauthor={تیم تحقیق و فناوری همراه اول},
+	pdfauthor={مرکز تحقیق و نوآوری همراه اول},
 	pdftitle={پروپوزال رویداد مخابرات کوانتومی}
 }
 
@@ -65,7 +65,7 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{mci-blue}\leaders\hrule height \headrulewidth\hfill}}
-\fancyhead[R]{\small\color{mci-gray} تیم تحقیق و فناوری - همراه اول}
+\fancyhead[R]{\small\color{mci-gray} مرکز تحقیق و نوآوری - همراه اول}
 \fancyhead[L]{\small\color{mci-gray} پروپوزال رویداد کوانتوم}
 \fancyfoot[C]{\small\color{mci-gray}\thepage}
 
@@ -83,6 +83,10 @@
 \setlength{\parskip}{6pt}
 
 % ── دستورات کمکی ─────────────────────────────────────────
+\newcommand{\placeholder}[1]{%
+	\textcolor{mci-gold}{\textbf{[[ #1 ]]}}%
+}
+
 \newcommand{\speakercard}[4]{%
 	% #1 نام  #2 سمت  #3 دانشگاه  #4 موضوع سخنرانی
 	\begin{mdframed}[
@@ -149,8 +153,7 @@
 		
 		{\color{mci-gold}\fontsize{28}{38}\selectfont\bfseries
 			\begin{center}
-				مخابرات کوانتومی\\[6pt]
-				و رمزنگاری پساکوانتومی
+				\lr{Quantum Tech}
 			\end{center}
 		}
 		
@@ -177,12 +180,10 @@
 				]{
 					\begin{tabular}{r l}
 						\textbf{\color{mci-blue}نام رویداد:}   & 
-						همایش تخصصی مخابرات کوانتومی و رمزنگاری پساکوانتومی (
-						\lr{QCom \& PQC}
-						 $1405$) \\[6pt]
+						\lr{Quantum Tech} — همایش تخصصی مخابرات کوانتومی و رمزنگاری پساکوانتومی $1405$ \\[6pt]
 						\textbf{\color{mci-blue}تاریخ:}        & $15$ آذر $1405$ ($6$ دسامبر $2026$) \\[6pt]
 						\textbf{\color{mci-blue}مکان:}         & سالن همایش‌های ساختمان ستاره ونک \\[6pt]
-						\textbf{\color{mci-blue}برگزارکننده:}  & تیم تحقیق و فناوری - همراه اول \\
+						\textbf{\color{mci-blue}برگزارکننده:}  & مرکز تحقیق و نوآوری - همراه اول \\
 					\end{tabular}
 				};
 			\end{tikzpicture}
@@ -199,15 +200,17 @@
 	% ════════════════════════════════════════════════════════
 	\section{مقدمه و اهداف رویداد}
 	
-	تیم تحقیق و فناوری همراه اول در نظر دارد یک رویداد تخصصی یک‌روزه در حوزه
-	\textbf{مخابرات کوانتومی} و \textbf{رمزنگاری پساکوانتومی (PQC)} برگزار نماید.
+	مرکز تحقیق و نوآوری همراه اول در نظر دارد یک رویداد تخصصی یک‌روزه در حوزه
+	\textbf{مخابرات کوانتومی} و \textbf{رمزنگاری پساکوانتومی (PQC)} با حضور
+	\textbf{دکتر کشاورزی} (مسئول مرکز تحقیق و توسعه همراه اول) و
+	\textbf{دکتر جان‌نثاری} (معاونت علمی ریاست‌جمهوری) برگزار نماید.
 	این رویداد با هدف ایجاد بستری برای تبادل دانش، برندینگ واحد تحقیقات، و معرفی
-	دستاوردهای علمی تیم طراحی شده است.
+	دستاوردهای علمی مرکز طراحی شده است.
 	
 	\subsection{اهداف اصلی}
 	
 	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
-		\item برندینگ و معرفی تیم تحقیق و فناوری همراه اول در سطح جامعه علمی-فناوری کشور
+		\item برندینگ و معرفی مرکز تحقیق و نوآوری همراه اول در سطح جامعه علمی-فناوری کشور
 		\item برگزاری سخنرانی‌های تخصصی با حضور اساتید برجسته دانشگاهی و پژوهشگران
 		\item رونمایی رسمی از کتاب ترجمه‌شده توسط تیم.
 		\item ایجاد شبکه ارتباطی بین متخصصان صنعت و دانشگاه در حوزه امنیت کوانتومی
@@ -269,12 +272,11 @@
 	{آزمایشگاه فوتونیک و اندازه‌گیری کوانتومی (LPQM)، دانشگاه EPFL سوئیس}
 	{فناوری‌های نوین حسگری کوانتومی و کاربردهای صنعتی آن}
 	
-%	\speakercard
-%	{محمد لامعی رشتی}
-%	{عضو هیئت علمی پژوهشکده ذرات و شتابگرها}
-%	{پژوهشگاه دانش‌های بنیادی (IPM)}
-%	{فیزیک کوانتومی در مقیاس بزرگ: از شتابگرها تا فناوری‌های کوانتومی}
-%	
+\speakercard
+	{دکتر محمدحسین انصاری}
+	{پژوهشگر ارشد - کیوبیت‌های ابررسانا}
+	{Forschungszentrum Jülich، آلمان}
+	{تصحیح خطای کوانتومی و مسیر ساخت رایانه‌های کوانتومی مقیاس‌پذیر}
 	% ════════════════════════════════════════════════════════
 	%  بخش ۳: برنامه زمانی - سناریوی اول (با نهار)
 	% ════════════════════════════════════════════════════════
@@ -320,7 +322,7 @@
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% افتتاحیه
 		\node[timebox] at (0,\ypos) {$9:00$ - $9:30$};
-		\node[slot] at (8,\ypos) {\textbf{مراسم افتتاحیه} - معرفی تیم تحقیق و فناوری همراه اول};
+		\node[slot] at (8,\ypos) {\textbf{مراسم افتتاحیه} - معرفی مرکز تحقیق و نوآوری همراه اول};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% سخنرانی ۱
@@ -371,7 +373,7 @@
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% سخنرانی ۶
 		\node[timebox] at (0,\ypos) {$16:00$ - $16:45$};
-		\node[slot] at (8,\ypos) {\textbf{سخنرانی ششم} - فیزیک کوانتومی در مقیاس بزرگ \textbar\ محمد لامعی رشتی};
+		\node[slot] at (8,\ypos) {\textbf{سخنرانی ششم} - کیوبیت‌های ابررسانا و تصحیح خطای کوانتومی \textbar\ دکتر محمدحسین انصاری};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% اختتامیه
@@ -421,7 +423,7 @@
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
 			\node[timebox] at (0,\ypos) {$9:00$ - $9:20$};
-			\node[slot] at (8,\ypos) {\textbf{مراسم افتتاحیه} - معرفی تیم تحقیق و فناوری};
+			\node[slot] at (8,\ypos) {\textbf{مراسم افتتاحیه} - معرفی مرکز تحقیق و نوآوری};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
 			\node[timebox] at (0,\ypos) {$9:20$ - $10:00$};
@@ -453,9 +455,189 @@
 			\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
 			{\textbf{\color{mci-blue}اختتامیه} - جمع‌بندی، پرسش و پاسخ};
 			
+	\end{tikzpicture}
+	\end{center}
+
+	% ════════════════════════════════════════════════════════
+	%  بخش ۴/۲: برنامه زمانی - سناریوی سوم (رویداد دو روزه)
+	% ════════════════════════════════════════════════════════
+	\newpage
+	\section{برنامه زمانی - سناریوی سوم (رویداد دو روزه)}
+
+	{\small\color{mci-gray}
+		در این سناریو، رویداد در دو روز جداگانه برگزار می‌شود: روز اول با محوریت
+		\textbf{مخابرات کوانتومی} و \textbf{رمزنگاری کوانتومی و پساکوانتومی}، و روز دوم
+		با محوریت \textbf{حسگری کوانتومی} و \textbf{محاسبات کوانتومی}. این ساختار امکان
+		پوشش عمیق‌تر هر محور و دعوت از تعداد بیشتری از سخنرانان داخلی و خارجی را فراهم می‌کند.}
+
+	\vspace{0.4cm}
+
+	\subsection{روز اول: مخابرات کوانتومی و رمزنگاری کوانتومی و پساکوانتومی}
+
+	\begin{center}
+		{\small\color{mci-gray}زمان: $8:30$ تا $17:00$}
+	\end{center}
+
+	\vspace{0.3cm}
+
+	\begin{center}
+		\begin{tikzpicture}[
+			slot/.style={
+				draw=mci-border, fill=white,
+				rounded corners=3pt, minimum height=0.9cm,
+				text width=12cm, inner xsep=8pt, align=right,
+				font=\small
+			},
+			break/.style={
+				draw=mci-accent!40, fill=mci-light,
+				rounded corners=3pt, minimum height=0.9cm,
+				text width=12cm, inner xsep=8pt, align=right,
+				font=\small\color{mci-gray}
+			},
+			timebox/.style={
+				text width=2.8cm, align=left,
+				font=\small\bfseries\color{mci-blue}
+			}
+			]
+
+			\def\ypos{0}
+			\def\ystep{-1.1}
+
+			\node[timebox] at (0,\ypos) {$8:30$ - $9:00$};
+			\node[break] at (8,\ypos) {ثبت‌نام و پذیرش شرکت‌کنندگان};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$9:00$ - $9:20$};
+			\node[slot] at (8,\ypos) {\textbf{مراسم افتتاحیه} - معرفی مرکز تحقیق و نوآوری همراه اول};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$9:20$ - $10:05$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی اول} - گذار به رمزنگاری پساکوانتومی و استانداردهای NIST \textbar\ دکتر ترانه اقلیدس};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$10:05$ - $10:50$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی دوم} - زیرساخت‌های مخابرات نوری و QKD \textbar\ دکتر جواد صالحی};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$10:50$ - $11:10$};
+			\node[break] at (8,\ypos) {پذیرایی - استراحت};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$11:10$ - $11:55$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی سوم} - مبانی نظری اطلاعات کوانتومی و شبکه‌های کوانتومی \textbar\ دکتر علی رضاخانی};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$11:55$ - $12:40$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی چهارم} - \lr{QKD} و معماری شبکه‌های کوانتومی در سطح جهانی \textbar\ دکتر محسن رضوی (خارجی)};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$12:40$ - $13:40$};
+			\node[break] at (8,\ypos) {ناهار و نماز};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$13:40$ - $14:25$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی پنجم} - از رمزنگاری کلاسیک تا رمزنگاری پساکوانتومی \textbar\ دکتر ریحانه صفوی‌نائینی (خارجی)};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$14:25$ - $15:10$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی ششم} - پیاده‌سازی عملی پروتکل‌های مخابرات کوانتومی \textbar\ محمد رضایی};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$15:10$ - $15:25$};
+			\node[break] at (8,\ypos) {پذیرایی - استراحت};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$15:25$ - $16:10$};
+			\node[slot,draw=mci-gold,fill=mci-gold!8] at (8,\ypos)
+			{\textbf{\color{mci-gold}رونمایی از کتاب} - ارتباطات کوانتومی، شبکه‌های کوانتومی و حسگری کوانتومی};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$16:10$ - $17:00$};
+			\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
+			{\textbf{\color{mci-blue}جمع‌بندی روز اول} - پرسش و پاسخ};
+
 		\end{tikzpicture}
 	\end{center}
-	
+
+	\newpage
+	\subsection{روز دوم: حسگری کوانتومی و محاسبات کوانتومی}
+
+	\begin{center}
+		{\small\color{mci-gray}زمان: $9:00$ تا $16:00$}
+	\end{center}
+
+	\vspace{0.3cm}
+
+	\begin{center}
+		\begin{tikzpicture}[
+			slot/.style={
+				draw=mci-border, fill=white,
+				rounded corners=3pt, minimum height=0.9cm,
+				text width=12cm, inner xsep=8pt, align=right,
+				font=\small
+			},
+			break/.style={
+				draw=mci-accent!40, fill=mci-light,
+				rounded corners=3pt, minimum height=0.9cm,
+				text width=12cm, inner xsep=8pt, align=right,
+				font=\small\color{mci-gray}
+			},
+			timebox/.style={
+				text width=2.8cm, align=left,
+				font=\small\bfseries\color{mci-blue}
+			}
+			]
+
+			\def\ypos{0}
+			\def\ystep{-1.1}
+
+			\node[timebox] at (0,\ypos) {$9:00$ - $9:15$};
+			\node[break] at (8,\ypos) {خوش‌آمدگویی و مرور روز اول};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$9:15$ - $10:00$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی اول} - فناوری‌های نوین حسگری کوانتومی و کاربردهای صنعتی \textbar\ امیر یوسفی};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$10:00$ - $10:45$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی دوم} - اپتیک کوانتومی و بوسون سمپلینگ \textbar\ دکتر صالح رحیمی‌کشری (خارجی)};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$10:45$ - $11:00$};
+			\node[break] at (8,\ypos) {پذیرایی - استراحت};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$11:00$ - $11:45$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی سوم} - مبانی نظری محاسبات و اطلاعات کوانتومی \textbar\ دکتر وحید کریمی‌پور};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$11:45$ - $12:30$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی چهارم} - کیوبیت‌های ابررسانا و تصحیح خطای کوانتومی \textbar\ دکتر محمدحسین انصاری (خارجی)};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$12:30$ - $13:30$};
+			\node[break] at (8,\ypos) {ناهار و نماز};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$13:30$ - $14:15$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی پنجم} - محاسبات کوانتومی ابری و \lr{Blind Quantum Computing} \textbar\ دکتر الهام کاشفی (خارجی)};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$14:15$ - $15:00$};
+			\node[slot] at (8,\ypos) {\textbf{سخنرانی ششم} - مخابرات کوانتومی، حسگری و شبکه‌های کوانتومی \textbar\ دکتر ایوان جرجودیک (خارجی)};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$15:00$ - $15:15$};
+			\node[break] at (8,\ypos) {پذیرایی - استراحت};
+
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {$15:15$ - $16:00$};
+			\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
+			{\textbf{\color{mci-blue}اختتامیه} - جمع‌بندی دو روز، پرسش و پاسخ، عکس یادگاری};
+
+		\end{tikzpicture}
+	\end{center}
+
 	% ════════════════════════════════════════════════════════
 	%  بخش ۵: معرفی کتاب
 	% ════════════════════════════════════════════════════════
@@ -496,7 +678,7 @@
 			}\\[4pt]
 			\textbf{ناشر:} انتشارات جهاد دانشگاهی امیرکبیر\\[4pt]
 			\textbf{سال انتشار:} $1405$\\[8pt]
-			{\small این کتاب توسط اعضای تیم تحقیق و فناوری همراه اول ترجمه شده
+			{\small این کتاب توسط اعضای مرکز تحقیق و نوآوری همراه اول ترجمه شده
 				و یکی از منابع اصلی آموزشی در حوزه 
 				\textit{مخابرات کوانتومی}
 				محسوب می‌شود.}
@@ -573,6 +755,9 @@
 		\vspace{8pt}
 	}
 	
+	
+	
+	
 	\speakerprofile
 	{دکتر ترانه اقلیدس}
 	{\raisebox{-3.5cm}{\includegraphics[width=2.5cm]{figs/oghlidus.jpeg}}}
@@ -615,6 +800,84 @@
 	{ایشان از پیشکسوتان و اعضای هیئت علمی پژوهشگاه دانش‌های بنیادی (IPM) هستند که سابقه‌ای درخشان در طراحی و ساخت شتاب‌دهنده‌های ذرات و پروژه‌های بزرگ فیزیک تجربی در کشور دارند.}
 	{تجربه ایشان در مدیریت پروژه‌های بزرگ فیزیک، الگوی مناسبی برای توسعه زیرساخت‌های کوانتومی در سطح ملی ارائه می‌دهد و بُعد آکادمیک و بنیادین رویداد را به‌شکل چشمگیری تقویت می‌کند.}
 	
+	\speakerprofile
+	{دکتر محسن رضوی}
+	{\raisebox{-3cm}{\includegraphics[width=2.5cm]{figs/razavi.jpeg}}}
+	{دانشیار دانشکده مهندسی برق و الکترونیک، دانشگاه لیدز (Leeds) — انگلستان}
+	{ایشان دکترای مهندسی برق و کامپیوتر خود را از دانشگاه \lr{MIT} اخذ کرده و دوره فوق‌دکتری را در دانشگاه واترلو (کانادا) گذرانده‌اند. حوزه پژوهشی ایشان مخابرات کوانتومی، شبکه‌های کوانتومی و توزیع کلید کوانتومی (\lr{QKD}) است و پیش از این در دانشگاه صنعتی شریف تحصیل کرده‌اند.}
+	{ایشان از چهره‌های شناخته‌شده بین‌المللی در حوزه مخابرات کوانتومی و شبکه‌های کوانتومی هستند و حضورشان می‌تواند دیدگاهی به‌روز از پیشرفت‌های جهانی \lr{QKD} و معماری شبکه‌های کوانتومی به رویداد اضافه کند.}
+	
+	\speakerprofile
+	{دکتر ایوان جرجودیک}
+	{\raisebox{-1.5cm}{\includegraphics[width=2.5cm]{figs/ivan.jpeg}}}
+	{استاد، دانشکده مهندسی برق و کامپیوتر، دانشگاه ایالتی فلوریدا (\lr{FSU})}
+	{ایشان \lr{Fellow} انجمن \lr{IEEE} و \lr{Optica} هستند و مؤلف یا هم‌مؤلف هفت کتاب و بیش از ۵۳۰ مقاله علمی در حوزه‌های مخابرات کوانتومی و شبکه‌های کوانتومی، حسگری کوانتومی، رمزنگاری پساکوانتومی و توزیع کلید کوانتومی می‌باشند.}
+	{تألیفات گسترده و شهرت بین‌المللی ایشان در حوزه مخابرات کوانتومی و رمزنگاری پساکوانتومی، ایشان را به گزینه‌ای برجسته برای ارائه دیدگاهی جامع و مرجع به رویداد تبدیل می‌کند.}
+	
+	\speakerprofile
+	{دکتر الهام کاشفی}
+	{\raisebox{-3cm}{\includegraphics[width=2.5cm]{figs/kashefi.png}}}
+	{استاد محاسبات کوانتومی، دانشگاه ادینبرو، اسکاتلند؛ مدیر پژوهشی \lr{CNRS}، فرانسه}
+	{ایشان از پژوهشگران پیشرو در حوزه محاسبات کوانتومی ابری، پروتکل‌های \lr{Blind Quantum Computing} و \lr{Verification} محاسبات کوانتومی هستند و بنیان‌گذار مشترک استاندارد \lr{ETSI} برای محاسبات کوانتومی ابری‌اند.}
+	{تخصص ایشان در امنیت و اعتبارسنجی محاسبات کوانتومی، پلی میان دو محور اصلی رویداد یعنی مخابرات کوانتومی و رمزنگاری پساکوانتومی ایجاد می‌کند و دیدگاهی معتبر از استانداردسازی بین‌المللی این حوزه ارائه می‌دهد.}
+	
+	\speakerprofile
+	{دکتر محمد حافظی}
+	{\raisebox{-3cm}{\includegraphics[width=2.5cm]{figs/hafezi}}}
+	{استاد دانشکده مهندسی برق و کامپیوتر و فیزیک، دانشگاه مریلند؛ عضو مؤسسه مشترک کوانتومی (\lr{JQI})}
+	{زمینه پژوهشی ایشان فوتونیک توپولوژیک و اپتیک کوانتومی است و در توسعه پلتفرم‌های فوتونیکی برای پردازش اطلاعات کوانتومی نقش برجسته‌ای داشته‌اند.}
+	{تجربه ایشان در فوتونیک کوانتومی و زیرساخت‌های سخت‌افزاری مرتبط، می‌تواند نگاهی عمیق به لایه فیزیکی سامانه‌های مخابرات کوانتومی به رویداد بیفزاید.}
+	
+	\speakerprofile
+	{دکتر علیرضا مرندی}
+	{\raisebox{-3cm}{\includegraphics[width=2.5cm]{figs/marandi}}}
+	{دانشیار مهندسی برق، موسسه فناوری کالیفرنیا (\lr{Caltech})}
+	{ایشان در حوزه فوتونیک کوانتومی مبتنی بر نوسان‌سازهای پارامتری نوری (\lr{OPO}) و شبکه‌های عصبی نوری-کوانتومی فعالیت می‌کنند و از چهره‌های نوظهور و پراستناد این حوزه در سال‌های اخیر هستند.}
+	{کار ایشان بر تلاقی محاسبات کوانتومی نوری و مخابرات نوری، می‌تواند دیدگاهی نوآورانه و به‌روز از فناوری‌های نسل بعدی سخت‌افزار کوانتومی به رویداد اضافه کند.}
+	
+	\speakerprofile
+	{دکتر وحید کریمی‌پور}
+	{\raisebox{-2.7cm}{\includegraphics[width=2.5cm]{figs/karimipour}}}
+	{استاد دانشکده فیزیک، دانشگاه صنعتی شریف}
+	{ایشان از قدیمی‌ترین و شناخته‌شده‌ترین چهره‌های نظریه اطلاعات کوانتومی در ایران هستند و سابقه طولانی در پژوهش روی پروتکل‌های تله‌پورتیشن کوانتومی و درهم‌تنیدگی دارند.}
+	{حضور ایشان به‌عنوان یکی از بنیان‌گذاران این حوزه در داخل کشور، عمق نظری و اعتبار آکادمیک رویداد را در محور مخابرات کوانتومی تقویت می‌کند.}
+	
+	\speakerprofile
+	{دکتر لاله معمارزاده}
+	{\raisebox{-2.7cm}{\includegraphics[width=2.5cm]{figs/memarzadeh}}}
+	{دانشیار دانشکده فیزیک، دانشگاه صنعتی شریف}
+	{زمینه پژوهشی ایشان سامانه‌های کوانتومی باز و ترمودینامیک کوانتومی است و در همان گروه پژوهشی دکتر رضاخانی در دانشگاه صنعتی شریف فعالیت می‌کنند.}
+	{تخصص ایشان مکمل مباحث نظری ارائه‌شده توسط سایر سخنرانان داخلی است و می‌تواند دیدگاهی تکمیلی از رفتار سامانه‌های کوانتومی واقعی (غیرایده‌آل) ارائه دهد.}
+	
+	\speakerprofile
+	{دکتر صالح رحیمی‌کشری}
+	{\raisebox{-2.7cm}{\includegraphics[width=2.5cm]{figs/rahimi}}}
+	{دانشیار مرکز اطلاعات کوانتومی و فناوری کوانتومی، دانشگاه کوئینزلند، استرالیا}
+	{ایشان در حوزه اپتیک کوانتومی و بوسون سمپلینگ فعالیت می‌کنند؛ موضوعی که یکی از مسیرهای اصلی اثبات برتری کوانتومی (\lr{Quantum Advantage}) محسوب می‌شود.}
+	{تخصص ایشان در اپتیک کوانتومی تجربی، تکمیل‌کننده مباحث نظری رویداد با نمونه‌های عملی از دستاوردهای بین‌المللی در این حوزه است.}
+	
+	\speakerprofile
+	{دکتر محمدحسین انصاری}
+	{\raisebox{-2.7cm}{\includegraphics[width=2.5cm]{figs/memarzadeh}}}
+	{پژوهشگر ارشد، مرکز پژوهشی \lr{Forschungszentrum Jülich}، آلمان}
+	{زمینه فعالیت ایشان کیوبیت‌های ابررسانا و کدهای تصحیح خطای کوانتومی است؛ از موضوعات کلیدی در مسیر ساخت رایانه‌های کوانتومی مقیاس‌پذیر.}
+	{حضور ایشان می‌تواند دیدگاهی تخصصی از محاسبات کوانتومی سخت‌افزاری و تصحیح خطا به رویداد اضافه کند که مکمل محورهای مخابرات و رمزنگاری کوانتومی است.}
+	
+	\speakerprofile
+	{دکتر ریحانه صفوی‌نائینی}
+	{\raisebox{-2.7cm}{\includegraphics[width=2.5cm]{figs/ansari}}}
+	{استاد دانشکده علوم کامپیوتر، دانشگاه کلگری، کانادا}
+	{ایشان از چهره‌های شناخته‌شده بین‌المللی در حوزه رمزنگاری و امنیت اطلاعات هستند و پژوهش‌های گسترده‌ای در زمینه \lr{Secret Sharing} و پروتکل‌های امنیتی دارند.}
+	{تخصص ایشان در رمزنگاری کلاسیک، پلی طبیعی به سمت مباحث رمزنگاری پساکوانتومی (PQC) رویداد ایجاد می‌کند و دیدگاهی از مسیر گذار امنیت اطلاعات ارائه می‌دهد.}
+	
+	
+	%
+	
+	
+	
+	
+	
+	
 	% ════════════════════════════════════════════════════════
 	%  صفحه پایانی
 	% ════════════════════════════════════════════════════════
@@ -643,7 +906,7 @@
 			innertopmargin=16pt, innerbottommargin=16pt,
 			innerleftmargin=20pt, innerrightmargin=20pt
 			]
-			{\large\bfseries\color{mci-blue} شرکت تحقیق و نوآوری}\\[4pt]
+			{\large\bfseries\color{mci-blue} مرکز تحقیق و نوآوری}\\[4pt]
 			{\color{mci-gray} شرکت ارتباطات سیار ایران (همراه اول)}\\[12pt]
 			\textbf{وبسایت:} \url{https://mci.ir/web/rd}\\[4pt]
 			\includegraphics[width=4cm]{figs/logo-mci-rnd.pdf}
