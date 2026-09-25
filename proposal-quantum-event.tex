@@ -200,8 +200,10 @@
 	% ════════════════════════════════════════════════════════
 	\section{مقدمه و اهداف رویداد}
 	
-	مرکز تحقیق و نوآوری همراه اول در نظر دارد یک رویداد تخصصی یک‌روزه در حوزه
-	\textbf{مخابرات کوانتومی} و \textbf{رمزنگاری پساکوانتومی (PQC)} با حضور
+	مرکز تحقیق و نوآوری همراه اول در نظر دارد یک رویداد تخصصی در حوزه
+	\textbf{فناوری‌های کوانتومی} با محوریت چهار محور \textbf{مخابرات کوانتومی}،
+	\textbf{رمزنگاری کوانتومی و پساکوانتومی (PQC)}، \textbf{حسگری کوانتومی} و
+	\textbf{محاسبات کوانتومی} با حضور
 	\textbf{دکتر کشاورزی} (مسئول مرکز تحقیق و توسعه همراه اول) و
 	\textbf{دکتر جان‌نثاری} (معاونت علمی ریاست‌جمهوری) برگزار نماید.
 	این رویداد با هدف ایجاد بستری برای تبادل دانش، برندینگ واحد تحقیقات، و معرفی
@@ -211,10 +213,11 @@
 	
 	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
 		\item برندینگ و معرفی مرکز تحقیق و نوآوری همراه اول در سطح جامعه علمی-فناوری کشور
-		\item برگزاری سخنرانی‌های تخصصی با حضور اساتید برجسته دانشگاهی و پژوهشگران
+		\item برگزاری سخنرانی‌های تخصصی با حضور اساتید برجسته دانشگاهی و پژوهشگران داخلی و بین‌المللی
 		\item رونمایی رسمی از کتاب ترجمه‌شده توسط تیم.
-		\item ایجاد شبکه ارتباطی بین متخصصان صنعت و دانشگاه در حوزه امنیت کوانتومی
+		\item ایجاد شبکه ارتباطی بین متخصصان صنعت و دانشگاه در حوزه فناوری‌های کوانتومی
 		\item آشنایی مخاطبان با الگوریتم‌های مقاوم در برابر کوانتوم و استانداردهای NIST PQC
+		\item معرفی آخرین دستاوردهای جهانی در حسگری کوانتومی و محاسبات کوانتومی و کاربردهای صنعتی آن‌ها
 	\end{itemize}
 	
 	\subsection{محورهای تخصصی رویداد}
@@ -231,12 +234,12 @@
 			]
 			\node[topic] (t1) {\rl{مخابرات کوانتومی}
 				\\\lr{\footnotesize\color{mci-gray}QKD \& Quantum Networks}};
-			\node[topic, right=of t1] (t2) {\rl{رمزنگاری پساکوانتومی}
-				\\\lr{\footnotesize\color{mci-gray}NIST PQC Standards}};
-			\node[topic, below=of t1] (t3) {\rl{امنیت شبکه پساکوانتومی}
-				\\\lr{\footnotesize\color{mci-gray}Network Security}};
-			\node[topic, right=of t3] (t4) {\rl{الگوریتم‌های مقاوم}
-				\\\lr{\footnotesize\color{mci-gray}Lattice, Hash-based, ...}};
+			\node[topic, right=of t1] (t2) {\rl{رمزنگاری کوانتومی و پساکوانتومی}
+				\\\lr{\footnotesize\color{mci-gray}QKD Protocols \& NIST PQC Standards}};
+			\node[topic, below=of t1] (t3) {\rl{حسگری کوانتومی}
+				\\\lr{\footnotesize\color{mci-gray}Quantum Sensing \& Metrology}};
+			\node[topic, right=of t3] (t4) {\rl{محاسبات کوانتومی}
+				\\\lr{\footnotesize\color{mci-gray}Quantum Computing \& Algorithms}};
 		\end{tikzpicture}
 	\end{center}
 	
@@ -288,7 +291,7 @@
 	\section{برنامه زمانی - سناریوی اول (با پذیرایی نهار)}
 	
 	\begin{center}
-		{\small\color{mci-gray}زمان کل: $8:30$ تا $17:30$}
+		{\small\color{mci-gray}زمان کل: $8:30$ تا $18:35$}
 	\end{center}
 	
 	\vspace{0.4cm}
@@ -325,68 +328,76 @@
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% افتتاحیه
-		\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:30$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{مراسم افتتاحیه} - سخنرانی دکتر کشاورزی (مدیریت مرکز تحقیق و توسعه همراه اول) و دکتر جان‌نثاری (معاونت علمی ریاست‌جمهوری) درباره سیاست‌های سازمان}};
+		\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:10$}};
+		\node[slot] at (8,\ypos) {\rl{\textbf{مراسم افتتاحیه} - تلاوت قرآن کریم}};
+		
+		\pgfmathsetmacro\ypos{\ypos+\ystep}
+		\node[timebox] at (0,\ypos) {\rl{$9:10$ - $9:30$}};
+		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف مرکز تحقیق و توسعه همراه اول در حوزه کوانتوم \textbar\ دکتر کشاورزی}};
+		
+		\pgfmathsetmacro\ypos{\ypos+\ystep}
+		\node[timebox] at (0,\ypos) {\rl{$9:30$ - $9:50$}};
+		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف و برنامه‌های معاونت علمی ریاست‌جمهوری در حوزه کوانتوم \textbar\ دکتر جان‌نثاری}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% سخنرانی ۱
-		\node[timebox] at (0,\ypos) {\rl{$9:30$ - $10:15$}};
+		\node[timebox] at (0,\ypos) {\rl{$9:50$ - $10:35$}};
 		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی اول} - گذار به رمزنگاری پساکوانتومی \textbar\ دکتر ترانه اقلیدس}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% سخنرانی ۲
-		\node[timebox] at (0,\ypos) {\rl{$10:15$ - $11:00$}};
+		\node[timebox] at (0,\ypos) {\rl{$10:35$ - $11:20$}};
 		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی دوم} - زیرساخت‌های مخابرات نوری و QKD \textbar\ دکتر جواد صالحی}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% استراحت صبح
-		\node[timebox] at (0,\ypos) {\rl{$11:00$ - $11:20$}};
+		\node[timebox] at (0,\ypos) {\rl{$11:20$ - $11:40$}};
 		\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% سخنرانی ۳
-		\node[timebox] at (0,\ypos) {\rl{$11:20$ - $12:05$}};
+		\node[timebox] at (0,\ypos) {\rl{$11:40$ - $12:25$}};
 		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی سوم} - مبانی نظری اطلاعات کوانتومی \textbar\ دکتر علی رضاخانی}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% سخنرانی ۴
-		\node[timebox] at (0,\ypos) {\rl{$12:05$ - $12:50$}};
+		\node[timebox] at (0,\ypos) {\rl{$12:25$ - $13:10$}};
 		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی چهارم} - \lr{QKD} و معماری شبکه‌های کوانتومی در سطح جهانی \textbar\ دکتر محسن رضوی (خارجی)}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% نهار
-		\node[timebox] at (0,\ypos) {\rl{$12:50$ - $14:15$}};
+		\node[timebox] at (0,\ypos) {\rl{$13:10$ - $14:35$}};
 		\node[break] at (8,\ypos) {\rl{ناهار و نماز}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% رونمایی کتاب
-		\node[timebox] at (0,\ypos) {\rl{$14:15$ - $15:00$}};
+		\node[timebox] at (0,\ypos) {\rl{$14:35$ - $15:20$}};
 		\node[slot,draw=mci-gold,fill=mci-gold!8] at (8,\ypos)
 		{\rl{\textbf{\color{mci-gold}رونمایی از کتاب} - ارتباطات کوانتومی، شبکه‌های کوانتومی و حسگری کوانتومی}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% سخنرانی ۵
-		\node[timebox] at (0,\ypos) {\rl{$15:00$ - $15:45$}};
+		\node[timebox] at (0,\ypos) {\rl{$15:20$ - $16:05$}};
 		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی پنجم} - پیاده‌سازی عملی پروتکل‌های کوانتومی \textbar\ محمد رضایی}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% سخنرانی ۶
-		\node[timebox] at (0,\ypos) {\rl{$15:45$ - $16:30$}};
+		\node[timebox] at (0,\ypos) {\rl{$16:05$ - $16:50$}};
 		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی ششم} - فناوری‌های نوین حسگری کوانتومی \textbar\ امیر یوسفی}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% استراحت بعدازظهر
-		\node[timebox] at (0,\ypos) {\rl{$16:30$ - $16:45$}};
+		\node[timebox] at (0,\ypos) {\rl{$16:50$ - $17:05$}};
 		\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% سخنرانی ۷
-		\node[timebox] at (0,\ypos) {\rl{$16:45$ - $17:30$}};
+		\node[timebox] at (0,\ypos) {\rl{$17:05$ - $17:50$}};
 		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی هفتم} - کیوبیت‌های ابررسانا و تصحیح خطای کوانتومی \textbar\ دکتر محمدحسین انصاری}};
 		
 		\pgfmathsetmacro\ypos{\ypos+\ystep}
 		% اختتامیه
-		\node[timebox] at (0,\ypos) {\rl{$17:30$ - $18:15$}};
+		\node[timebox] at (0,\ypos) {\rl{$17:50$ - $18:35$}};
 		\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
 		{\rl{\textbf{\color{mci-blue}اختتامیه} - جمع‌بندی، پرسش و پاسخ، عکس یادگاری}};
 		
@@ -399,7 +410,7 @@
 	\section{برنامه زمانی - سناریوی دوم (بدون پذیرایی نهار)}
 	
 	\begin{center}
-		{\small\color{mci-gray}زمان کل: $8:30$ تا $13:30$}
+		{\small\color{mci-gray}زمان کل: $8:30$ تا $14:00$}
 	\end{center}
 	
 	\vspace{0.4cm}
@@ -431,36 +442,44 @@
 			\node[break] at (8,\ypos) {\rl{ثبت‌نام و پذیرش شرکت‌کنندگان}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:20$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{مراسم افتتاحیه} - سخنرانی دکتر کشاورزی (مدیریت مرکز تحقیق و توسعه همراه اول) و دکتر جان‌نثاری (معاونت علمی ریاست‌جمهوری) درباره سیاست‌های سازمان}};
+			\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:10$}};
+			\node[slot] at (8,\ypos) {\rl{\textbf{مراسم افتتاحیه} - تلاوت قرآن کریم}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:20$ - $10:00$}};
+			\node[timebox] at (0,\ypos) {\rl{$9:10$ - $9:30$}};
+			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف مرکز تحقیق و توسعه همراه اول در حوزه کوانتوم \textbar\ دکتر کشاورزی}};
+			
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {\rl{$9:30$ - $9:50$}};
+			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف و برنامه‌های معاونت علمی ریاست‌جمهوری در حوزه کوانتوم \textbar\ دکتر جان‌نثاری}};
+			
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {\rl{$9:50$ - $10:30$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی اول} - گذار به رمزنگاری پساکوانتومی \textbar\ دکتر ترانه اقلیدس}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$10:00$ - $10:40$}};
+			\node[timebox] at (0,\ypos) {\rl{$10:30$ - $11:10$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی دوم} - زیرساخت‌های مخابرات نوری و QKD \textbar\ دکتر جواد صالحی}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$10:40$ - $11:00$}};
+			\node[timebox] at (0,\ypos) {\rl{$11:10$ - $11:30$}};
 			\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:00$ - $11:40$}};
+			\node[timebox] at (0,\ypos) {\rl{$11:30$ - $12:10$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی سوم} - مبانی نظری اطلاعات کوانتومی \textbar\ دکتر علی رضاخانی}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:40$ - $12:20$}};
+			\node[timebox] at (0,\ypos) {\rl{$12:10$ - $12:50$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی چهارم} - پیاده‌سازی عملی پروتکل‌های کوانتومی \textbar\ محمد رضایی}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$12:20$ - $13:00$}};
+			\node[timebox] at (0,\ypos) {\rl{$12:50$ - $13:30$}};
 			\node[slot,draw=mci-gold,fill=mci-gold!8] at (8,\ypos)
 			{\rl{\textbf{\color{mci-gold}رونمایی از کتاب} - ارتباطات کوانتومی، شبکه‌های کوانتومی و حسگری کوانتومی}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$13:00$ - $13:30$}};
+			\node[timebox] at (0,\ypos) {\rl{$13:30$ - $14:00$}};
 			\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
 			{\rl{\textbf{\color{mci-blue}اختتامیه} - جمع‌بندی، پرسش و پاسخ}};
 			
@@ -484,7 +503,7 @@
 	\subsection{روز اول: مخابرات کوانتومی و رمزنگاری کوانتومی و پساکوانتومی}
 	
 	\begin{center}
-		{\small\color{mci-gray}زمان: $8:30$ تا $17:00$}
+		{\small\color{mci-gray}زمان: $8:30$ تا $17:30$}
 	\end{center}
 	
 	\vspace{0.3cm}
@@ -516,52 +535,60 @@
 			\node[break] at (8,\ypos) {\rl{ثبت‌نام و پذیرش شرکت‌کنندگان}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:20$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{مراسم افتتاحیه} - سخنرانی دکتر کشاورزی (مدیریت مرکز تحقیق و توسعه همراه اول) و دکتر جان‌نثاری (معاونت علمی ریاست‌جمهوری) درباره سیاست‌های سازمان}};
+			\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:10$}};
+			\node[slot] at (8,\ypos) {\rl{\textbf{مراسم افتتاحیه} - تلاوت قرآن کریم}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:20$ - $10:05$}};
+			\node[timebox] at (0,\ypos) {\rl{$9:10$ - $9:30$}};
+			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف مرکز تحقیق و توسعه همراه اول در حوزه کوانتوم \textbar\ دکتر کشاورزی}};
+			
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {\rl{$9:30$ - $9:50$}};
+			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف و برنامه‌های معاونت علمی ریاست‌جمهوری در حوزه کوانتوم \textbar\ دکتر جان‌نثاری}};
+			
+			\pgfmathsetmacro\ypos{\ypos+\ystep}
+			\node[timebox] at (0,\ypos) {\rl{$9:50$ - $10:35$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی اول} - گذار به رمزنگاری پساکوانتومی و استانداردهای NIST \textbar\ دکتر ترانه اقلیدس}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$10:05$ - $10:50$}};
+			\node[timebox] at (0,\ypos) {\rl{$10:35$ - $11:20$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی دوم} - زیرساخت‌های مخابرات نوری و QKD \textbar\ دکتر جواد صالحی}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$10:50$ - $11:10$}};
+			\node[timebox] at (0,\ypos) {\rl{$11:20$ - $11:40$}};
 			\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:10$ - $11:55$}};
+			\node[timebox] at (0,\ypos) {\rl{$11:40$ - $12:25$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی سوم} - مبانی نظری اطلاعات کوانتومی و شبکه‌های کوانتومی \textbar\ دکتر علی رضاخانی}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:55$ - $12:40$}};
+			\node[timebox] at (0,\ypos) {\rl{$12:25$ - $13:10$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی چهارم} - \lr{QKD} و معماری شبکه‌های کوانتومی در سطح جهانی \textbar\ دکتر محسن رضوی (خارجی)}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$12:40$ - $13:40$}};
+			\node[timebox] at (0,\ypos) {\rl{$13:10$ - $14:10$}};
 			\node[break] at (8,\ypos) {\rl{ناهار و نماز}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$13:40$ - $14:25$}};
+			\node[timebox] at (0,\ypos) {\rl{$14:10$ - $14:55$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی پنجم} - از رمزنگاری کلاسیک تا رمزنگاری پساکوانتومی \textbar\ دکتر ریحانه صفوی‌نائینی (خارجی)}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$14:25$ - $15:10$}};
+			\node[timebox] at (0,\ypos) {\rl{$14:55$ - $15:40$}};
 			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی ششم} - پیاده‌سازی عملی پروتکل‌های مخابرات کوانتومی \textbar\ محمد رضایی}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$15:10$ - $15:25$}};
+			\node[timebox] at (0,\ypos) {\rl{$15:40$ - $15:55$}};
 			\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$15:25$ - $16:10$}};
+			\node[timebox] at (0,\ypos) {\rl{$15:55$ - $16:40$}};
 			\node[slot,draw=mci-gold,fill=mci-gold!8] at (8,\ypos)
 			{\rl{\textbf{\color{mci-gold}رونمایی از کتاب} - ارتباطات کوانتومی، شبکه‌های کوانتومی و حسگری کوانتومی}};
 			
 			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$16:10$ - $17:00$}};
+			\node[timebox] at (0,\ypos) {\rl{$16:40$ - $17:30$}};
 			\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
 			{\rl{\textbf{\color{mci-blue}جمع‌بندی روز اول} - پرسش و پاسخ}};
 			
