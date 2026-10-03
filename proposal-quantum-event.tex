@@ -1,5 +1,5 @@
 % ============================================================
-%  پروپوزال رویداد مخابرات کوانتومی - همراه اول
+%  برنامه جامع برندینگ و شاخص‌سازی کوانتوم - همراه اول
 %  کامپایلر: XeLaTeX
 % ============================================================
 \documentclass[a4paper,12pt]{article}
@@ -16,12 +16,20 @@
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{multirow}
+\usepackage{longtable}
+\usepackage{colortbl}
 \usepackage{enumitem}
 \usepackage{mdframed}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{eso-pic}   % برای پس‌زمینه صفحه
+\usepackage{setspace}
+\usepackage{fontspec}
+
+
+\linespread{1.3}
+
 
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning, decorations.pathreplacing, calc}
 
@@ -33,11 +41,15 @@
 	headheight=1.5cm
 }
 
+
 \usepackage{xepersian}
 
 % ── فونت‌ها ────────────────────────────────────────────────
 \settextfont{XB Niloofar}
-\setdigitfont{XB Niloofar}
+\newfontfamily\fixedfont[Mapping=fix-quote]{XB Niloofar}
+
+\setdigitfont{Yas}
+\setlatintextfont{Times New Roman} 
 
 % فونت انگلیسی
 \newfontfamily\enfont{TeX Gyre Termes}
@@ -57,8 +69,9 @@
 	linkcolor=mci-blue,
 	urlcolor=mci-accent,
 	pdfauthor={مرکز تحقیق و نوآوری همراه اول},
-	pdftitle={پروپوزال رویداد مخابرات کوانتومی}
+	pdftitle={برنامه جامع برندینگ و شاخص‌سازی کوانتوم}
 }
+
 
 % ── سرصفحه و پاصفحه ──────────────────────────────────────
 \pagestyle{fancy}
@@ -66,7 +79,7 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{mci-blue}\leaders\hrule height \headrulewidth\hfill}}
 \fancyhead[R]{\small\color{mci-gray} مرکز تحقیق و نوآوری - همراه اول}
-\fancyhead[L]{\small\color{mci-gray} پروپوزال رویداد کوانتوم}
+\fancyhead[L]{\small\color{mci-gray} برنامه جامع کوانتوم}
 \fancyfoot[C]{\small\color{mci-gray}\thepage}
 
 % ── عنوان‌بندی بخش‌ها ─────────────────────────────────────
@@ -108,6 +121,7 @@
 
 % ─────────────────────────────────────────────────────────
 \begin{document}
+	\fixedfont
 	\settextfont{XB Niloofar}[Script=Arabic]
 	
 	% ════════════════════════════════════════════════════════
@@ -142,12 +156,12 @@
 			}};
 		\end{tikzpicture}
 		
-		\vspace*{1cm}
+
 		
 		% عنوان اصلی روی نوار آبی
 		{\color{white}\fontsize{22}{30}\selectfont\bfseries
 			\begin{center}
-				رویداد تخصصی
+				برنامه جامع برندینگ و شاخص‌سازی
 			\end{center}
 		}
 		
@@ -161,7 +175,7 @@
 		
 		{\color{white}\large
 			\begin{center}
-				Quantum Communications \& Post-Quantum Cryptography
+				Quantum Technologies in Iran: Events, Education, Community \& Research
 			\end{center}
 		}
 		
@@ -175,14 +189,12 @@
 				fill=white,
 				rounded corners=6pt,
 				inner sep=16pt,
-				text width=14cm,
-				align=right
+				text width=15cm,
+				align=center
 				]{\rl{
-						\begin{tabular}{r l}
-							\textbf{\color{mci-blue}نام رویداد:}   & 
-							\lr{Quantum Tech} - همایش تخصصی فناوری‌های کوانتومی $1405$ \\[6pt]
-							\textbf{\color{mci-blue}تاریخ:}        & $15$ آذر $1405$ ($6$ دسامبر $2026$) \\[6pt]
-							\textbf{\color{mci-blue}مکان:}         & سالن همایش‌های ساختمان ستاره ونک \\[6pt]
+						\begin{tabular}{r r}
+							\textbf{\color{mci-blue}عنوان:}        & برنامه شاخص‌سازی همراه اول در حوزه فناوری‌های کوانتومی \\[6pt]
+							\textbf{\color{mci-blue}محورها:}       & همایش، هکاتون، کارگاه، آکادمی، جامعه متن‌باز، کتاب و مقاله، تولیدات هوش مصنوعی \\[6pt]
 							\textbf{\color{mci-blue}برگزارکننده:}  & مرکز تحقیق و نوآوری - همراه اول \\
 						\end{tabular}
 				}};
@@ -194,568 +206,539 @@
 		{\small\color{mci-gray}\centering این سند محرمانه است و صرفاً جهت بررسی داخلی تهیه شده است.}
 		
 	\end{titlepage}
-	
+
+	\tableofcontents
+	\newpage
+
 	% ════════════════════════════════════════════════════════
-	%  بخش ۱: مقدمه و اهداف
+	%  چکیده و چشم‌انداز
 	% ════════════════════════════════════════════════════════
-	\section{مقدمه و اهداف رویداد}
-	
-	مرکز تحقیق و نوآوری همراه اول در نظر دارد یک رویداد تخصصی در حوزه
-	\textbf{فناوری‌های کوانتومی} با محوریت چهار محور \textbf{مخابرات کوانتومی}،
-	\textbf{رمزنگاری کوانتومی و پساکوانتومی (PQC)}، \textbf{حسگری کوانتومی} و
-	\textbf{محاسبات کوانتومی} با حضور
-	\textbf{دکتر کشاورزی} (مسئول مرکز تحقیق و توسعه همراه اول) و
-	\textbf{دکتر جان‌نثاری} (معاونت علمی ریاست‌جمهوری) برگزار نماید.
-	این رویداد با هدف ایجاد بستری برای تبادل دانش، برندینگ واحد تحقیقات، و معرفی
-	دستاوردهای علمی مرکز طراحی شده است.
-	
-	\subsection{اهداف اصلی}
-	
-	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
-		\item برندینگ و معرفی مرکز تحقیق و نوآوری همراه اول در سطح جامعه علمی-فناوری کشور
-		\item برگزاری سخنرانی‌های تخصصی با حضور اساتید برجسته دانشگاهی و پژوهشگران داخلی و بین‌المللی
-		\item رونمایی رسمی از کتاب ترجمه‌شده توسط تیم.
-		\item ایجاد شبکه ارتباطی بین متخصصان صنعت و دانشگاه در حوزه فناوری‌های کوانتومی
-		\item آشنایی مخاطبان با الگوریتم‌های مقاوم در برابر کوانتوم و استانداردهای NIST PQC
-		\item معرفی آخرین دستاوردهای جهانی در حسگری کوانتومی و محاسبات کوانتومی و کاربردهای صنعتی آن‌ها
-	\end{itemize}
-	
-	\subsection{محورهای تخصصی رویداد}
-	
+	\section*{چکیده و چشم‌انداز}
+	\addcontentsline{toc}{section}{چکیده و چشم‌انداز}
+
+	فناوری‌های کوانتومی به‌سرعت از آزمایشگاه به صنعت می‌آیند و
+	مهاجرت به رمزنگاری پساکوانتومی (PQC) برای اپراتورهای مخابراتی یک الزام عملیاتی است،
+	نه یک موضوع پژوهشی دور. در ایران هنوز هیچ سازمان صنعتی‌ای خود را به‌عنوان
+	\textbf{مرجع و پیشران حوزه کوانتوم} معرفی نکرده است.
+	این سند، به‌جای یک رویداد تک‌باره، یک
+	\textbf{برنامه پایدار برندینگ و شاخص‌سازی} پیشنهاد می‌کند تا نام
+	«مرکز تحقیق و نوآوری همراه اول» در ذهن جامعه علمی و فناوری کشور
+	با «کوانتوم» گره بخورد.
+
+	برنامه از هفت فصل تشکیل شده است که هر کدام مخاطب و خروجی مشخصی دارند
+	و با هم یک چرخه کامل می‌سازند: \textbf{دیده شدن} (همایش)، \textbf{مهارت‌آموزی} (هکاتون و کارگاه)،
+	\textbf{نهادینه شدن} (آکادمی و دپارتمان)، \textbf{ماندگاری} (جامعه و متن‌باز)،
+	\textbf{اعتبار علمی} (کتاب و مقاله) و \textbf{مقیاس‌پذیری محتوا} (تولیدات هوش مصنوعی).
+
 	\begin{center}
 		\begin{tikzpicture}[
-			topic/.style={
+			pillar/.style={
 				draw=mci-blue, fill=mci-light,
-				rounded corners=5pt, text width=5.2cm,
-				align=center, minimum height=1.2cm,
+				rounded corners=5pt, text width=4.6cm,
+				align=center, minimum height=1.5cm,
 				font=\small\bfseries\color{mci-blue}
 			},
-			node distance=0.5cm and 0.4cm
+			node distance=0.4cm and 0.4cm
 			]
-			\node[topic] (t1) {\rl{مخابرات کوانتومی}
-				\\\lr{\footnotesize\color{mci-gray}QKD \& Quantum Networks}};
-			\node[topic, right=of t1] (t2) {\rl{رمزنگاری کوانتومی و پساکوانتومی}
-				\\\lr{\footnotesize\color{mci-gray}QKD Protocols \& NIST PQC Standards}};
-			\node[topic, below=of t1] (t3) {\rl{حسگری کوانتومی}
-				\\\lr{\footnotesize\color{mci-gray}Quantum Sensing \& Metrology}};
-			\node[topic, right=of t3] (t4) {\rl{محاسبات کوانتومی}
-				\\\lr{\footnotesize\color{mci-gray}Quantum Computing \& Algorithms}};
+			\node[pillar] (a1) {\rl{فصل 1}\\\rl{همایش و سخنرانان شاخص}};
+			\node[pillar, right=of a1] (a2) {\rl{فصل 2}\\\rl{هکاتون کوانتومی}};
+			\node[pillar, right=of a2] (a3) {\rl{فصل 3}\\\rl{کارگاه‌های تخصصی با گواهی}};
+			\node[pillar, below=of a1] (b1) {\rl{فصل 4}\\\rl{آکادمی همراه و دپارتمان کوانتوم}};
+			\node[pillar, right=of b1] (b2) {\rl{فصل 5}\\\rl{جامعه، گیت‌هاب و متن‌باز}};
+			\node[pillar, right=of b2] (b3) {\rl{فصل 6}\\\rl{کتاب و مقاله}};
+			\node[pillar, below=of b2] (c1) {\rl{فصل 7}\\\rl{تولیدات هوش مصنوعی در کوانتوم}};
 		\end{tikzpicture}
 	\end{center}
-	
+
 	% ════════════════════════════════════════════════════════
-	%  بخش ۲: سخنرانان مدعو
-	% ════════════════════════════════════════════════════════
-	\newpage
-%	\section{سخنرانان مدعو}
-%	
-%	\speakercard
-%	{دکتر ترانه اقلیدس}
-%	{دانشیار - رمزنگاری و امنیت اطلاعات}
-%	{پژوهشکده الکترونیک، دانشگاه صنعتی شریف}
-%	{گذار به رمزنگاری پساکوانتومی: چالش‌ها و استانداردهای جدید NIST}
-%	
-%	\speakercard
-%	{دکتر جواد صالحی}
-%	{استاد تمام - مهندسی برق}
-%	{دانشگاه صنعتی شریف}
-%	{زیرساخت‌های مخابرات نوری و بسترهای فیبری برای توزیع کلید کوانتومی (QKD)}
-%	
-%	\speakercard
-%	{دکتر علی رضاخانی}
-%	{دانشیار - فیزیک نظری و اطلاعات کوانتومی}
-%	{دانشکده فیزیک، دانشگاه صنعتی شریف}
-%	{مبانی نظری اطلاعات کوانتومی و چشم‌انداز شبکه‌های کوانتومی}
-%	
-%	\speakercard
-%	{محمد رضایی}
-%	{پژوشگر پسادکتری / مدیر پروژه}
-%	{مرکز فناوری‌های کوانتومی، دانشگاه صنعتی شریف}
-%	{پیاده‌سازی عملی پروتکل‌های مخابرات کوانتومی در شبکه‌های مخابراتی کشور}
-%	
-%	\speakercard
-%	{امیر یوسفی}
-%	{پژوهشگر دکتری}
-%	{آزمایشگاه فوتونیک و اندازه‌گیری کوانتومی (LPQM)، دانشگاه EPFL سوئیس}
-%	{فناوری‌های نوین حسگری کوانتومی و کاربردهای صنعتی آن}
-%	
-%	\speakercard
-%	{دکتر محمدحسین انصاری}
-%	{پژوهشگر ارشد - کیوبیت‌های ابررسانا}
-%	{Forschungszentrum Jülich، آلمان}
-%	{تصحیح خطای کوانتومی و مسیر ساخت رایانه‌های کوانتومی مقیاس‌پذیر}
-	% ════════════════════════════════════════════════════════
-	%  بخش ۳: برنامه زمانی - سناریوی اول (با نهار)
+	%  فصل 1: همایش
 	% ════════════════════════════════════════════════════════
 	\newpage
-	\section{برنامه زمانی - سناریوی اول (با پذیرایی نهار)}
-	
-	\begin{center}
-		{\small\color{mci-gray}زمان کل: $8:30$ تا $18:35$}
-	\end{center}
-	
-	\vspace{0.4cm}
-	
-	\begin{tikzpicture}[
-		slot/.style={
-			draw=mci-border, fill=white,
-			rounded corners=3pt,
-			minimum height=0.9cm,
-			text width=12cm,
-			inner xsep=8pt, align=right,
-			font=\small
-		},
-		break/.style={
-			draw=mci-accent!40, fill=mci-light,
-			rounded corners=3pt,
-			minimum height=0.9cm,
-			text width=12cm,
-			inner xsep=8pt, align=right,
-			font=\small\color{mci-gray}
-		},
-		timebox/.style={
-			text width=2.8cm, align=left,
-			font=\small\bfseries\color{mci-blue}
-		}
-		]
-		
-		\def\ypos{0}
-		\def\ystep{-1.1}
-		
-		% ردیف اول - پذیرش
-		\node[timebox] at (0,\ypos) {\rl{$8:30$ - $9:00$}};
-		\node[break] at (8,\ypos) {\rl{ثبت‌نام و پذیرش شرکت‌کنندگان}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% افتتاحیه
-		\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:10$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{مراسم افتتاحیه} - تلاوت قرآن کریم}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		\node[timebox] at (0,\ypos) {\rl{$9:10$ - $9:30$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف مرکز تحقیق و توسعه همراه اول در حوزه کوانتوم \textbar\ دکتر کشاورزی}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		\node[timebox] at (0,\ypos) {\rl{$9:30$ - $9:50$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف و برنامه‌های معاونت علمی ریاست‌جمهوری در حوزه کوانتوم \textbar\ دکتر جان‌نثاری}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% سخنرانی ۱
-		\node[timebox] at (0,\ypos) {\rl{$9:50$ - $10:35$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی اول} - گذار به رمزنگاری پساکوانتومی \textbar\ دکتر ترانه اقلیدس}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% سخنرانی ۲
-		\node[timebox] at (0,\ypos) {\rl{$10:35$ - $11:20$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی دوم} - زیرساخت‌های مخابرات نوری و QKD \textbar\ دکتر جواد صالحی}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% استراحت صبح
-		\node[timebox] at (0,\ypos) {\rl{$11:20$ - $11:40$}};
-		\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% سخنرانی ۳
-		\node[timebox] at (0,\ypos) {\rl{$11:40$ - $12:25$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی سوم} - مبانی نظری اطلاعات کوانتومی \textbar\ دکتر علی رضاخانی}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% سخنرانی ۴
-		\node[timebox] at (0,\ypos) {\rl{$12:25$ - $13:10$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی چهارم} - \lr{QKD} و معماری شبکه‌های کوانتومی در سطح جهانی \textbar\ دکتر محسن رضوی (خارجی)}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% نهار
-		\node[timebox] at (0,\ypos) {\rl{$13:10$ - $14:35$}};
-		\node[break] at (8,\ypos) {\rl{ناهار و نماز}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% رونمایی کتاب
-		\node[timebox] at (0,\ypos) {\rl{$14:35$ - $15:20$}};
-		\node[slot,draw=mci-gold,fill=mci-gold!8] at (8,\ypos)
-		{\rl{\textbf{\color{mci-gold}رونمایی از کتاب} - ارتباطات کوانتومی، شبکه‌های کوانتومی و حسگری کوانتومی}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% سخنرانی ۵
-		\node[timebox] at (0,\ypos) {\rl{$15:20$ - $16:05$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی پنجم} - پیاده‌سازی عملی پروتکل‌های کوانتومی \textbar\ محمد رضایی}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% سخنرانی ۶
-		\node[timebox] at (0,\ypos) {\rl{$16:05$ - $16:50$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی ششم} - فناوری‌های نوین حسگری کوانتومی \textbar\ امیر یوسفی}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% استراحت بعدازظهر
-		\node[timebox] at (0,\ypos) {\rl{$16:50$ - $17:05$}};
-		\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% سخنرانی ۷
-		\node[timebox] at (0,\ypos) {\rl{$17:05$ - $17:50$}};
-		\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی هفتم} - کیوبیت‌های ابررسانا و تصحیح خطای کوانتومی \textbar\ دکتر محمدحسین انصاری}};
-		
-		\pgfmathsetmacro\ypos{\ypos+\ystep}
-		% اختتامیه
-		\node[timebox] at (0,\ypos) {\rl{$17:50$ - $18:35$}};
-		\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
-		{\rl{\textbf{\color{mci-blue}اختتامیه} - جمع‌بندی، پرسش و پاسخ، عکس یادگاری}};
-		
-	\end{tikzpicture}
-	
+	\section{برگزاری همایش و سخنرانی افراد شاخص داخلی و خارجی}
+
+	همایش \lr{Quantum Tech} ستون اصلی دیده شدن برنامه است.
+	در این رویداد، چهره‌های شاخص دانشگاهی داخل کشور و پژوهشگران ایرانی و غیرایرانی
+	شاغل در دانشگاه‌های برتر جهان گرد هم می‌آیند و مرکز تحقیق و نوآوری همراه اول
+	به‌عنوان میزبان و متولی این گفت‌وگو معرفی می‌شود.
+
+	\subsection{محورهای همایش}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
+		\item مخابرات کوانتومی و شبکه‌های کوانتومی (\lr{QKD} و اینترنت کوانتومی)
+		\item رمزنگاری کوانتومی و پساکوانتومی (استانداردهای \lr{NIST PQC})
+		\item محاسبات کوانتومی و الگوریتم‌ها
+		\item حسگری کوانتومی و کاربردهای صنعتی
+	\end{itemize}
+
+	\subsection{سخنرانان}
+	فهرست پیشنهادی سخنرانان داخلی و خارجی، همراه با معرفی و دلیل انتخاب هر یک،
+	در \textbf{پیوست الف} آمده است. استخر گسترده‌تر افراد شناسایی‌شده (مقیم ایران و خارج از کشور)، که منبع انتخاب سخنران، مدرس و منتور است، در \textbf{پیوست ب} آمده است. ترکیب پیشنهادی شامل اساتید برجسته دانشگاه‌های
+	داخل کشور (مانند دانشگاه صنعتی شریف و پژوهشگاه دانش‌های بنیادی) و پژوهشگران
+	دانشگاه‌هایی مانند \lr{Caltech}، \lr{Maryland}، \lr{Edinburgh}، \lr{Calgary}،
+	\lr{EPFL}، \lr{Queensland}، \lr{FSU} و \lr{Leeds} است. سخنرانان خارجی
+	می‌توانند به‌صورت حضوری یا آنلاین مشارکت کنند.
+
+	\subsection{مشخصات اجرایی همایش}
+	\begin{tabularx}{\textwidth}{>{\bfseries\color{mci-blue}}r X}
+		\toprule
+		تاریخ پیشنهادی & $15$ آذر $1405$ ($6$ دسامبر $2026$) \\
+		\midrule
+		مکان & سالن همایش‌های ساختمان ستاره ونک \\
+		\midrule
+		ظرفیت تخمینی & $150$ نفر \\
+		\midrule
+		قالب & حضوری با پخش زنده آنلاین؛ زبان فارسی با اسلایدهای انگلیسی \\
+		\midrule
+		هزینه ثبت‌نام & رایگان (با ثبت‌نام و تأیید قبلی) \\
+		\midrule
+		خروجی برندینگ & ضبط و انتشار ویدئوی تمام سخنرانی‌ها، رونمایی از کتاب ترجمه‌شده تیم \\
+		\bottomrule
+	\end{tabularx}
+
 	% ════════════════════════════════════════════════════════
-	%  بخش ۴: برنامه زمانی - سناریوی دوم (بدون نهار)
+	%  فصل 2: هکاتون
 	% ════════════════════════════════════════════════════════
-	\newpage
-	\section{برنامه زمانی - سناریوی دوم (بدون پذیرایی نهار)}
+	\section{برگزاری هکاتون کوانتومی توسط همراه اول}
+
+	در این فصل، مرکز تحقیق و نوآوری همراه اول \textbf{خودش} یک هکاتون کوانتومی طراحی و برگزار می‌کند،
+	تا نام همراه اول به‌عنوان یکی از متولیان اصلی این حوزه در کشور ثبت شود.
+
+	\subsection{پیشینه: اشتیاق جامعه برای هکاتون کوانتومی}
+	هکاتون \lr{PolyhaQ} اخیراً (۱۴ و ۱۵ شهریور ۱۴۰۵) در برج فناوری ابن‌سینا،
+	پارک علم و فناوری دانشگاه امیرکبیر برگزار شد و به‌عنوان اولین هکاتون ملی
+	متمرکز بر کوانتوم معرفی شده است. برگزاری آن نشان می‌دهد که تقاضای جدی
+	برای چنین رویدادهایی در جامعه دانشجویی و پژوهشی کشور وجود دارد و فضا برای
+	رویدادهای بعدی باز است.
+	در سطح بین‌المللی نیز قالب‌های مشابهی مانند \lr{NYC HAQ} (دانشگاه‌های
+	کلمبیا، \lr{CCNY} و \lr{NYU Tandon}) با ترکیب «کارگاه آموزشی پیش از رقابت،
+	منتورینگ و جایزه» اجرا شده‌اند.
+	هکاتون همراه اول با تمرکز بر \textbf{مسائل واقعی صنعت مخابرات} و
+	\textbf{رمزنگاری پساکوانتومی}، مکمل و ادامه این حرکت است و با آن رقابت نمی‌کند.
 	
-	\begin{center}
-		{\small\color{mci-gray}زمان کل: $8:30$ تا $14:00$}
-	\end{center}
-	
-	\vspace{0.4cm}
-	
-	\begin{center}
-		\begin{tikzpicture}[
-			slot/.style={
-				draw=mci-border, fill=white,
-				rounded corners=3pt, minimum height=0.9cm,
-				text width=12cm, inner xsep=8pt, align=right,
-				font=\small
-			},
-			break/.style={
-				draw=mci-accent!40, fill=mci-light,
-				rounded corners=3pt, minimum height=0.9cm,
-				text width=12cm, inner xsep=8pt, align=right,
-				font=\small\color{mci-gray}
-			},
-			timebox/.style={
-				text width=2.8cm, align=left,
-				font=\small\bfseries\color{mci-blue}
-			}
-			]
-			
-			\def\ypos{0}
-			\def\ystep{-1.1}
-			
-			\node[timebox] at (0,\ypos) {\rl{$8:30$ - $9:00$}};
-			\node[break] at (8,\ypos) {\rl{ثبت‌نام و پذیرش شرکت‌کنندگان}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:10$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{مراسم افتتاحیه} - تلاوت قرآن کریم}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:10$ - $9:30$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف مرکز تحقیق و توسعه همراه اول در حوزه کوانتوم \textbar\ دکتر کشاورزی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:30$ - $9:50$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف و برنامه‌های معاونت علمی ریاست‌جمهوری در حوزه کوانتوم \textbar\ دکتر جان‌نثاری}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:50$ - $10:30$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی اول} - گذار به رمزنگاری پساکوانتومی \textbar\ دکتر ترانه اقلیدس}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$10:30$ - $11:10$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی دوم} - زیرساخت‌های مخابرات نوری و QKD \textbar\ دکتر جواد صالحی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:10$ - $11:30$}};
-			\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:30$ - $12:10$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی سوم} - مبانی نظری اطلاعات کوانتومی \textbar\ دکتر علی رضاخانی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$12:10$ - $12:50$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی چهارم} - پیاده‌سازی عملی پروتکل‌های کوانتومی \textbar\ محمد رضایی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$12:50$ - $13:30$}};
-			\node[slot,draw=mci-gold,fill=mci-gold!8] at (8,\ypos)
-			{\rl{\textbf{\color{mci-gold}رونمایی از کتاب} - ارتباطات کوانتومی، شبکه‌های کوانتومی و حسگری کوانتومی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$13:30$ - $14:00$}};
-			\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
-			{\rl{\textbf{\color{mci-blue}اختتامیه} - جمع‌بندی، پرسش و پاسخ}};
-			
-		\end{tikzpicture}
-	\end{center}
-	
+	\subsection{طرح هکاتون همراه اول}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
+		\item \textbf{قالب:} هکاتون 2 تا 3 روزه، ترکیبی از حضوری و آنلاین، با یک هفته کارگاه آموزشی پیش از رقابت برای تازه‌واردها
+		\item \textbf{چالش‌های صنعتی:} مسائل واقعی مخابراتی، مانند بهینه‌سازی مسیریابی و جایابی با الگوریتم‌های \lr{QAOA} و \lr{Annealing}، مهاجرت به \lr{PQC}، و طراحی پروتکل‌های امن
+		\item \textbf{ابزار:} پلتفرم‌های متن‌باز و شبیه‌سازها (مانند \lr{Qiskit} و \lr{PennyLane}) تا مشارکت‌کنندگان به سخت‌افزار خاصی وابسته نباشند
+		\item \textbf{داوری و منتورینگ:} منتورها از تیم همراه اول و دانشگاه‌های همکار؛ داوران از صنعت و دانشگاه
+		\item \textbf{جوایز:} جایزه نقدی یا فرصت کارآموزی، و معرفی تیم‌های برتر برای ادامه همکاری با مرکز
+		\item \textbf{ماندگاری:} همه پروژه‌های هکاتون در سازمان گیت‌هاب مرکز (فصل 5) منتشر می‌شوند
+	\end{itemize}
+
 	% ════════════════════════════════════════════════════════
-	%  بخش ۴/۲: برنامه زمانی - سناریوی سوم (رویداد دو روزه)
+	%  فصل 3: کارگاه‌ها
 	% ════════════════════════════════════════════════════════
-	\newpage
-	\section{برنامه زمانی - سناریوی سوم (رویداد دو روزه)}
-	
-	{\small\color{mci-gray}
-		در این سناریو، رویداد در دو روز جداگانه برگزار می‌شود: روز اول با محوریت
-		\textbf{مخابرات کوانتومی} و \textbf{رمزنگاری کوانتومی و پساکوانتومی}، و روز دوم
-		با محوریت \textbf{حسگری کوانتومی} و \textbf{محاسبات کوانتومی}. این ساختار امکان
-		پوشش عمیق‌تر هر محور و دعوت از تعداد بیشتری از سخنرانان داخلی و خارجی را فراهم می‌کند.}
-	
-	\vspace{0.4cm}
-	
-	\subsection{روز اول: مخابرات کوانتومی و رمزنگاری کوانتومی و پساکوانتومی}
-	
+	\section{برگزاری کارگاه‌های تخصصی با گواهی همراه اول}
+
+	هر کارگاه 1 تا 2 روزه، عملی و با تمرین کد است و به شرکت‌کنندگان
+	\textbf{گواهی حضور از همراه اول} ارائه می‌شود. این گواهی هم انگیزه مشارکت را بالا می‌برد
+	و هم هر دوره را به یک نقطه تماس ماندگار با برند همراه اول تبدیل می‌کند.
+
 	\begin{center}
-		{\small\color{mci-gray}زمان: $8:30$ تا $17:30$}
+	\begin{tabularx}{\textwidth}{>{\bfseries\color{mci-blue}}r X >{\raggedleft\arraybackslash}p{3.6cm}}
+		\toprule
+		\textbf{کارگاه} & \textbf{محتوا} & \textbf{مدرس} \\
+		\midrule
+		مقدمه‌ای عملی بر \lr{Qiskit} &
+		مدارهای کوانتومی، الگوریتم‌های پایه (\lr{Grover}، \lr{QFT}، \lr{VQE}) و اجرا روی شبیه‌ساز و سخت‌افزار واقعی &
+		محمد رضیئی \\
+		\midrule
+		یادگیری ماشین کوانتومی (\lr{QML}) &
+		مدارهای پارامتری، \lr{Variational Classifiers} و \lr{Quantum Kernels} با \lr{PennyLane}؛ آشنایی با محدودیت‌ها و کاربردهای واقعی &
+		\placeholder{مدرس} \\
+		\midrule
+		اینترنت کوانتومی &
+		درهم‌تنیدگی و تله‌پورتیشن، پروتکل‌های \lr{BB84} و \lr{E91}، تکرارکننده‌های کوانتومی و شبیه‌سازی شبکه‌های کوانتومی &
+		\placeholder{مدرس} \\
+		\midrule
+		الگوریتم‌های \lr{PQC} &
+		استانداردهای \lr{NIST}: \lr{ML-KEM}، \lr{ML-DSA} و \lr{SLH-DSA} (\lr{FIPS 203/204/205})؛ حالت ترکیبی (\lr{Hybrid}) در \lr{TLS}؛ چابکی رمزنگاری و برنامه مهاجرت &
+		\placeholder{مدرس} \\
+		\bottomrule
+	\end{tabularx}
 	\end{center}
-	
-	\vspace{0.3cm}
-	
-	\begin{center}
-		\begin{tikzpicture}[
-			slot/.style={
-				draw=mci-border, fill=white,
-				rounded corners=3pt, minimum height=0.9cm,
-				text width=12cm, inner xsep=8pt, align=right,
-				font=\small
-			},
-			break/.style={
-				draw=mci-accent!40, fill=mci-light,
-				rounded corners=3pt, minimum height=0.9cm,
-				text width=12cm, inner xsep=8pt, align=right,
-				font=\small\color{mci-gray}
-			},
-			timebox/.style={
-				text width=2.8cm, align=left,
-				font=\small\bfseries\color{mci-blue}
-			}
-			]
-			
-			\def\ypos{0}
-			\def\ystep{-1.1}
-			
-			\node[timebox] at (0,\ypos) {\rl{$8:30$ - $9:00$}};
-			\node[break] at (8,\ypos) {\rl{ثبت‌نام و پذیرش شرکت‌کنندگان}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:10$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{مراسم افتتاحیه} - تلاوت قرآن کریم}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:10$ - $9:30$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف مرکز تحقیق و توسعه همراه اول در حوزه کوانتوم \textbar\ دکتر کشاورزی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:30$ - $9:50$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی افتتاحیه} - اهداف و برنامه‌های معاونت علمی ریاست‌جمهوری در حوزه کوانتوم \textbar\ دکتر جان‌نثاری}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:50$ - $10:35$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی اول} - گذار به رمزنگاری پساکوانتومی و استانداردهای NIST \textbar\ دکتر ترانه اقلیدس}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$10:35$ - $11:20$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی دوم} - زیرساخت‌های مخابرات نوری و QKD \textbar\ دکتر جواد صالحی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:20$ - $11:40$}};
-			\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:40$ - $12:25$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی سوم} - مبانی نظری اطلاعات کوانتومی و شبکه‌های کوانتومی \textbar\ دکتر علی رضاخانی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$12:25$ - $13:10$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی چهارم} - \lr{QKD} و معماری شبکه‌های کوانتومی در سطح جهانی \textbar\ دکتر محسن رضوی (خارجی)}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$13:10$ - $14:10$}};
-			\node[break] at (8,\ypos) {\rl{ناهار و نماز}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$14:10$ - $14:55$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی پنجم} - از رمزنگاری کلاسیک تا رمزنگاری پساکوانتومی \textbar\ دکتر ریحانه صفوی‌نائینی (خارجی)}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$14:55$ - $15:40$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی ششم} - پیاده‌سازی عملی پروتکل‌های مخابرات کوانتومی \textbar\ محمد رضایی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$15:40$ - $15:55$}};
-			\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$15:55$ - $16:40$}};
-			\node[slot,draw=mci-gold,fill=mci-gold!8] at (8,\ypos)
-			{\rl{\textbf{\color{mci-gold}رونمایی از کتاب} - ارتباطات کوانتومی، شبکه‌های کوانتومی و حسگری کوانتومی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$16:40$ - $17:30$}};
-			\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
-			{\rl{\textbf{\color{mci-blue}جمع‌بندی روز اول} - پرسش و پاسخ}};
-			
-		\end{tikzpicture}
-	\end{center}
-	
-	\newpage
-	\subsection{روز دوم: حسگری کوانتومی و محاسبات کوانتومی}
-	
-	\begin{center}
-		{\small\color{mci-gray}زمان: $9:00$ تا $16:00$}
-	\end{center}
-	
-	\vspace{0.3cm}
-	
-	\begin{center}
-		\begin{tikzpicture}[
-			slot/.style={
-				draw=mci-border, fill=white,
-				rounded corners=3pt, minimum height=0.9cm,
-				text width=12cm, inner xsep=8pt, align=right,
-				font=\small
-			},
-			break/.style={
-				draw=mci-accent!40, fill=mci-light,
-				rounded corners=3pt, minimum height=0.9cm,
-				text width=12cm, inner xsep=8pt, align=right,
-				font=\small\color{mci-gray}
-			},
-			timebox/.style={
-				text width=2.8cm, align=left,
-				font=\small\bfseries\color{mci-blue}
-			}
-			]
-			
-			\def\ypos{0}
-			\def\ystep{-1.1}
-			
-			\node[timebox] at (0,\ypos) {\rl{$9:00$ - $9:15$}};
-			\node[break] at (8,\ypos) {\rl{خوش‌آمدگویی و مرور روز اول}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$9:15$ - $10:00$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی اول} - فناوری‌های نوین حسگری کوانتومی و کاربردهای صنعتی \textbar\ امیر یوسفی}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$10:00$ - $10:45$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی دوم} - اپتیک کوانتومی و بوسون سمپلینگ \textbar\ دکتر صالح رحیمی‌کشری (خارجی)}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$10:45$ - $11:00$}};
-			\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:00$ - $11:45$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی سوم} - مبانی نظری محاسبات و اطلاعات کوانتومی \textbar\ دکتر وحید کریمی‌پور}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$11:45$ - $12:30$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی چهارم} - کیوبیت‌های ابررسانا و تصحیح خطای کوانتومی \textbar\ دکتر محمدحسین انصاری (خارجی)}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$12:30$ - $13:30$}};
-			\node[break] at (8,\ypos) {\rl{ناهار و نماز}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$13:30$ - $14:15$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی پنجم} - محاسبات کوانتومی ابری و \lr{Blind Quantum Computing} \textbar\ دکتر الهام کاشفی (خارجی)}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$14:15$ - $15:00$}};
-			\node[slot] at (8,\ypos) {\rl{\textbf{سخنرانی ششم} - مخابرات کوانتومی، حسگری و شبکه‌های کوانتومی \textbar\ دکتر ایوان جرجودیک (خارجی)}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$15:00$ - $15:15$}};
-			\node[break] at (8,\ypos) {\rl{پذیرایی - استراحت}};
-			
-			\pgfmathsetmacro\ypos{\ypos+\ystep}
-			\node[timebox] at (0,\ypos) {\rl{$15:15$ - $16:00$}};
-			\node[slot,fill=mci-blue!8,draw=mci-blue] at (8,\ypos)
-			{\rl{\textbf{\color{mci-blue}اختتامیه} - جمع‌بندی دو روز، پرسش و پاسخ، عکس یادگاری}};
-			
-		\end{tikzpicture}
-	\end{center}
-	
+
+	{\small\textcolor{mci-gray}{
+	برای کارگاه \lr{QML} پیشنهاد می‌شود از چارچوب‌هایی استفاده شود که ماژول‌های آموزشی آماده و متن‌باز دارند (مانند آموزش‌های رسمی \lr{PennyLane} و \lr{Qiskit Machine Learning})، تا زمان آماده‌سازی محتوا کم شود.}}
+
+	\subsection{ساز و کار گواهی}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=3pt]
+		\item گواهی با آرم مرکز تحقیق و نوآوری همراه اول و شماره یکتا (امکان استعلام آنلاین)
+		\item شرط دریافت: حضور کامل و انجام تمرین نهایی
+		\item انتشار تمرین‌ها و اسلایدها در گیت‌هاب مرکز (فصل 5)
+	\end{itemize}
+
 	% ════════════════════════════════════════════════════════
-	%  بخش ۵: معرفی کتاب
+	%  فصل 4: آکادمی و دپارتمان
 	% ════════════════════════════════════════════════════════
-	\newpage
-	\section{معرفی کتاب}
-	
+	\section{همکاری با آکادمی همراه و ایجاد دپارتمان کوانتوم}
+
+	برای اینکه برنامه به یک فعالیت دائمی تبدیل شود، پیشنهاد می‌شود
+	آموزش‌های کوانتومی در قالب رسمی «آکادمی همراه» ادغام شود و یک واحد سازمانی
+	با عنوان \textbf{دپارتمان کوانتوم} تعریف گردد.
+
+	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
+		\item \textbf{مسیر آموزشی:} سه سطح مقدماتی، متوسط و پیشرفته با گواهی؛ از «آشنایی با کوانتوم برای مهندسان» تا «\lr{PQC} برای تیم‌های امنیت و شبکه»
+		\item \textbf{آموزش داخلی:} ارتقای دانش کارکنان فنی و امنیتی همراه اول، به‌ویژه برای آمادگی مهاجرت به \lr{PQC}
+		\item \textbf{دپارتمان کوانتوم:} مسئول کارگاه‌ها، برنامه پژوهشی، ارتباط با دانشگاه‌ها و نگهداری سازمان گیت‌هاب
+		\item \textbf{همکاری دانشگاهی:} تفاهم‌نامه برای پروژه‌های دانشجویی، کارآموزی و پایان‌نامه با موضوعات مورد نیاز صنعت
+		\item \textbf{ارتباط با سیاست‌گذار:} همکاری با نهادهای مرتبط (مانند معاونت علمی) برای همسویی با برنامه‌های ملی
+	\end{itemize}
+
+	فهرست شرکت‌ها و مراکز ایرانی و خارجی فعال در حوزه کوانتوم، برای شناسایی شرکای همکاری، حامیان و منابع محتوا، در \textbf{پیوست ج} آمده است.
+
+	% ════════════════════════════════════════════════════════
+	%  فصل 5: جامعه و متن‌باز
+	% ════════════════════════════════════════════════════════
+	\section{ایجاد گیت‌هاب، فروم و جامعه کوانتومی}
+
+	برندینگ پایدار بدون جامعه فعال ممکن نیست. این فصل شامل سه بخش است:
+	\textbf{حضور آنلاین}، \textbf{مخزن‌های متن‌باز} و \textbf{مشارکت در پروژه‌های جهانی}.
+
+	\subsection{حضور آنلاین و فروم}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
+		\item گروه یا کانال در تلگرام و بله، و در صورت نیاز فضای \lr{Slack} یا \lr{Discord} برای بحث تخصصی
+		\item صفحه رسمی \lr{LinkedIn} با انتشار روزانه اخبار، مقاله‌ها و دستاوردهای کوانتومی (فارسی و انگلیسی)
+		\item خبرنامه ماهانه و بایگانی ویدئوهای همایش و کارگاه‌ها
+	\end{itemize}
+
+	\subsection{سازمان گیت‌هاب}
+	سازمان \lr{mci-quantum-lab} ایجاد شده و مخزن
+	\href{https://github.com/mci-quantum-lab/quantum-awesome}{\lr{quantum-awesome}}
+	(فهرست منابع منتخب کوانتوم) اولین مخزن آن است. ایده‌های پیشنهادی برای مخزن‌های بعدی:
+	\begin{itemize}[rightmargin=0.5cm, itemsep=3pt]
+		\item محتوای کارگاه‌ها و تمرین‌های فارسی (\lr{Qiskit}، \lr{QML}، \lr{PQC})
+		\item واژه‌نامه فارسی اصطلاحات کوانتومی
+		\item پروژه‌های برگزیده هکاتون
+		\item ابزار شناسایی الگوریتم‌های رمزنگاری در حال استفاده در سیستم‌ها (فهرست رمزنگاری یا \lr{CBOM}) برای برنامه‌ریزی مهاجرت به \lr{PQC}
+		\item بستر آزمایشی \lr{TLS} ترکیبی (کلاسیک + پساکوانتومی) برای سنجش اثر بر تأخیر و اندازه بسته‌ها در شبکه
+	\end{itemize}
+
+	\subsection{مشارکت در پروژه‌های متن‌باز}
+	\textbf{پروژه شاخص: پشتیبانی \lr{PQC} در کتابخانه \lr{httpp}.}
+	کتابخانه \href{https://github.com/MohammadRaziei/httpp}{\lr{httpp}}
+	(کلاینت و سرور \lr{HTTP} برای \lr{Python} و \lr{C++}) برای ارتباط \lr{HTTPS} بر پایه \lr{mbedTLS} ساخته شده،
+	و \lr{mbedTLS} در حال حاضر الگوریتم‌های پساکوانتومی را پوشش نمی‌دهد.
+	پیشنهاد، ساخت یک \textbf{فورک} در سازمان \lr{mci-quantum-lab} و افزودن \lr{PQC}
+	به‌صورت مشابه با آنچه در اکوسیستم \lr{OpenSSL} وجود دارد (مانند پروژه \lr{Open Quantum Safe}) است.
+
+	\begin{mdframed}[linecolor=mci-gold, linewidth=1.5pt, backgroundcolor=mci-gold!5, roundcorner=5pt]
+		\textbf{نکته مهندسی:} در کد رمزنگاری، هوش مصنوعی برای تولید اولیه، مستندسازی و تست مفید است،
+		ولی نباید جایگزین پیاده‌سازی‌های مرجع شود. مسیر پیشنهادی، \textbf{ادغام پیاده‌سازی‌های بازبینی‌شده موجود}
+		(مانند \lr{liboqs}، \lr{PQClean} یا \lr{mlkem-native}) به‌جای نوشتن از صفر،
+		همراه با اجرای بردارهای آزمون رسمی (\lr{KAT}) و بازبینی انسانی تخصصی است.
+		این رویکرد هم سریع‌تر است و هم برای انتشار عمومی با آرم همراه اول ایمن‌تر.
+	\end{mdframed}
+
+	\textbf{سایر ایده‌های مشارکت متن‌باز:}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=3pt]
+		\item مشارکت در \lr{liboqs} و \lr{oqs-provider} (افزونه \lr{OpenSSL 3} برای الگوریتم‌های پساکوانتومی)
+		\item مشارکت در مستندات و آموزش‌های \lr{Qiskit} و \lr{PennyLane}، از جمله ترجمه فارسی
+		\item ساخت و انتشار یک شبیه‌ساز سبک \lr{QKD} برای آموزش و تست
+		\item مخزن مرجع فارسی برای مهاجرت به \lr{PQC} در شبکه‌های مخابراتی
+	\end{itemize}
+
+	% ════════════════════════════════════════════════════════
+	%  فصل 6: کتاب و مقاله
+	% ════════════════════════════════════════════════════════
+	\section{حمایت از تألیف و ترجمه کتاب و مقاله}
+
+	\subsection{دامنه حمایت}
+	مرکز تحقیق و نوآوری همراه اول از تألیف، ترجمه و نشر کتاب و مقاله در حوزه کوانتوم
+	حمایت می‌کند؛ چه توسط کارکنان سازمان، چه توسط پژوهشگران دانشگاهی و مستقل بیرون از سازمان،
+	با درج \textbf{وابستگی سازمانی (\lr{Affiliation}) همراه اول}.
+	نمونه شاخص: ترجمه کتاب
+	\textbf{ارتباطات کوانتومی، شبکه‌های کوانتومی و حسگری کوانتومی}
+	(\lr{Djordjevic}) توسط تیم مرکز، با ناشر جهاد دانشگاهی امیرکبیر (1405).
+
 	\begin{mdframed}[
-		linecolor=mci-gold,
-		linewidth=2pt,
-		backgroundcolor=mci-gold!5,
-		roundcorner=6pt,
-		innertopmargin=14pt,
-		innerbottommargin=14pt,
-		innerleftmargin=14pt,
-		innerrightmargin=14pt
+		linecolor=mci-gold, linewidth=2pt, backgroundcolor=mci-gold!5,
+		roundcorner=6pt, innertopmargin=12pt, innerbottommargin=12pt,
+		innerleftmargin=14pt, innerrightmargin=14pt
 		]
-		
 		\begin{minipage}{0.2\textwidth}
 			\centering
 			\includegraphics[width=\linewidth]{figs/book}
 		\end{minipage}
 		\hfill
 		\begin{minipage}{0.76\textwidth}
-			\textbf{\large\color{mci-blue}
-				\rl{
-					ارتباطات کوانتومی،
-					شبکه‌های کوانتومی و
-					حسگری کوانتومی
-			}}
-			\\[4pt]
-			{\footnotesize\color{mci-gray}\lr{
-					Quantum Communication,
-					Quantum Networks, and
-					Quantum Sensing
-			}}\\[8pt]
-			\textbf{مترجمان:} \rl{
-				محمد رضیئی، اسماعیل اسکندری
-			}\\[4pt]
-			\textbf{ناشر:} انتشارات جهاد دانشگاهی امیرکبیر\\[4pt]
-			\textbf{سال انتشار:} $1405$\\[8pt]
-			{\small این کتاب توسط اعضای مرکز تحقیق و نوآوری همراه اول ترجمه شده
-				و یکی از منابع اصلی آموزشی در حوزه 
-				\textit{مخابرات کوانتومی}
-				محسوب می‌شود.}
+			\textbf{\large\color{mci-blue}\rl{ارتباطات کوانتومی، شبکه‌های کوانتومی و حسگری کوانتومی}}\\[4pt]
+			{\footnotesize\color{mci-gray}\lr{Quantum Communication, Quantum Networks, and Quantum Sensing}}\\[6pt]
+			\textbf{مترجمان:} \rl{محمد رضیئی، اسماعیل اسکندری}\\[2pt]
+			\textbf{ناشر:} انتشارات جهاد دانشگاهی امیرکبیر \quad \textbf{سال:} $1405$
 		\end{minipage}
-		
 	\end{mdframed}
-	
-	% ════════════════════════════════════════════════════════
-	%  بخش ۶: اطلاعات مخاطبان هدف و مشخصات اجرایی
-	% ════════════════════════════════════════════════════════
-	\section{مخاطبان هدف}
-	
-	\begin{itemize}[rightmargin=0.5cm, itemsep=3pt]
-		\item متخصصان حوزه مخابرات و امنیت اطلاعات در شرکت‌های فناوری
-		\item دانشجویان و پژوهشگران دانشگاهی در رشته‌های مرتبط
-		\item مدیران و تصمیم‌گیرندگان حوزه امنیت سایبری
-		\item علاقه‌مندان به فناوری‌های نوظهور کوانتومی
+
+	\subsection{چرا این فصل برای برندینگ مؤثر است؟}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
+		\item \textbf{نشانه دائمی:} کتاب و مقاله سال‌ها مرجع می‌مانند؛ هر ارجاع، یک بار دیگر نام همراه اول را در ادبیات علمی ثبت می‌کند.
+		\item \textbf{ورود خودکار جامعه آکادمیک:} هر پژوهشگری که در این حوزه کار کند، برای نوشتن مقاله ناچار با منابع و فعالیت‌های همراه اول آشنا می‌شود، و بدون تبلیغ مستقیم، با این حوزه و سازمان پیوند می‌خورد.
+		\item \textbf{شبکه‌سازی:} نویسندگان و مترجمان حمایت‌شده به سفیران طبیعی برند و منبع سخنران، منتور و داور برای رویدادهای بعدی تبدیل می‌شوند.
+		\item \textbf{فارسی‌سازی دانش:} کمبود منابع فارسی یکی از موانع ورود دانشجویان به کوانتوم است؛ ترجمه و تألیف این مانع را کم می‌کند.
+		\item \textbf{جذب نیرو:} نویسندگان و دانشجویان فعال، کاندیدای طبیعی برای کارآموزی و همکاری هستند.
 	\end{itemize}
-	
-	\section{مشخصات اجرایی}
-	
+
+	\subsection{انواع حمایت}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=3pt]
+		\item حمایت از ترجمه و چاپ کتاب، و پوشش هزینه‌های نشر
+		\item دسترسی به زیرساخت محاسباتی و شبیه‌سازی برای پژوهشگران
+		\item منتورینگ علمی، همکاری مشترک با اساتید و سخنرانان همایش
+		\item فراخوان سالانه مقاله و جایزه برای آثار برتر
+	\end{itemize}
+
+	% ════════════════════════════════════════════════════════
+	%  فصل ۷: تولیدات هوش مصنوعی در کوانتوم
+	% ════════════════════════════════════════════════════════
+	\newpage
+	\section{تولیدات هوش مصنوعی در حوزه کوانتوم}
+
+	هوش مصنوعی در این برنامه دو نقش دارد: \textbf{ابزار کار} (دستیارها و عامل‌های هوشمند برای کدنویسی کوانتومی، تمرین و تحلیل)
+	و \textbf{ماشین تولید محتوا} (ویدیو، انیمیشن و متن آموزشی در مقیاسی که تیم کوچک به‌تنهایی نمی‌تواند).
+	هر دو نقش، فصل‌های قبلی را تقویت می‌کنند: کارگاه‌ها (فصل 3) دستیار آموزشی می‌گیرند، هکاتون (فصل 2) منتور هوشمند،
+	جامعه (فصل 5) محتوای روزانه، و همایش (فصل 1) فرصت رونمایی از تولیدات.
+
+	\subsection{هوش مصنوعی عامل‌محور (\lr{Agentic AI}) در کوانتوم}
+
+	\subsubsection*{وضعیت فعلی در جهان}
+	نمونه‌های زیر نشان می‌دهند که این ترکیب دیگر نظری نیست (منابع در انتهای فصل):
+	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
+		\item \textbf{مایکروسافت} اعلام کرده در برنامه کوانتومی خود به‌طور فزاینده از عامل‌های هوشمند برای طراحی مواد، خودکارسازی آزمایش‌ها
+		و تحلیل داده‌های پژوهشی چندین‌ساله استفاده می‌کند و آن را بخشی طبیعی از جریان کار خود می‌داند [1].
+		\item \textbf{پاسکال (\lr{Pasqal}) و \lr{Quantonation}} در پژوهشی مشترک (مرداد 1405) نشان دادند یک عامل هوشمند می‌تواند مقاله، ثبت اختراع
+		و درخواست به زبان طبیعی را به آزمایش روی پردازنده‌های کوانتومی اتم خنثی واقعی تبدیل کند.
+		نتیجه‌گیری آن‌ها این است که مانع ورود به سخت‌افزار کوانتومی کم می‌شود و جامعه کاربران از چند صد تیم متخصص به دانشمندان و مهندسان رشته‌های دیگر گسترش می‌یابد [2].
+		\item \textbf{کدنویسی کوانتومی با کمک هوش مصنوعی:} \lr{Qiskit Code Assistant} در \lr{IBM} مدلی است که برای تولید کد \lr{Qiskit} آموزش دیده، در \lr{VS Code} و
+		\lr{JupyterLab} کار می‌کند و با معیار اجرایی \lr{Qiskit HumanEval} (101 مسئله) سنجیده می‌شود [3]. یک سرور \lr{MCP} رسمی نیز در مخزن
+		\lr{Qiskit/mcp-servers} برای اتصال این دستیار به عامل‌های هوشمند وجود دارد [4]. پژوهش‌هایی مانند \lr{QSpark} نیز دستیارهای متن‌باز مبتنی بر یادگیری تقویتی برای \lr{Qiskit} پیشنهاد کرده‌اند [5].
+		\item \textbf{تحلیل «آیا کوانتوم اینجا کمک می‌کند؟»:} پژوهش \lr{QuantumMind} عاملی پیشنهاد می‌کند که پیش از نوشتن برنامه کوانتومی بررسی می‌کند
+		مسئله کلاسیک داده‌شده پیش‌شرط‌های یک الگوریتم کوانتومی را دارد یا نه و چه ادعایی درباره سرعت‌گرفتن قابل دفاع است [6].
+		\item \textbf{امنیت:} بنا بر یک تحلیل صنعتی (\lr{QNu Labs}، شهریور 1405)، عامل‌های هوشمند به زیرساخت رمزنگاری پایدار و چرخش کلید ماشینی نیاز دارند و
+		مهاجرت به \lr{PQC} باید هم‌زمان با امن‌سازی عامل‌ها برنامه‌ریزی شود؛ فهرست \lr{OWASP Top 10 for Agentic Applications} نیز سطح حمله ویژه این سامانه‌ها را فهرست کرده است [7]. (این منبع یک شرکت فروشنده است و باید با احتیاط خوانده شود.)
+		\item \textbf{همکاری‌های دانشگاهی:} \lr{IBM} همکاری‌های پژوهشی خود با \lr{IIT Bombay} و \lr{IISc} را در زمینه هوش مصنوعی عامل‌محور و ارکستریشن محاسبات کوانتومی و \lr{HPC} گسترش داده است [8].
+	\end{itemize}
+
+	\subsubsection*{کاربردهای پیشنهادی برای مرکز}
+	\begin{center}
+	{\small
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabularx}{\textwidth}{|>{\raggedleft\arraybackslash}p{3.4cm}|X|>{\raggedleft\arraybackslash}p{2.4cm}|}
+		\hline
+		\rowcolor{mci-light}\textbf{کاربرد} & \textbf{شرح} & \textbf{فصل مرتبط} \\
+		\hline
+		دستیار تمرین کارگاه‌ها & عامل متصل به \lr{Qiskit Code Assistant} و شبیه‌ساز که تمرین‌ها را اجرا می‌کند، خطاها را توضیح می‌دهد و راهنمایی گام‌به‌گام می‌دهد & فصل 3 \\
+		\hline
+		منتور هوشمند هکاتون & پاسخ به پرسش‌های فنی شرکت‌کنندگان، بررسی اولیه کد و پیشنهاد معماری، با نظارت منتور انسانی & فصل 2 \\
+		\hline
+		عامل مهاجرت \lr{PQC} & کشف الگوریتم‌های رمزنگاری در مخازن کد و سرویس‌ها و تولید فهرست رمزنگاری (\lr{CBOM}) و گزارش ریسک & فصل 5 \\
+		\hline
+		عامل خبر و پایش ادبیات & جمع‌آوری اخبار و مقالات روز کوانتوم و پیش‌نویس پست‌های روزانه لینکدین؛ انتشار فقط پس از تأیید انسان & فصل 5 \\
+		\hline
+		مترجم و هم‌نویس فارسی & پیش‌نویس ترجمه مقاله و واژه‌نامه فارسی اصطلاحات، با ویرایش متخصص & فصل 6 \\
+		\hline
+		ارزیاب «آیا کوانتوم لازم است؟» & ابزار سنجش اولیه مسائل صنعتی برای تیم‌های همراه اول و شرکت‌کنندگان، به سبک \lr{QuantumMind} & فصل 2 و 4 \\
+		\hline
+	\end{tabularx}
+	}
+	\end{center}
+
+	\begin{mdframed}[linecolor=mci-gold, linewidth=1.5pt, backgroundcolor=mci-gold!5, roundcorner=5pt]
+		\textbf{اصل ایمنی:} خروجی عامل‌ها، به‌ویژه کد رمزنگاری و ادعاهای علمی، هرگز بدون بازبینی انسان متخصص منتشر نمی‌شود.
+		عامل‌ها به اعتبارنامه‌ها و مخازن سازمان فقط با کمترین سطح دسترسی لازم متصل می‌شوند.
+	\end{mdframed}
+
+	\subsection{تولید محتوای آموزشی کوانتومی با هوش مصنوعی}
+
+	کمبود محتوای فارسی با کیفیت یکی از موانع اصلی ورود دانشجویان و مهندسان به کوانتوم است.
+	تولید ویدیو با هوش مصنوعی هزینه و زمان ساخت انیمیشن‌های مفهومی (درهم‌تنیدگی، پروتکل \lr{BB84}، شبکه‌های کوانتومی، حمله «ذخیره حالا، رمزگشایی بعداً»)
+	را بسیار کاهش می‌دهد و به تیم اجازه می‌دهد یک \textbf{سری ویدیویی منظم} منتشر کند.
+
+	\subsubsection*{مسیر تولید (Pipeline)}
+	\begin{enumerate}[rightmargin=0.5cm, itemsep=3pt]
+		\item \textbf{طرح و فیلمنامه:} متخصص کوانتوم موضوع و نکات علمی را تعیین می‌کند؛ هوش مصنوعی متن پیش‌نویس می‌دهد.
+		\item \textbf{بازبینی علمی:} تأیید دقت علمی توسط متخصص (الزامی، پیش از هر تولید تصویری).
+		\item \textbf{تولید تصویر و ویدیو:} کلیپ‌های کوتاه (معمولاً 5 تا 15 ثانیه) با مدل‌های تولید ویدیو، همراه با نمودارهای دقیق که با ابزار طراحی یا کد ساخته می‌شوند (فرمول‌ها و مدارها نباید توسط مدل ویدیو «کشیده» شوند).
+		\item \textbf{صدا و زیرنویس:} روایت فارسی و زیرنویس دوزبانه؛ بازبینی تلفظ اصطلاحات.
+		\item \textbf{مونتاژ و برندینگ:} قالب ثابت با آرم مرکز، رنگ و تیتراژ یکسان.
+		\item \textbf{انتشار و پایش:} انتشار در پلتفرم‌ها و بررسی بازخورد و اصلاح خطاهای گزارش‌شده.
+	\end{enumerate}
+
+	\subsubsection*{کانال‌های انتشار و رونمایی}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
+		\item \textbf{یوتیوب:} بایگانی دائمی سری‌ها و ویدیوهای کارگاه‌ها و همایش.
+		\item \textbf{لینکدین:} کلیپ‌های کوتاه (30 تا 90 ثانیه) و هم‌افزایی با پست‌های روزانه (فصل 5).
+		\item \textbf{آپارات، تلگرام و بله:} دسترسی آسان‌تر برای مخاطب داخل کشور.
+		\item \textbf{رونمایی در رویدادها:} نمایش اولین قسمت هر سری در همایش (فصل 1)، پخش ویدیوهای مقدماتی پیش از کارگاه‌ها (فصل 3) و استفاده به‌عنوان محتوای آماده‌سازی هکاتون (فصل 2).
+	\end{itemize}
+
+	\subsubsection*{سری‌های پیشنهادی}
+	\begin{center}
+	{\small
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabularx}{\textwidth}{|>{\raggedleft\arraybackslash}p{3.6cm}|X|>{\raggedleft\arraybackslash}p{2.6cm}|}
+		\hline
+		\rowcolor{mci-light}\textbf{سری} & \textbf{محتوا} & \textbf{مخاطب} \\
+		\hline
+		کوانتوم در 60 ثانیه & مفاهیم پایه (کیوبیت، برهم‌نهی، درهم‌تنیدگی) در کلیپ‌های کوتاه & عموم و دانشجویان \\
+		\hline
+		\lr{PQC} برای مهندسان شبکه & \lr{ML-KEM}، \lr{ML-DSA}، \lr{TLS} ترکیبی و برنامه مهاجرت & مهندسان مخابرات و امنیت \\
+		\hline
+		اینترنت کوانتومی تصویری & \lr{QKD}، تکرارکننده‌ها و تله‌پورتیشن با انیمیشن مفهومی & دانشجویان ارشد \\
+		\hline
+		آماده‌سازی کارگاه \lr{Qiskit} & ویدیوهای نصب و قدم اول، پیش از روز کارگاه & شرکت‌کنندگان کارگاه \\
+		\hline
+		مرور اخبار کوانتوم & خلاصه ماهانه اخبار با منبع & جامعه و رسانه \\
+		\hline
+	\end{tabularx}
+	}
+	\end{center}
+
+	\subsection{ملاحظات کیفی، حقوقی و برندینگ}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=4pt]
+		\item \textbf{دقت علمی:} مدل‌های ویدیو برای نمایش علمی دقیق ساخته نشده‌اند؛ هر ویدیو پیش از انتشار توسط متخصص بازبینی می‌شود.
+		\item \textbf{برچسب‌گذاری:} یوتیوب از سازندگان می‌خواهد محتوای واقع‌نما که با هوش مصنوعی ساخته یا دستکاری شده را اعلام کنند؛
+		استفاده برای نگارش فیلمنامه یا زیرنویس خودکار و محتوای آشکارا غیرواقعی یا انیمیشنی معمولاً از این الزام معاف است [9]. پیشنهاد می‌شود
+		همه ویدیوها، فراتر از الزام پلتفرم، با عبارت «تولیدشده با کمک هوش مصنوعی و بازبینی‌شده توسط متخصصان همراه اول» منتشر شوند.
+		\item \textbf{چهره و صدا:} از شبیه‌سازی چهره یا صدای افراد واقعی (سخنرانان و اساتید) بدون رضایت کتبی صریح استفاده نمی‌شود.
+		\item \textbf{حقوق مالکیت:} شرایط استفاده تجاری هر ابزار (و در برخی پلن‌ها حذف واترمارک) باید پیش از انتخاب بررسی شود.
+		\item \textbf{دسترسی و پرداخت:} امکان دسترسی و پرداخت از داخل ایران برای هر ارائه‌دهنده باید پیش از خرید بررسی شود؛ برخی مدل‌ها از طریق آگریگیتورها در دسترس‌ترند.
+		\item \textbf{پایداری بازار:} قیمت‌ها و حتی نام مدل‌ها هر چند هفته تغییر می‌کنند؛ تولید باید به یک ارائه‌دهنده وابسته نباشد.
+	\end{itemize}
+
+	\subsection{برآورد هزینه تولید ویدیو با هوش مصنوعی}
+
+	جدول زیر خلاصه‌ای از جدیدترین مدل‌های تولید ویدیو و ارزان‌ترین مسیر دسترسی به هر کدام (کیفیت 720p) را نشان می‌دهد.
+	داده‌ها در 4 مهر 1405 (26 سپتامبر 2026) از صفحات قیمت‌گذاری رسمی و آگریگیتورها گردآوری شده است.
+	جدول‌های کامل (قیمت هر مدل نزد ارائه‌دهندگان مختلف، پلن‌های اشتراک و مقایسه \lr{Seedance 2.5}) در \textbf{پیوست د} آمده است.
+
+	{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|>{\centering\arraybackslash}p{0.5cm}|>{\raggedleft\arraybackslash}p{2.7cm}|>{\raggedleft\arraybackslash}p{2.4cm}|>{\raggedleft\arraybackslash}p{3.3cm}|>{\centering\arraybackslash}p{1.2cm}|>{\centering\arraybackslash}p{1.4cm}|>{\centering\arraybackslash}p{1.0cm}|}
+\hline
+\rowcolor{mci-light}\textbf{\#} & \textbf{مدل} & \textbf{سازنده} & \textbf{ارزان‌ترین ارائه‌دهنده (720p)} & \textbf{دلار بر ثانیه} & \textbf{کلیپ 8 ثانیه‌ای} & \textbf{منبع} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{mci-light}\textbf{\#} & \textbf{مدل} & \textbf{سازنده} & \textbf{ارزان‌ترین ارائه‌دهنده (720p)} & \textbf{دلار بر ثانیه} & \textbf{کلیپ 8 ثانیه‌ای} & \textbf{منبع} \\
+\hline
+\endhead
+\hline
+\endfoot
+1 & \lr{Seedance 2.5} & \lr{ByteDance} (\lr{Volcano Engine / BytePlus}) & \lr{Atlas Cloud} (آگریگیتور) & \lr{\$0.134} & \lr{\$1.072} & \href{https://www.atlascloud.ai/blog/tips/seedance-2-5-api-transparent-pricing-no-enterprise-contract}{لینک} \\
+\hline
+2 & \lr{Kling 3.0} (و \lr{Kling 2.5 Turbo Pro}) & \lr{Kuaishou} & \lr{Renderful} (آگریگیتور) & \lr{\$0.062} & \lr{\$0.496} & \href{https://renderful.ai/blog/kling-api-pricing}{لینک} \\
+\hline
+3 & \lr{Veo 3.1} (رده \lr{Lite}) & \lr{Google DeepMind} & \lr{Google Gemini API} (رسمی) (رسمی) & \lr{\$0.05} & \lr{\$0.4} & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+\hline
+4 & \lr{Sora 2} (رده پایه، \lr{Batch}) & \lr{OpenAI} & \lr{OpenAI API} — حالت \lr{Batch} (رسمی) (رسمی) & \lr{\$0.05} & \lr{\$0.4} & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+\hline
+5 & \lr{Runway Gen-4.5} & \lr{Runway AI} & \lr{Runway Developer API} (رسمی) (رسمی) & \lr{\$0.12} & \lr{\$0.96} & \href{https://runway.com/pricing}{لینک} \\
+\hline
+6 & \lr{Luma Ray3.2} & \lr{Luma AI} & \lr{Luma API} (رسمی) (رسمی) & \lr{\$0.06} & \lr{\$0.48} & \href{https://lumalabs.ai/api}{لینک} \\
+\hline
+7 & \lr{MiniMax H3 Max} (جانشین \lr{Hailuo}) & \lr{MiniMax} & \lr{fal.ai} (عرضه مشترک رسمی) (رسمی/شریک) & \lr{\$0.08} & \lr{\$0.64} & \href{https://openrouter.ai/minimax/hailuo-3-max}{لینک} \\
+\hline
+8 & \lr{Wan 3.0} & \lr{Alibaba} & \lr{fal.ai} (میزبان رسمی مدل) (رسمی/شریک) & \lr{\$0.1} & \lr{\$0.8} & \href{https://fal.ai/wan-3}{لینک} \\
+\hline
+9 & \lr{Pika 2.5} & \lr{Pika Labs} & \lr{Pika API} — \lr{dev.pika.art} (رسمی) (رسمی) & \lr{\$0.04} & \lr{\$0.32} & \href{https://mcp.pika.art/pricing}{لینک} \\
+\hline
+10 & \lr{Grok Imagine Video} & \lr{xAI} & \lr{xAI API} (رسمی) (رسمی) & \lr{\$0.07} & \lr{\$0.56} & \href{https://mem0.ai/blog/xai-grok-api-pricing}{لینک} \\
+\hline
+\end{longtable}
+}
+
+
+	\subsubsection*{سناریوی نمونه: یک سری ویدیویی سالانه}
+	فرض‌ها: هر ویدیو 60 ثانیه خروجی نهایی است، به‌دلیل تولید مجدد و انتخاب بهترین نتیجه، حجم تولید 3 برابر خروجی نهایی در نظر گرفته شده، و
+	سری شامل 24 ویدیو در سال است (دو ویدیو در ماه). این برآورد فقط \textbf{هزینه تولید تصویر با مدل} (کیفیت 720p و بدون صدا) را در بر می‌گیرد
+	و هزینه فیلمنامه، روایت و صدا، مونتاژ و بازبینی علمی را شامل نمی‌شود.
+
+	\begin{center}
+{\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|>{\raggedleft\arraybackslash}p{3.3cm}|>{\raggedleft\arraybackslash}p{3.4cm}|>{\centering\arraybackslash}p{1.8cm}|>{\centering\arraybackslash}p{2.4cm}|>{\centering\arraybackslash}p{2.6cm}|}
+\hline
+\rowcolor{mci-light}\textbf{مدل} & \textbf{ارائه‌دهنده} & \textbf{\$/ثانیه (720p)} & \textbf{هر ویدیوی 1 دقیقه‌ای} & \textbf{سری 24 ویدیویی (یک سال)} \\
+\hline
+\lr{Pika 2.5} & \lr{Pika API} (رسمی) & \lr{\$0.04} & \lr{\$7.2} & \lr{\$173} \\
+\hline
+\lr{Veo 3.1 Lite} & \lr{Google Gemini API} & \lr{\$0.05} & \lr{\$9} & \lr{\$216} \\
+\hline
+\lr{Sora 2 (Batch)} & \lr{OpenAI API} & \lr{\$0.05} & \lr{\$9} & \lr{\$216} \\
+\hline
+\lr{Kling v2.5 Turbo} & \lr{Renderful} & \lr{\$0.062} & \lr{\$11.16} & \lr{\$268} \\
+\hline
+\lr{Wan 3.0} & \lr{fal.ai} & \lr{\$0.1} & \lr{\$18} & \lr{\$432} \\
+\hline
+\lr{Runway Gen-4.5} & \lr{Runway API} & \lr{\$0.12} & \lr{\$21.6} & \lr{\$518} \\
+\hline
+\lr{Seedance 2.5} & \lr{Atlas Cloud} & \lr{\$0.134} & \lr{\$24.12} & \lr{\$579} \\
+\hline
+\lr{Veo 3.1 Standard} & \lr{Google Gemini API} & \lr{\$0.4} & \lr{\$72} & \lr{\$1728} \\
+\hline
+\end{tabular}
+}
+\end{center}
+
+
+	{\small\color{mci-gray}
+	برای حجم‌های کوچک، پلن‌های اشتراک ارزان‌تر هستند: مثلاً در داده‌های گردآوری‌شده، پلن \lr{Standard} در \lr{Kling} (ماه اول \lr{6.99} دلار) حدود 13 تا 14 ویدیوی
+	8 ثانیه‌ای در ماه و پلن \lr{Standard} در \lr{Pika} (8 دلار در ماه با پرداخت سالانه) حدود 21 تا 22 ویدیوی 8 ثانیه‌ای می‌دهد؛ این اعداد با فرض موفقیت در تلاش اول است
+	و در عمل کمتر خواهد بود. تصمیم نهایی انتخاب مدل باید پس از آزمون کیفیت روی چند صحنه واقعی کوانتومی انجام شود، نه فقط بر اساس قیمت.}
+
+	\subsection*{منابع فصل}
+	{\footnotesize\sloppy
+	\begin{enumerate}[label={[\arabic*]}, rightmargin=0.5cm, itemsep=2pt]
+		\item \lr{The Quantum Insider}, «\lr{Microsoft Turns to Agentic AI to Speed Quantum Computing Push}»، خرداد 1405: \href{https://thequantuminsider.com/2026/06/03/ai-powered-quantum-microsoft-turns-to-agentic-ai-to-speed-quantum-computing-push/}{\lr{thequantuminsider.com}}
+		\item \lr{Quantonation}، «\lr{Agentic AI and the New Pace of Quantum Application Development}» (همکاری با \lr{Pasqal})، 29 ژوئیه 2026: \href{https://www.quantonation.com/2026/07/29/quantum-agent/}{\lr{quantonation.com}}
+		\item \lr{The Quantum Insider}، «\lr{IBM Releases Qiskit Code Assistant}»: \href{https://thequantuminsider.com/?p=2371105}{\lr{thequantuminsider.com}}
+		\item مخزن \lr{Qiskit MCP Servers} (شامل \lr{qiskit-code-assistant-mcp-server}): \href{https://github.com/Qiskit/mcp-servers}{\lr{github.com/Qiskit/mcp-servers}}
+		\item \lr{Kheiri et al., QSpark: Towards Reliable Qiskit Code Generation}، \lr{arXiv:2507.12642}: \href{https://arxiv.org/abs/2507.12642}{\lr{arxiv.org/abs/2507.12642}}
+		\item \lr{QuantumMind: Constraint-Grounded Agentic Reasoning for Speedup Analysis in Quantum Computing}، \lr{arXiv:2608.07743}: \href{https://arxiv.org/pdf/2608.07743}{\lr{arxiv.org/pdf/2608.07743}}
+		\item \lr{QNu Labs}، «\lr{Agentic AI and Quantum Security: The 2026 Convergence}»، 16 سپتامبر 2026 (منبع فروشنده): \href{https://www.qnulabs.com/blog/agentic-ai-and--quantum-security}{\lr{qnulabs.com}}
+		\item \lr{The Quantum Insider}، «\lr{IBM Expands AI and Quantum Research With IIT Bombay and IISc}»، 3 اکتبر 2026: \href{https://thequantuminsider.com/2026/10/03/ibm-academic-collaborations-iit-bombay-iisc-agentic-ai-quantum/}{\lr{thequantuminsider.com}}
+		\item \lr{YouTube Help}، سیاست افشای محتوای «\lr{altered or synthetic}» (به‌نقل از \lr{ppc.land}): \href{https://ppc.land/youtube-introduces-mandatory-disclosure-for-ai-content/}{\lr{ppc.land}}
+	\end{enumerate}
+	}
+
+
+	% ════════════════════════════════════════════════════════
+	%  نقشه راه و شاخص‌ها
+	% ════════════════════════════════════════════════════════
+	\newpage
+	\section*{نقشه راه و شاخص‌های موفقیت}
+	\addcontentsline{toc}{section}{نقشه راه و شاخص‌های موفقیت}
+
+	\begin{center}
 	\begin{tabularx}{\textwidth}{>{\bfseries\color{mci-blue}}r X}
 		\toprule
-		مکان برگزاری & سالن همایش‌های ساختمان ستاره ونک \\
+		مرحله 1 (0 تا 3 ماه) & راه‌اندازی سازمان گیت‌هاب و کانال‌های ارتباطی، شروع انتشار روزانه در \lr{LinkedIn}، اولین کارگاه (\lr{Qiskit})، تولید اولین سری ویدیوهای آموزشی با هوش مصنوعی \\
 		\midrule
-		ظرفیت تخمینی & $150$ نفر \\
+		مرحله 2 (3 تا 6 ماه) & برگزاری همایش \lr{Quantum Tech}، رونمایی از کتاب، کارگاه‌های \lr{PQC} و اینترنت کوانتومی \\
 		\midrule
-		زبان رویداد & فارسی (با اسلایدهای انگلیسی) \\
+		مرحله 3 (6 تا 12 ماه) & هکاتون، کارگاه \lr{QML}، تعریف رسمی دپارتمان کوانتوم و مسیر آموزشی آکادمی همراه، نسخه اول پشتیبانی \lr{PQC} در فورک \lr{mbedTLS}، دستیارهای عامل‌محور برای تمرین‌های کارگاه \\
 		\midrule
-		ضبط و پخش & حضوری با پخش زنده آنلاین \\
-		\midrule
-		هزینه ثبت‌نام & رایگان (با ثبت‌نام و تأیید قبلی) \\
+		مرحله 4 (پس از 12 ماه) & فراخوان سالانه مقاله، تداوم رویدادها و سری‌های ویدیویی به‌صورت سالانه \\
 		\bottomrule
 	\end{tabularx}
+	\end{center}
+
+	\subsection*{شاخص‌های پیشنهادی}
+	\begin{itemize}[rightmargin=0.5cm, itemsep=3pt]
+		\item تعداد شرکت‌کنندگان همایش، هکاتون و کارگاه‌ها و تعداد گواهی‌های صادرشده
+		\item ستاره‌ها، فورک‌ها و مشارکت‌کنندگان در مخازن \lr{mci-quantum-lab}
+		\item تعداد دنبال‌کنندگان و تعامل در \lr{LinkedIn} و کانال‌های ارتباطی
+		\item تعداد کتاب‌ها و مقالات منتشرشده با وابستگی همراه اول
+	\item تعداد ویدیوهای منتشرشده، بازدید و زمان تماشا در یوتیوب، لینکدین و آپارات
+		\item تعداد تفاهم‌نامه‌ها و پروژه‌های مشترک با دانشگاه‌ها
+	\end{itemize}
+
 	
 	% ════════════════════════════════════════════════════════
 	%  پیوست: معرفی سخنرانان و دلیل انتخاب
 	% ════════════════════════════════════════════════════════
 	\newpage
-	\section*{پیوست الف: معرفی سخنرانان و دلیل انتخاب ایشان}
-	\addcontentsline{toc}{section}{پیوست الف: معرفی سخنرانان و دلیل انتخاب ایشان}
+	\section*{پیوست الف: سخنرانان پیشنهادی همایش و دلیل انتخاب ایشان}
+	\addcontentsline{toc}{section}{پیوست الف: سخنرانان پیشنهادی همایش و دلیل انتخاب ایشان}
 	
 	{\small\color{mci-gray}
 		در ادامه، معرفی مختصری از هر یک از سخنرانان مدعو به همراه دلیل انتخاب ایشان
@@ -847,7 +830,7 @@
 	{دکتر ایوان جرجودیک}
 	{\raisebox{-1.5cm}{\includegraphics[width=2.5cm]{figs/ivan.jpeg}}}
 	{استاد، دانشکده مهندسی برق و کامپیوتر، دانشگاه ایالتی فلوریدا (\lr{FSU})}
-	{ایشان \lr{Fellow} انجمن \lr{IEEE} و \lr{Optica} هستند و مؤلف یا هم‌مؤلف هفت کتاب و بیش از ۵۳۰ مقاله علمی در حوزه‌های مخابرات کوانتومی و شبکه‌های کوانتومی، حسگری کوانتومی، رمزنگاری پساکوانتومی و توزیع کلید کوانتومی می‌باشند.}
+	{ایشان \lr{Fellow} انجمن \lr{IEEE} و \lr{Optica} هستند و مؤلف یا هم‌مؤلف هفت کتاب و بیش از 530 مقاله علمی در حوزه‌های مخابرات کوانتومی و شبکه‌های کوانتومی، حسگری کوانتومی، رمزنگاری پساکوانتومی و توزیع کلید کوانتومی می‌باشند.}
 	{تألیفات گسترده و شهرت بین‌المللی ایشان در حوزه مخابرات کوانتومی و رمزنگاری پساکوانتومی، ایشان را به گزینه‌ای برجسته برای ارائه دیدگاهی جامع و مرجع به رویداد تبدیل می‌کند.}
 	
 	\speakerprofile
@@ -914,6 +897,394 @@
 	
 	
 	
+
+	\newpage
+	\section*{پیوست ب: استخر افراد شناسایی‌شده (\lr{Pool of People})}
+	\addcontentsline{toc}{section}{پیوست ب: استخر افراد شناسایی‌شده}
+
+	{\small\color{mci-gray}
+		این فهرست از پروفایل‌های لینکدین و منابع عمومی (صفحات رسمی دانشگاهی، \lr{Google Scholar} و ...) گردآوری شده و
+		منبع اصلی انتخاب سخنران، مدرس کارگاه، منتور و داور هکاتون است. افراد علامت‌دار
+		(\ensuremath{\star}) در پیوست الف نیز معرفی شده‌اند. «---» یعنی اطلاعات از منابع عمومی در دسترس نبوده است.
+		پیش از دعوت رسمی، سمت و وابستگی فعلی هر نفر باید بررسی شود.}
+
+	\vspace{4pt}
+{\footnotesize
+	\setlength{\tabcolsep}{3pt}
+	\renewcommand{\arraystretch}{1.25}
+	\begin{longtable}{|>{\centering\arraybackslash}p{0.6cm}|>{\raggedleft\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedleft\arraybackslash}p{6.2cm}|>{\raggedright\arraybackslash}p{1.8cm}|}
+	\hline
+	\rowcolor{mci-light}\textbf{\#} & \textbf{نام و وابستگی} & \textbf{کلمات کلیدی} & \textbf{حوزه کاری و تخصص} & \textbf{لینک‌ها} \\
+	\hline
+	\endfirsthead
+	\hline
+	\rowcolor{mci-light}\textbf{\#} & \textbf{نام و وابستگی} & \textbf{کلمات کلیدی} & \textbf{حوزه کاری و تخصص} & \textbf{لینک‌ها} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	\multicolumn{5}{|r|}{\cellcolor{mci-blue!12}\textbf{افراد مقیم ایران (6 نفر)}} \\
+	\hline
+	1 & \lr{Jawad A. Salehi} — \lr{Sharif University of Technology} $\star$ & \lr{\raggedright Quantum Communications, QKD, Quantum Multiple Access, Quantum Internet, Optical Networks} & استاد ممتاز دانشکدهٔ مهندسی برق دانشگاه صنعتی شریف و عضو مرکز کوانتوم شریف (\lr{IEEE Fellow} و \lr{Optica Fellow}). طبق صفحهٔ شخصی و ویکی‌پدیا، حوزه‌های فعلی: اینترنت کوانتومی، سیگنال‌ها و سامانه‌های ارتباطات کوانتومی و دسترسی چندگانهٔ کوانتومی. مجری طرح طراحی نخستین شبکهٔ توزیع کلید کوانتومی (\lr{QKD}) ویژهٔ تهران روی فیبر نوری موجود (باند \lr{O}) با حمایت معاونت علمی (مرداد \lr{1404})؛ مقالاتش دربارهٔ تخصیص منابع و طول موج در شبکه‌های ترکیبی کوانتومی–کلاسیک با \lr{QKD} نیز ثبت شده است. & \href{https://scholar.google.com/citations?user=XupyKzoAAAAJ}{\lr{Scholar}} \\ \href{http://sharif.edu/~jasalehi/}{\lr{Web}} \\
+	\hline
+	2 & \lr{Alireza Bahrampour} — \lr{Sharif University of Technology} & \lr{\raggedright Quantum Communication, QKD Protocols, Quantum Optics, Photonics, Quantum Imaging} & استاد دانشکدهٔ فیزیک دانشگاه صنعتی شریف و بنیان‌گذار و رئیس مرکز مهندسی کوانتومی و فناوری‌های فوتونی شریف (\lr{RCQEPT}، تأسیس \lr{1395}). طبق صفحهٔ دروس مرکز، درس «ارتباطات کوانتومی» (مفاهیم ارتباطات کوانتومی و انواع پروتکل‌های \lr{QKD}) را در تحصیلات تکمیلی تدریس می‌کند؛ زمینه‌های پژوهشی: اپتیک کوانتومی، فوتونیک و تصویربرداری کوانتومی. توجه: پیشینهٔ او فیزیک/فوتونیک است، اما فعالیتش با ارتباطات کوانتومی و \lr{QKD} پیوند مستقیم دارد. & \href{http://quantum.sharif.edu/about/}{\lr{Web}} \\
+	\hline
+	3 & \lr{Mohammad Vahedi} (محمد واحدی) — \lr{Iran University of Science and Technology} & \lr{\raggedright Quantum Communication Networks, Fiber-Based Quantum Cryptography, MDI-QKD, Optical Fiber Communications, Photonics} & عضو هیئت علمی دانشکدهٔ فیزیک دانشگاه علم و صنعت ایران و مدیر مرکز پژوهش، فناوری و نوآوری شبکه‌های ارتباطات کوانتومی (سای‌نت). طبق صفحهٔ دانشگاه، در حوزهٔ مخابرات فیبر نوری روی پیاده‌سازی رمزنگاری کوانتومی مبتنی بر فیبر نوری کار می‌کند؛ همچنین سخنران وبینار «توزیع کلید کوانتومی مستقل از دستگاه اندازه‌گیری» در مدرسهٔ «سایکت» بوده است. دکتری و کارشناسی ارشد از دانشگاه صنعتی شریف. & \href{https://www.iust.ac.ir/content/26090/\%D8\%AF\%DA\%A9\%D8\%AA\%D8\%B1-\%D9\%85\%D8\%AD\%D9\%85\%D8\%AF-\%D9\%88\%D8\%A7\%D8\%AD\%D8\%AF\%DB\%8C}{\lr{Web}} \\ \href{https://psi-net.ir}{\lr{Web2}} \\
+	\hline
+	4 & \lr{Davood Ranjbar Rafi} (داود رنجبر رفیع) — \lr{ICT Research Institute} (\lr{ITRC}) & \lr{\raggedright Optical Communications, Quantum Communication, Quantum Network, QKD, National Quantum Roadmap} & سرپرست گروه ارتباطات نوری پژوهشگاه ارتباطات و فناوری اطلاعات. طبق صفحهٔ گروه، فعالیت‌ها شامل پژوهش‌های بنیادی و کاربردی در ارتباطات نوری و کوانتومی، تهیهٔ نقشه راه و برنامهٔ بومی‌سازی این فناوری‌ها و مشاورهٔ سیستم‌ها و شبکه‌های ارتباطات کوانتومی است. طبق گفت‌وگوی او با خبرگزاری مهر، پژوهشگاه از \lr{1394} روی ارتباطات، رمزنگاری و رایانش کوانتومی کار کرده، نقشه راه فناوری کوانتوم کشور را در \lr{1398} تدوین کرده و پروژهٔ ملی نخستین شبکهٔ کوانتومی (\lr{QKD} روی فیبر نوری) در دست اجراست. توجه: پژوهشگر پژوهشگاه است، نه عضو هیئت علمی دانشگاه. & \href{https://www.itrc.ac.ir/taxonomy/term/3216}{\lr{Web}} \\
+	\hline
+	5 & \lr{Hossein Pilaram} — \lr{Sharif University of Technology} (\lr{Electronics Research Institute}) & \lr{\raggedright Post-Quantum Cryptography, Lattice-Based Cryptography, Threshold Signatures, Secret Sharing} & استادیار پژوهشکدهٔ الکترونیک دانشگاه صنعتی شریف. نویسندهٔ مقالهٔ مروری «\lr{A Comprehensive Review of Post-Quantum Cryptography: Challenges and Advances}» (منبع: \lr{IACR ePrint 2024/1940}) و همچنین مقالاتی در رمزنگاری مبتنی بر شبکه (\lr{lattice}) از جمله طرح امضای آستانه‌ای مبتنی بر \lr{lattice} با اشتراک چندمرحله‌ای راز (منبع: صفحهٔ انتشارات دکتر اقلیدس). & --- \\
+	\hline
+	6 & \lr{Taraneh Eghlidos} — \lr{Sharif University of Technology} (\lr{Electronics Research Institute}) $\star$ & \lr{\raggedright Post-Quantum Cryptography, Lattice-Based Cryptography, NIST PQC Evaluation, Cryptography} & پژوهشگر پژوهشکدهٔ الکترونیک دانشگاه صنعتی شریف در حوزهٔ رمزنگاری. طبق صفحهٔ انتشارات خودش، گزارش فنی «ارزیابی طرح‌های رمزنگاری پساکوانتومی \lr{PKE/KEM} ارائه‌شده به \lr{NIST}» و چند اثر دربارهٔ رمزنگاری مبتنی بر \lr{lattice} (رمزگذاری کلید عمومی، رمزگذاری همومورفیک، اشتراک راز) دارد. توجه: حوزهٔ اصلی او رمزنگاری به‌طور کلی است؛ بخش پساکوانتومی کارش مستند شده. & \href{https://sharif.edu/~teghlidos/publications.htm}{\lr{Web}} \\
+	\hline
+	\multicolumn{5}{|r|}{\cellcolor{mci-blue!12}\textbf{افراد مقیم خارج از ایران (16 نفر)}} \\
+	\hline
+	7 & \lr{Ali Nawaz Ranjha} (\lr{PhD}) — \lr{Carleton Univ., Canada} & \lr{\raggedright 6G, URLLC, UAV, Non-Terrestrial Networks, Quantum Communications} & --- & \href{https://www.linkedin.com/in/ali-nawaz-ranjha-ph-d-293314224/}{\lr{LinkedIn}} \\ \href{https://sites.google.com/view/aliranjha/home}{\lr{Web}} \\ \href{https://scholar.google.com/citations?user=e31x0EgAAAAJ}{\lr{Scholar}} \\
+	\hline
+	8 & \lr{Soundes Marzougui} (\lr{PhD}) & \lr{\raggedright PQC, Side-Channel Attacks, Fault Injection, Lattice-Based Signatures, Hardware Implementation} & پژوهشگر رمزنگاری پساکوانتومی با تمرکز بر امنیت پیاده‌سازی: حملات کانال جانبی و تزریق خطا روی الگوریتم‌های امضای پساکوانتومی (\lr{Dilithium}، \lr{BLISS}، \lr{Rainbow})، پیاده‌سازی سخت‌افزاری \lr{MAYO} و ساز و کار \lr{SUCI} پساکوانتومی برای \lr{6G} (منبع: \lr{dblp}). & \href{https://www.linkedin.com/in/soundes-marzougui-ph-d-8a205964/}{\lr{LinkedIn}} \\ \href{https://scholar.google.com/citations?user=9rjaZ8oAAAAJ}{\lr{Scholar}} \\ \href{https://dblp.org/pid/246/5573.html}{\lr{DBLP}} \\
+	\hline
+	9 & \lr{Simon Devitt} — \lr{UTS, Australia} & \lr{\raggedright Quantum Computer Architecture, Quantum Error Correction, Quantum Networks, Quantum Programming, Quantum Software} & فیزیک‌دان نظری کوانتومی؛ مدیر پژوهش \lr{Centre for Quantum Software and Information} در \lr{UTS.} تخصص: معماری رایانه‌های کوانتومی مقیاس‌بزرگ، تصحیح خطای کوانتومی، طراحی شبکه‌های کوانتومی و برنامه‌نویسی کوانتومی؛ عضو کمیته مشورتی ملی کوانتوم استرالیا (\lr{2022}). & \href{https://www.linkedin.com/in/simon-devitt-736313106/}{\lr{LinkedIn}} \\ \href{https://profiles.uts.edu.au/Simon.Devitt}{\lr{Web}} \\ \href{https://quantumts.org}{\lr{Web2}} \\ \href{https://scholar.google.com/citations?user=v_L0Gm4AAAAJ}{\lr{Scholar}} \\
+	\hline
+	10 & \lr{Takuya Ikuta} — \lr{NTT, Japan} & \lr{\raggedright QKD, High-Dimensional QKD, Mutually Unbiased Bases, Photonics, Quantum Communication} & پژوهشگر ارشد آزمایشگاه‌های علوم فیزیکی \lr{NTT} (ژاپن). تخصص: فوتونیک و ارتباطات کوانتومی، از جمله پیاده‌سازی مقیاس‌پذیر \lr{QKD} با بُعد \lr{d} و پایه‌های نامتعامد متقابل (\lr{Physical Review Research}، \lr{2022}) (منبع: \lr{Researchmap}). & \href{https://www.linkedin.com/in/takuya-ikuta-210730360/}{\lr{LinkedIn}} \\ \href{https://researchmap.jp/takuya_ikuta}{\lr{Web}} \\ \href{https://www.rd.ntt/e/brl/group_introduction/group_009.html}{\lr{Web2}} \\
+	\hline
+	11 & \lr{Dr. Sana} (\lr{PhD, SMIEEE, MIET, MACM, MWISE}) & --- & --- & \href{https://www.linkedin.com/in/dr-sana-phd-smieee-miet-macm-mwise-94633564/}{\lr{LinkedIn}} \\
+	\hline
+	12 & \lr{Mina Namazi} (\lr{PhD}) & \lr{\raggedright Homomorphic Encryption, Genomic Privacy, Applied Cryptography, Zero-Knowledge Proofs, Authentication Protocols} & پژوهشگر رمزنگاری کاربردی با پیشینه ریاضی (آزمایشگاه \lr{SPiD}، دانشگاه \lr{Case Western Reserve}). حوزه کاری: حریم خصوصی ژنومی و رمزنگاری همومورفیک، و طراحی پروتکل‌های هویت‌سنجی و احراز هویت مبتنی بر اثبات دانش‌صفر. & \href{https://www.linkedin.com/in/mina-namazi-phd-64b36426/}{\lr{LinkedIn}} \\ \href{https://engineering.case.edu/research/labs/SPiD/lab-members/mina-namazi}{\lr{Web}} \\
+	\hline
+	13 & \lr{Saleh Darzi} & \lr{\raggedright PQC, Applied Cryptography, Blockchain, IoT Security, Wireless Security} & --- & \href{https://www.linkedin.com/in/salehdarzi/}{\lr{LinkedIn}} \\ \href{https://scholar.google.com/citations?user=uXdW32oAAAAJ}{\lr{Scholar}} \\
+	\hline
+	14 & \lr{Shabnam Saderi} & --- & --- & \href{https://www.linkedin.com/in/shabnam-saderi-262378150/}{\lr{LinkedIn}} \\
+	\hline
+	15 & \lr{Leila Taghizadeh} & \lr{\raggedright PQC, PQC Migration, Cyber Risk Management} & --- & \href{https://www.linkedin.com/in/leilataghizadeh/}{\lr{LinkedIn}} \\ \href{https://pkic.org/members/leila-taghizadeh/}{\lr{Web}} \\ \href{https://www.etsi.org/speakers/leila-taghizadeh/}{\lr{Web2}} \\
+	\hline
+	16 & \lr{Dr. Rachid Bansarkhani} & \lr{\raggedright PQC, Lattice-Based Cryptography, Digital Signatures, Multi-Signatures, Encryption} & رمزنگار پساکوانتومی؛ دکتری \lr{TU Darmstadt} (\lr{2015}) با رساله درباره طراحی و بهبود رمزنگاری مبتنی بر شبکه (\lr{lattice}). آثار: امضاهای فشرده مبتنی بر شبکه، رمزگذاری \lr{CCA-secure}، چندامضایی و امضای کور، و طرح \lr{LARA} (منبع: \lr{TUprints/TUbiblio}). & \href{https://www.linkedin.com/in/dr-rachid-bansarkhani/}{\lr{LinkedIn}} \\ \href{https://dblp.org/pid/115/4396.html}{\lr{DBLP}} \\ \href{https://www.semanticscholar.org/author/Rachid-El-Bansarkhani/2126787}{\lr{S2}} \\
+	\hline
+	17 & \lr{Arash Safajoo} & --- & --- & \href{https://www.linkedin.com/in/arash-safajoo-592ab9121/}{\lr{LinkedIn}} \\
+	\hline
+	18 & \lr{Muhammad Arslan Akram} & \lr{\raggedright PQC, Cybersecurity, AI for Cybersecurity, Applied Cryptography, Quantum Cryptography} & --- & \href{https://www.linkedin.com/in/muhammad-arslan-akram-2884b1121/}{\lr{LinkedIn}} \\ \href{https://pure.qub.ac.uk/en/persons/muhammad-arslan-akram/}{\lr{Web}} \\ \href{https://scholar.google.com/citations?user=YZS_ZYwAAAAJ}{\lr{Scholar}} \\
+	\hline
+	19 & \lr{Mahnaz Namazi Rizi} & \lr{\raggedright PQC, Classic McEliece, RISC-V, Embedded Security, HW/SW Co-design} & --- & \href{https://www.linkedin.com/in/mahnaz-namazi-rizi/}{\lr{LinkedIn}} \\ \href{https://www.universiteitleiden.nl/en/staffmembers/mahnaz-namazi-rizi}{\lr{Web}} \\ \href{https://scholar.google.com/citations?user=QPQFq84AAAAJ}{\lr{Scholar}} \\
+	\hline
+	20 & \lr{Kiarash Sedghi} & \lr{\raggedright PQC, Threshold Signatures, Secure Computation, Fault Detection, Applied Cryptography} & --- & \href{https://www.linkedin.com/in/kiarash-sedghi/}{\lr{LinkedIn}} \\ \href{https://scholar.google.com/citations?user=B7wAKkEAAAAJ}{\lr{Scholar}} \\
+	\hline
+	21 & \lr{Bahman Rashidi} & \lr{\raggedright Cybersecurity, Privacy Engineering, IoT Security, ML for Security, QKD} & مدیر پژوهش امنیت سایبری و حریم خصوصی در \lr{Comcast Cable.} حوزه کاری: امنیت شبکه، دستگاه‌های \lr{IoT}، کاربرد یادگیری ماشین در امنیت سایبری، حفاظت از داده و حریم خصوصی، و رایانش کوانتومی/توزیع کلید کوانتومی (منبع: \lr{RSA Conference}). & \href{https://www.linkedin.com/in/bahman-rashidi/}{\lr{LinkedIn}} \\ \href{https://www.rsaconference.com/experts/bahman-rashidi}{\lr{Web}} \\ \href{https://corporate.comcast.com/cybersecurity/ccs-research}{\lr{Web2}} \\ \href{https://scholar.google.com/citations?user=v_sv5LMAAAAJ}{\lr{Scholar}} \\
+	\hline
+	22 & \lr{Mohsen Razavi} — \lr{University of Leeds, UK} $\star$ & \lr{\raggedright Quantum Communications, QKD, Quantum Repeaters, Quantum Communication Networks, Optical Communications} & پروفسور ارتباطات کوانتومی در دانشکده مهندسی برق و الکترونیک دانشگاه لیدز (بریتانیا) از سال \lr{2009.} کارشناسی و کارشناسی‌ارشد مهندسی برق از دانشگاه صنعتی شریف (\lr{1998} و \lr{2000})، دکتری از \lr{MIT} (\lr{2006}) و فوق‌دکتری در \lr{MIT} و مؤسسه محاسبات کوانتومی دانشگاه واترلو. تخصص: توزیع کلید کوانتومی (\lr{QKD})، تکرارگرهای کوانتومی و شبکه‌های ارتباطات کوانتومی؛ هماهنگ‌کننده پروژه اروپایی \lr{QCALL}، نویسنده کتابی درباره شبکه‌های ارتباطات کوانتومی (\lr{IOP}) و همکار پروژه \lr{Quantum-Safe Internet} (\lr{QSI}). & \href{https://www.linkedin.com/in/mohsen-razavi-3294376/}{\lr{LinkedIn}} \\ \href{https://eps.leeds.ac.uk/electronic-engineering/staff/495/professor-mohsen-razavi}{\lr{Web}} \\ \href{https://scholar.google.com/citations?user=hbsyqxsAAAAJ}{\lr{Scholar}} \\
+	\hline
+	\end{longtable}
+	}
+	
+
+	\newpage
+	\section*{پیوست ج: شرکت‌ها و مراکز فعال در حوزه کوانتوم}
+	\addcontentsline{toc}{section}{پیوست ج: شرکت‌ها و مراکز فعال در حوزه کوانتوم}
+
+	{\small\color{mci-gray}
+		فهرست شرکت‌ها و مراکز برای شناسایی شرکای اجرایی و حامی (هکاتون، کارگاه‌ها و همایش)، منابع محتوای آموزشی و
+		بازیگران همتا در بازار \lr{QKD}، \lr{QRNG} و \lr{PQC}. توضیحات از وب‌سایت رسمی، خبرگزاری‌ها و پایگاه‌های دانشگاهی
+		گردآوری شده است.}
+
+	\vspace{4pt}
+{\footnotesize
+	\setlength{\tabcolsep}{3pt}
+	\renewcommand{\arraystretch}{1.25}
+	\begin{longtable}{|>{\centering\arraybackslash}p{0.6cm}|>{\raggedleft\arraybackslash}p{3.0cm}|>{\raggedright\arraybackslash}p{3.0cm}|>{\raggedleft\arraybackslash}p{6.2cm}|>{\raggedright\arraybackslash}p{1.8cm}|}
+	\hline
+	\rowcolor{mci-light}\textbf{\#} & \textbf{نام شرکت / مرکز} & \textbf{کلمات کلیدی} & \textbf{حوزه کاری و تخصص} & \textbf{لینک‌ها} \\
+	\hline
+	\endfirsthead
+	\hline
+	\rowcolor{mci-light}\textbf{\#} & \textbf{نام شرکت / مرکز} & \textbf{کلمات کلیدی} & \textbf{حوزه کاری و تخصص} & \textbf{لینک‌ها} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	\multicolumn{5}{|r|}{\cellcolor{mci-blue!12}\textbf{شرکت‌ها و مراکز ایرانی (9 مورد)}} \\
+	\hline
+	1 & \lr{Parsa Quantum} & \lr{\raggedright Quantum Technology, Quantum Sensing, Quantum Secure Communication, Photonics} & \lr{Parsa Quantum Technology}؛ طبق وب‌سایت رسمی، نخستین شرکت ایرانی در حوزه فناوری‌های کوانتومی (تأسیس \lr{2017}) با تیمی از فارغ‌التحصیلان دانشگاه‌های ایران در فوتونیک، الکترونیک، مکانیک و کامپیوتر. از \lr{2017} بیش از \lr{8} محصول در زمینه حسگری کوانتومی و ارتباطات امن کوانتومی معرفی کرده است (\lr{parsaqtech.com}). & \href{https://www.linkedin.com/company/parsaqtech}{\lr{LinkedIn}} \\ \href{https://parsaqtech.com}{\lr{Web}} \\
+	\hline
+	2 & \lr{ICT Research Institute} – \lr{ITRC} (پژوهشگاه ارتباطات و فناوری اطلاعات) & \lr{\raggedright Telecommunications, ICT Security, QKD, Quantum Communication, Post-Quantum Cryptography, National ICT Research} & پژوهشگاه حاکمیتی و از قدیمی‌ترین نهادهای پژوهشی حوزه فاوا در ایران؛ بازوی پژوهشی و مشاور وزارت ارتباطات (تأسیس \lr{1970} میلادی با نام مرکز تحقیقات مخابرات ایران) با پژوهشکده‌هایی در فناوری ارتباطات، فناوری اطلاعات، امنیت فاوا و مطالعات سیاستی. در حوزه کوانتوم: راه‌اندازی نخستین شبکه پایلوت آزمایشگاهی و میدانی \lr{VPN} امن مبتنی بر \lr{IPsec} با توزیع کلید کوانتومی (\lr{QKD}) روی فیبر نوری با همکاری یک شرکت دانش‌بنیان داخلی (خبرگزاری آنا، \lr{1405})؛ تفاهم‌نامه با شرکت ارتباطات زیرساخت برای آزمایشگاه‌های مرجع کوانتومی؛ و طرح «پژوهانه» با محور ارتباطات کوانتومی و رمزنگاری پساکوانتومی. & \href{https://www.linkedin.com/company/iran-telecommunication-research-center-itrc/home/}{\lr{LinkedIn}} \\ \href{https://en.itrc.ac.ir}{\lr{Web}} \\ \href{https://www.itrc.ac.ir}{\lr{Web2}} \\
+	\hline
+	3 & \lr{Sharif Quantum Center} – \lr{RCQEPT} (مرکز مهندسی کوانتومی و فناوری‌های فوتونی دانشگاه صنعتی شریف) & \lr{\raggedright Quantum Communication, QKD, Quantum Optics, Quantum Metrology \& Sensing, Quantum Computation, Photonics} & مرکز پژوهشی دانشگاه صنعتی شریف که طبق وب‌سایت خودش نخستین آزمایشگاه پژوهشی کوانتومی ایران است (تأسیس \lr{1395/2016} به سرپرستی دکتر علیرضا بهرامپور، دانشکده فیزیک). تمرکز: اپتیک کوانتومی، ارتباطات کوانتومی روی فیبر نوری، متروولوژی و حسگری کوانتومی و محاسبات کوانتومی. طبق گزارش‌های خبری (مرداد \lr{1404})، پژوهشگران این مرکز به‌اجرای دکتر جواد صالحی و با حمایت معاونت علمی، نخستین شبکه توزیع کلید کوانتومی (\lr{QKD}) ویژه تهران را روی فیبر نوری موجود و در باند \lr{O} طراحی کردند. & \href{http://quantumcenter.sharif.edu}{\lr{Web}} \\ \href{http://quantum.sharif.edu}{\lr{Web2}} \\
+	\hline
+	4 & \lr{Quantum Science \& Technology Group} – \lr{Sharif Convergent Sciences \& Technologies Research Institute} (گروه علوم و فناوری‌های کوانتومی، پژوهشکده جامع علوم و فناوری‌های همگرا، دانشگاه صنعتی شریف) & \lr{\raggedright Quantum Communication Systems, QKD, Quantum Multiple Access (QWDM / QCDMA), Quantum Information Transfer, Quantum Fourier Optics} & گروه پژوهشی کوانتومی در پژوهشکدهٔ جامع علوم و فناوری‌های همگرای دانشگاه صنعتی شریف. طبق صفحهٔ فعالیت‌های پژوهشی گروه، محورهای اصلی: طراحی سامانه‌های مخابرات کوانتومی، امنیت ذاتی ارتباطات با توزیع کلید کوانتومی (\lr{QKD})، انتقال اطلاعات کوانتومی، و دسترسی چندگانهٔ کوانتومی روی فیبر نوری (\lr{QWDM} و \lr{QCDMA}) به‌همراه اپتیک فوریهٔ کوانتومی. دکتر جواد صالحی (ارتباطات و محاسبات کوانتومی) از اعضای شورای این گروه است. توجه: از نظر پژوهشی به مجموعهٔ کوانتومی شریف (ردیف «مرکز کوانتوم شریف») نزدیک است و همپوشانی دارد. & \href{https://nano.sharif.ir/quantum}{\lr{Web}} \\
+	\hline
+	5 & \lr{Quantum Networks Research, Technology \& Innovation Center} – \lr{IUST} (مرکز پژوهش، فناوری و نوآوری شبکه‌های ارتباطات کوانتومی دانشگاه علم و صنعت ایران) & \lr{\raggedright Quantum Communication Networks, Secure Quantum Communication, Quantum Cryptography, Quantum Optics, Innovation Center} & مرکز نوآوری دانشگاه علم و صنعت ایران که \lr{10} اردیبهشت \lr{1403} با حضور معاون علمی رئیس‌جمهور افتتاح شد. طبق گزارش ایرنا، مرکز روی شبکه ارتباطات امن کوانتومی با هدف ارتقای امنیت و شبکه‌سازی کار می‌کند و همزمان به آموزش دانشجویان، پژوهش اساتید و تأمین فناوری موردنیاز صنعت می‌پردازد. سایت رسمی مرکز با نام «سای‌نت» (\lr{Psi-Net}) به آدرس \lr{psi-net.ir} است (طبق خبر دانشگاه علم و صنعت)؛ مدیر مرکز: دکتر محمد واحدی، عضو هیئت علمی دانشکده فیزیک همین دانشگاه. & \href{https://www.iust.ac.ir/content/77851/}{\lr{Web}} \\ \href{https://psi-net.ir}{\lr{Web2}} \\
+	\hline
+	6 & \lr{Iranian Center for Quantum Technologies} – \lr{ICQT} (مرکز فناوری‌های کوانتومی ایران) & \lr{\raggedright QKD, Entanglement-based QKD, Quantum Communication, Quantum Sensing, Quantum Metrology} & طبق گزارش‌های خبری، مرکز فناوری‌های کوانتومی وابسته به سازمان انرژی اتمی ایران؛ در بهمن \lr{1399} سومین مرحله آزمایش توزیع کلید کوانتومی مبتنی بر درهم‌تنیدگی فوتون‌ها را بین ساختمان مرکز و برج میلاد تهران (فاصله \lr{1650} متر) رونمایی کرد (ایسنا). گروه حسگری و متروولوژی کوانتومی نیز با نام این مرکز در مقالات علمی دیده می‌شود. توجه: سازمان انرژی اتمی مشمول تحریم‌های بین‌المللی است؛ برای هر ارتباط یا همکاری ملاحظات تحریمی را بررسی کنید. & \href{https://www.icqts.ir}{\lr{Web}} \\
+	\hline
+	7 & \lr{Center for Quantum Science and Technology} – \lr{CQST, University of Isfahan} (مرکز علوم و فناوری‌های کوانتومی دانشگاه اصفهان) & \lr{\raggedright Quantum Optics, Quantum Communication, QKD, QRNG, Post-Quantum Cryptography, Quantum Metrology} & مرکز پژوهشی کوانتومی دانشگاه اصفهان (در ارتباط با گروه اپتیک کوانتومی دانشکده فیزیک). میزبان «مدرسه ارتباطات و رمزنگاری کوانتومی» و «مدرسه ارتباطات و رمزنگاری پساکوانتومی» (اردیبهشت \lr{1404}) با همکاری انجمن رمز ایران و انجمن اپتیک و فوتونیک ایران؛ محورها شامل طراحی سامانه \lr{QKD} فیبر نوری و فضای آزاد، پس‌پردازش و الکترونیک سامانه‌های ارتباطات کوانتومی و مولد اعداد تصادفی کوانتومی (\lr{QRNG}). طبق مقالات علمی، پژوهش‌های آن شامل اپتیک کوانتومی، متروولوژی و تصویربرداری کوانتومی نیز هست. & \href{https://cqst.ir/}{\lr{Web}} \\
+	\hline
+	8 & \lr{NAAD} – \lr{Noavaran Amn Andish Sharif} (نوآوران امن‌اندیش شریف – نآد) & \lr{\raggedright Post-Quantum Cryptography (PQC), PQC Hardware VPN Tunnel, Hardware-Based Network Security, FPGA / Embedded Security, Secure Communication Modules} & شرکت دانش‌بنیان نوع اول و عضو پارک علم و فناوری شریف (تهران)؛ تأسیس \lr{1393} توسط دو عضو هیئت علمی دانشگاه صنعتی شریف با هدف امن‌سازی زیرساخت‌های حیاتی کشور. تمرکز: امنیت سایبری لایه‌های سطح پایین، سامانه‌های سخت‌افزاری امنیتی و ماژول‌های ارتباط امن شبکه (طراحی روی سیستم‌های \lr{Embedded/FPGA}) و خدمات امنیت \lr{IT} (تست نفوذ، \lr{Hardening}، مشاوره). طبق گزارش معاونت علمی (شهریور \lr{1403})، محصولات «دماوند» و «دنا» با هدف افزایش امنیت در برابر حملات سایبری کوانتومی معرفی شده‌اند؛ مدیرعامل: محمود اقوامی‌پناه. همچنین طبق گزارش نمایشگاه پدافند غیرعامل \lr{1403} (پایگاه آفتانا)، نسخهٔ پساکوانتومی محصولات تونل امن سخت‌افزاری خود (دماوند: سمت سرور، دنا: سمت کلاینت) را مبتنی بر الگوریتم‌های رمزنگاری پساکوانتومی (\lr{PQC}) رونمایی کرده است. توجه: شرکت در اصل امنیت سایبری/سخت‌افزاری است و ارتباطش با کوانتوم از مسیر همین محصولات \lr{PQC} است. & \href{https://www.linkedin.com/company/naadsecure/home/}{\lr{LinkedIn}} \\ \href{https://naadsecure.ir}{\lr{Web}} \\
+	\hline
+	9 & \lr{Farhikhtegan Hami-ye Elm va Sanat} (فرهیختگان حامی علم و صنعت) & \lr{\raggedright Quantum Random Number Generator (QRNG), Laser Phase Noise, Optics \& Photonics} & شرکت دانش‌بنیان تهرانی با گروه اپتیک و فوتونیک. طبق گزارش خبرگزاری مهر (\lr{1401})، مولد عدد تصادفی کوانتومی (\lr{QRNG}) مبتنی بر نویز فاز لیزر با نرخ حدود \lr{500} مگابیت بر ثانیه ساخته و آن را نخستین محصول صنعتی حوزهٔ فناوری کوانتومی در غرب آسیا و نخستین مولد تصادفی واقعی مبتنی بر فناوری کوانتومی در کشور معرفی کرده است؛ کاربردها: رمزنگاری، بانک، مراکز نظامی و پژوهشی. توجه: شرکت مهندسی/اپتیک عمومی‌تری است و \lr{QRNG} محصول کوانتومی آن است؛ محصول یا فعالیت مستقیم در \lr{QKD} یا \lr{PQC} برایش پیدا نشد. & \href{https://www.linkedin.com/company/farhikhtegan}{\lr{LinkedIn}} \\ \href{https://www.mehrnews.com/news/5621442/\%D8\%AA\%D9\%88\%D9\%84\%DB\%8C\%D8\%AF-\%D8\%B9\%D8\%AF\%D8\%AF-\%D8\%AA\%D8\%B5\%D8\%A7\%D8\%AF\%D9\%81\%DB\%8C-\%DA\%A9\%D9\%88\%D8\%A7\%D9\%86\%D8\%AA\%D9\%88\%D9\%85\%DB\%8C-\%D8\%A8\%D8\%A7-\%D9\%86\%D8\%B1\%D8\%AE-\%D8\%A8\%D8\%A7\%D9\%84\%D8\%A7-\%D9\%88-\%D9\%82\%D8\%A7\%D8\%A8\%D9\%84-\%D9\%82\%D8\%A8\%D9\%88\%D9\%84-\%D9\%85\%D9\%85\%DA\%A9\%D9\%86-\%D8\%B4\%D8\%AF}{\lr{Web}} \\
+	\hline
+	\multicolumn{5}{|r|}{\cellcolor{mci-blue!12}\textbf{شرکت‌های خارجی (21 مورد)}} \\
+	\hline
+	10 & \lr{Quantum Security Defence} (\lr{QSECDEF}) & \lr{\raggedright Quantum Security, Training, Certification, Procurement Standards, Networking} & پلتفرم جهانی شبکه‌سازی، آموزش و کسب‌وکار برای زنجیره تأمین امن کوانتومی (شبکه مشاوره‌ای با بیش از \lr{1000} عضو). تدوین استانداردهای تدارکات، چارچوب‌های گواهی‌سازی و برنامه‌های آموزشی برای گذار به شبکه‌های کوانتومی امن؛ برگزارکننده سمپوزیوم جهانی \lr{QSECDEF} در پاریس (مارس \lr{2026}). مدیرعامل: \lr{Anna Beata Kalisz Hedegaard.} & \href{https://www.linkedin.com/company/quantumsecuritydefence/home/}{\lr{LinkedIn}} \\ \href{https://www.quantumsecuritydefence.com}{\lr{Web}} \\ \href{https://www.qsecdef.com}{\lr{Web2}} \\
+	\hline
+	11 & \lr{Falqon Systems} & \lr{\raggedright QKD, MDI-QKD, Quantum Secure Networks, Key Management, Network Orchestration} & شرکت هلندی مستقر در دلفت (اسپین‌آف \lr{QuTech} و \lr{TU Delft}، تأسیس \lr{2022})، پیش‌تر با نام \lr{Q*Bird.} توسعه‌دهنده زیرساخت شبکه‌های امن کوانتومی (\lr{QSN}) بر پایه \lr{MDI-QKD}، شامل دستگاه‌های سخت‌افزاری، مدیریت چرخه کلید و نرم‌افزار ارکستریشن شبکه؛ مستقر در چند کشور اروپایی (از جمله آزمایش در بندر روتردام). & \href{https://www.linkedin.com/company/falqonsystems/home/}{\lr{LinkedIn}} \\ \href{https://www.falqonsystems.com}{\lr{Web}} \\
+	\hline
+	12 & \lr{PortyQ} & \lr{\raggedright PQC, QKD, QRNG, Crypto-Agility, Consulting} & --- & \href{https://www.linkedin.com/company/portyq/home/}{\lr{LinkedIn}} \\ \href{https://portyq.com}{\lr{Web}} \\
+	\hline
+	13 & \lr{Qoolnet} & \lr{\raggedright Quantum-Safe Networks, QKD, SDN, Network Management, Telecom} & استارتاپ اسپانیایی (مادرید)، اسپین‌آف دانشگاه پلی‌تکنیک مادرید (\lr{UPM}). پلتفرم مدیریت شبکه‌های کوانتوم‌ایمن مبتنی بر \lr{SDN} که شبکه‌های موجود را کوانتوم‌ایمن می‌کند و با انواع سامانه‌های \lr{QKD} و رمزکننده‌ها سازگار است؛ مشتریان هدف: دولت، مؤسسات مالی و سازمان‌ها. & \href{https://www.linkedin.com/company/qoolnet/home/}{\lr{LinkedIn}} \\ \href{https://www.qoolnet.eu}{\lr{Web}} \\
+	\hline
+	14 & \lr{QNu Labs} (\lr{Qunu Labs}) & \lr{\raggedright QKD, QRNG, PQC, Quantum-Safe Security, Critical Infrastructure} & شرکت هندی مستقر در بنگلور (تأسیس \lr{2016} در \lr{IIT Madras Research Park}). محصولات: \lr{Armos} (\lr{QKD})، \lr{Tropos} (مولد عدد تصادفی کوانتومی)، \lr{Hodos} (رمزنگاری پساکوانتومی) و پلتفرم \lr{QShield}؛ مشتریان در دفاع، بانکداری، مخابرات و زیرساخت حیاتی؛ از استارتاپ‌های منتخب ماموریت ملی کوانتوم هند. & \href{https://www.linkedin.com/company/qunu-labs-pvt-ltd/home/}{\lr{LinkedIn}} \\ \href{https://www.qnulabs.com}{\lr{Web}} \\
+	\hline
+	15 & \lr{SecureQuantum} & \lr{\raggedright Quantum Security, PQC, Crypto-Agility, QKD, Quantum Risk Assessment} & --- & \href{https://www.linkedin.com/company/securequantum/home/}{\lr{LinkedIn}} \\ \href{https://securequantum.com}{\lr{Web}} \\
+	\hline
+	16 & \lr{AllSecureX} & \lr{\raggedright PQC, Quantum Risk Quantification, CBOM, QRNG, Crypto-Agility} & برند اصلی \lr{Quantum Cybertech Pvt Ltd} (هند، گورگائون؛ تأسیس \lr{2025} طبق \lr{Inc42}). پلتفرم امنیت سایبری کوانتوم‌ایمن: کمّی‌سازی ریسک کوانتومی، تولید فهرست رمزنگاری (\lr{CBOM}) و مهاجرت به \lr{PQC} بر پایه استانداردهای \lr{NIST} (\lr{ML-KEM}، \lr{ML-DSA}، \lr{SLH-DSA})، به‌همراه \lr{QRNG}، \lr{HSM} و سخت‌افزار کوانتوم‌ایمن. & \href{https://www.linkedin.com/company/allsecurex/home/}{\lr{LinkedIn}} \\ \href{https://allsecurex.com}{\lr{Web}} \\
+	\hline
+	17 & \lr{PQShield} & \lr{\raggedright PQC, Chip-level Security, NIST Standards, Cryptographic Software, Cloud} & شرکت بریتانیایی، اسپین‌آف دانشگاه آکسفورد (مؤسس و مدیرعامل: \lr{Ali El Kaafarani}). رمزنگاری پساکوانتومی (\lr{PQC}) روی تراشه، نرم‌افزار و ابر؛ از تأثیرگذاران بر استانداردهای اولیه \lr{PQC} مؤسسه \lr{NIST} و ادغام با سیستم‌های قدیمی مشتریان. & \href{https://www.linkedin.com/company/pqshield/home/}{\lr{LinkedIn}} \\ \href{https://pqshield.com}{\lr{Web}} \\
+	\hline
+	18 & \lr{CryptoNext Security} & \lr{\raggedright PQC, Crypto-Agility, Cryptographic Library, Protocols, PQC Migration} & استارتاپ فرانسوی (از \lr{2019}) بر پایه بیش از دو دهه پژوهش بنیان‌گذاران در \lr{Sorbonne}، \lr{INRIA} و \lr{CNRS.} پیشرو در رمزنگاری پساکوانتومی؛ رویکرد چندلایه شامل کتابخانه رمزنگاری، پروتکل‌ها، ابزارهای توسعه و افزونه‌های کاربردی برای مهاجرت امن به \lr{PQC.} & \href{https://www.linkedin.com/company/cryptonext-security/home/}{\lr{LinkedIn}} \\ \href{https://www.cryptonext-security.com}{\lr{Web}} \\
+	\hline
+	19 & \lr{ISARA Corporation} & \lr{\raggedright Quantum-Safe, Crypto-Agility, Cryptographic Inventory, Risk Assessment, PQC Toolkit} & شرکت کانادایی مستقر در واترلو، انتاریو (تأسیس \lr{2015} توسط مدیران سابق \lr{BlackBerry: Scott Totzke} و \lr{Michael Brown}). امنیت کوانتوم‌ایمن و رمزنگاری چابک: \lr{ISARA Radiate} (جعبه‌ابزار الگوریتم‌های کوانتوم‌ایمن) و \lr{ISARA Advance} (فهرست رمزنگاری و ارزیابی ریسک). & \href{https://www.linkedin.com/company/isara-corporation/home/}{\lr{LinkedIn}} \\ \href{https://isara.com}{\lr{Web}} \\
+	\hline
+	20 & \lr{QuSecure} & \lr{\raggedright PQC, Crypto-Agility, Quantum-Resilient Security, Cryptography Discovery, PQC Migration} & شرکت آمریکایی مستقر در کالیفرنیا (تأسیس \lr{2019}). امنیت مقاوم در برابر کوانتوم و چابکی رمزنگاری؛ پلتفرم \lr{QuProtect} برای کشف رمزنگاری آسیب‌پذیر و مهاجرت به \lr{PQC} در بانکداری، بخش عمومی، مخابرات و زیرساخت‌های حیاتی. & \href{https://www.linkedin.com/company/qusecure/home/}{\lr{LinkedIn}} \\ \href{https://www.qusecure.com}{\lr{Web}} \\
+	\hline
+	21 & \lr{Crypto4A} & \lr{\raggedright HSM, Quantum-Safe HSM, FIPS 140-3, PQC, Key Management} & شرکت کانادایی مستقر در اتاوا (تأسیس \lr{2016}). ماژول‌های امنیت سخت‌افزاری (\lr{HSM}) کوانتوم‌ایمن: \lr{QxHSM} و \lr{QxVault}؛ به‌گزارش \lr{Quantum Computing Report}، ماژول \lr{QASM} آن نخستین \lr{HSM} کوانتوم‌ایمن با اعتبارسنجی \lr{FIPS 140-3} سطح \lr{3} است و الگوریتم‌های استاندارد \lr{NIST PQC} را پشتیبانی می‌کند. & \href{https://www.linkedin.com/company/crypto4a/home/}{\lr{LinkedIn}} \\ \href{https://crypto4a.com}{\lr{Web}} \\
+	\hline
+	22 & \lr{evolutionQ} & \lr{\raggedright Quantum Risk Management, QKD, PQC, Crypto-Agility, Consulting} & شرکت کانادایی مستقر در واترلو (تأسیس \lr{2015}؛ بنیان‌گذاران: \lr{Michele Mosca}، \lr{Norbert L}ü\lr{tkenhaus} و \lr{David Jao}). پیشگام مدیریت ریسک کوانتومی؛ مجموعه نرم‌افزاری \lr{Basejump} برای شبکه‌های توزیع کلید کوانتومی و انعطاف رمزنگاری (ترکیب \lr{PQC} و \lr{QKD})، به‌علاوه خدمات مشاوره ارزیابی ریسک و نقشه‌راه. & \href{https://www.linkedin.com/company/evolutionq/home/}{\lr{LinkedIn}} \\ \href{https://evolutionq.com}{\lr{Web}} \\
+	\hline
+	23 & \lr{Post-Quantum} & \lr{\raggedright PQC, PQ VPN, Identity Security, Quantum-Safe Encryption, Critical Infrastructure} & شرکت بریتانیایی مستقر در لندن (تأسیس \lr{2009}؛ بنیان‌گذاران: \lr{Andersen Cheng}، \lr{CJ Tjhai} و \lr{Martin Tomlinson}). محصولات امنیتی در برابر حملات رایانه‌های کوانتومی از جمله \lr{PQ VPN} سازگار با \lr{NCSC}، و راهکارهای هویت، انتقال و رمزنگاری برای دفاع، زیرساخت حیاتی ملی و خدمات مالی. & \href{https://www.linkedin.com/company/post-quantum/home/}{\lr{LinkedIn}} \\ \href{https://post-quantum.com}{\lr{Web}} \\
+	\hline
+	24 & \lr{LuxQuanta} & \lr{\raggedright CV-QKD, QKD, Optical Networks, Photonics, Quantum Cryptography} & شرکت اسپانیایی مستقر در بارسلونا (اسپین‌آف مؤسسه \lr{ICFO}، تأسیس \lr{2021}). متخصص \lr{QKD} با متغیر پیوسته (\lr{CV-QKD})؛ محصول شاخص \lr{NOVA LQ} برای شبکه‌های نوری؛ مشتریان: مخابرات، دولت‌ها، دیتاسنترها و مؤسسات مالی؛ جذب \lr{8} میلیون یورو سرمایه سری \lr{A} در \lr{2025.} & \href{https://www.linkedin.com/company/luxquanta/home/}{\lr{LinkedIn}} \\ \href{https://luxquanta.com}{\lr{Web}} \\
+	\hline
+	25 & \lr{KETS Quantum Security} & \lr{\raggedright QKD, QRNG, Integrated Photonics, Photonic Chips, Quantum Security} & شرکت بریتانیایی مستقر در بریستول (اسپین‌آف دانشگاه بریستول، تأسیس \lr{2016}). \lr{QKD} و مولد عدد تصادفی کوانتومی (\lr{QRNG}) مبتنی بر تراشه‌های فوتونیکی مجتمع با اندازه و توان کم؛ بازار هدف: مخابرات، دفاع، فضایی و مالی؛ همکاری با \lr{BT}، \lr{Thales} و \lr{Airbus.} & \href{https://www.linkedin.com/company/kets-quantum/home/}{\lr{LinkedIn}} \\ \href{https://kets-quantum.com}{\lr{Web}} \\
+	\hline
+	26 & \lr{ID Quantique} & \lr{\raggedright QKD, QRNG, Single-Photon Detectors, Quantum-Safe Encryption, Quantum Cryptography} & شرکت سوئیسی مستقر در ژنو و از پیشگامان رمزنگاری کوانتومی؛ محصولات: سامانه‌های \lr{QKD}، مولدهای عدد تصادفی کوانتومی (\lr{QRNG}) و آشکارسازهای تک‌فوتون. مه \lr{2025: IonQ} سهام کنترلی آن را تملک کرد و \lr{IDQ} زیرمجموعه \lr{IonQ} شد. بنیان‌گذاران: \lr{Nicolas Gisin}، \lr{Hugo Zbinden} و \lr{Gr}é\lr{goire Ribordy.} & \href{https://www.linkedin.com/company/id-quantique-sa/home/}{\lr{LinkedIn}} \\ \href{https://www.idquantique.com}{\lr{Web}} \\
+	\hline
+	27 & \lr{QuantumCTek Co., Ltd.} & \lr{\raggedright QKD, Quantum Secure Communication, Superconducting Quantum, Quantum Metrology, Quantum Security Applications} & شرکت چینی مستقر در هفی، استان آنهوی (تأسیس \lr{2009} در آزمایشگاه \lr{USTC}؛ فهرست‌شده در بورس شانگهای، نماد \lr{688027}). تجهیزات ارتباطات امن کوانتومی (\lr{QKD})، محصولات کاربردی امنیت کوانتومی، اجزای رایانه‌های کوانتومی ابررسانا و ابزارهای اندازه‌گیری دقیق کوانتومی؛ مشتریان: دولت، بخش مالی و شبکه برق. & \href{https://www.quantum-info.com/English/}{\lr{Web}} \\
+	\hline
+	28 & \lr{Utimaco} & \lr{\raggedright HSM, Key Management, PQC, Data Protection, Compliance} & شرکت آلمانی (آخن) و آمریکایی (کمپبل، کالیفرنیا)، تأسیس \lr{1983.} ماژول‌های امنیت سخت‌افزاری (\lr{HSM})، مدیریت کلید، حفاظت داده و هویت، و راهکارهای انطباق برای مخابرات و دولت؛ طبق اعلام خود شرکت (\lr{2020}) نخستین فروشنده \lr{HSM} با افزونه پساکوانتومی \lr{Q-safe} بوده است. & \href{https://www.linkedin.com/company/utimaco/home/}{\lr{LinkedIn}} \\ \href{https://utimaco.com}{\lr{Web}} \\
+	\hline
+	29 & \lr{SEALSQ} & \lr{\raggedright PQC, Semiconductors, PKI, Secure Chips, Quantum-Safe Hardware} & شرکت سوئیسی مستقر در ژنو (ناسداک: \lr{LAES}). نیمه‌هادی، \lr{PKI} و محصولات سخت‌افزاری و نرم‌افزاری پساکوانتومی؛ توسعه تراشه‌ها و الگوریتم‌های \lr{PQC} و راه‌اندازی \lr{SEALQUANTUM.com Lab} (دسامبر \lr{2024}) برای کمک به گذار سازمان‌ها به رمزنگاری کوانتوم‌ایمن. & \href{https://www.linkedin.com/company/sealsq/home/}{\lr{LinkedIn}} \\ \href{https://www.sealsq.com}{\lr{Web}} \\
+	\hline
+	30 & \lr{QuintessenceLabs} & \lr{\raggedright QRNG, Key Management, Entropy, QKD, PQC} & شرکت استرالیایی مستقر در کانبرا (تأسیس \lr{2008} توسط \lr{Vikram Sharma} با پژوهش‌های \lr{ANU}). مولد عدد تصادفی کوانتومی \lr{qStream} (\lr{1} گیگابیت بر ثانیه)، مدیریت کلید و سیاست (\lr{TSF})، مدیریت آنتروپی و \lr{QKD} با پشتیبانی از \lr{PQC}؛ سرمایه‌گذار: \lr{In-Q-Tel.} & \href{https://www.linkedin.com/company/quintessencelabs/home/}{\lr{LinkedIn}} \\ \href{https://www.quintessencelabs.com}{\lr{Web}} \\
+	\hline
+	\end{longtable}
+	}
+	
+
+	\newpage
+	\section*{پیوست د: جدول‌های کامل قیمت تولید ویدیو با هوش مصنوعی}
+	\addcontentsline{toc}{section}{پیوست د: جدول‌های کامل قیمت تولید ویدیو با هوش مصنوعی}
+
+	{\small\color{mci-gray}
+		داده‌ها در تاریخ 4 مهر 1405 (26 سپتامبر 2026) از صفحات قیمت‌گذاری رسمی سازندگان و آگریگیتورها گردآوری شده‌اند.
+		قیمت‌ها به دلار آمریکا و برای کیفیت 720p هستند، مگر خلاف آن ذکر شده باشد. این بازار بسیار پرنوسان است؛
+		پیش از هر خرید یا بودجه‌بندی، لینک هر ردیف باید دوباره بررسی شود. ردیف‌های «آگریگیتور غیررسمی» پایداری تضمین‌شده ندارند.}
+
+	\subsection*{د-1. قیمت هر مدل نزد ارائه‌دهندگان مختلف}
+	{\scriptsize
+	\setlength{\tabcolsep}{2pt}
+	\renewcommand{\arraystretch}{1.25}
+	\begin{longtable}{|>{\centering\arraybackslash}p{0.5cm}|>{\raggedleft\arraybackslash}p{2.3cm}|>{\raggedleft\arraybackslash}p{2.5cm}|>{\raggedleft\arraybackslash}p{1.5cm}|>{\raggedleft\arraybackslash}p{1.7cm}|>{\centering\arraybackslash}p{1.0cm}|>{\centering\arraybackslash}p{1.0cm}|>{\raggedleft\arraybackslash}p{2.7cm}|>{\centering\arraybackslash}p{0.9cm}|}
+	\hline
+	\rowcolor{mci-light}\textbf{\#} & \textbf{مدل} & \textbf{ارائه‌دهنده} & \textbf{نوع} & \textbf{کیفیت / شرایط} & \textbf{\$/ثانیه} & \textbf{\$/8 ثانیه} & \textbf{یادداشت} & \textbf{منبع} \\
+	\hline
+	\endfirsthead
+	\hline
+	\rowcolor{mci-light}\textbf{\#} & \textbf{مدل} & \textbf{ارائه‌دهنده} & \textbf{نوع} & \textbf{کیفیت / شرایط} & \textbf{\$/ثانیه} & \textbf{\$/8 ثانیه} & \textbf{یادداشت} & \textbf{منبع} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	1 & \lr{Seedance 2.5} & \lr{BytePlus / Volcano Engine} & رسمی (بایت‌دنس) & \lr{720p}، بدون ورودی ویدیو & \lr{\$0.2312} & \lr{\$1.85} & نرخ پایه رسمی: \lr{10.70}\$/میلیون توکن؛ نمونه رسمی \lr{5}ثانیه‌ای \lr{720p} = \lr{1.156}\$ & \href{https://leadde.ai/blog/how-much-is-seedance-2-5}{لینک} \\
+	\hline
+	2 & \lr{Seedance 2.5} & \lr{Replicate} & آگریگیتور & \lr{720p} & \lr{\$0.2312} & \lr{\$1.85} & برابر با نرخ پایه رسمی بایت‌دنس & \href{https://cellcog.ai/blog/seedance-2-5-pricing/}{لینک} \\
+	\hline
+	3 & \lr{Seedance 2.5} & \lr{fal.ai} & آگریگیتور & \lr{720p} (مشتق از قیمت توکن) & \lr{\$0.473} & \lr{\$3.784} & قیمت‌گذاری بر مبنای توکن: \lr{0.0214}\$ هر هزار توکن & \href{https://www.atlascloud.ai/blog/tips/seedance-2-5-api-transparent-pricing-no-enterprise-contract}{لینک} \\
+	\hline
+	4 & \lr{Seedance 2.5} & \lr{Atlas Cloud} & آگریگیتور & همه کیفیت‌ها، نرخ ثابت & \lr{\$0.134} & \lr{\$1.072} & ارزان‌ترین گزینه یافت‌شده برای \lr{Seedance 2.5} & \href{https://www.atlascloud.ai/blog/tips/seedance-2-5-api-transparent-pricing-no-enterprise-contract}{لینک} \\
+	\hline
+	5 & \lr{Seedance 2.5} & \lr{Apiframe} & آگریگیتور & \lr{720p}، استاندارد & \lr{\$0.29} & \lr{\$2.32} & قیمت پایه به‌صورت اعتباری: \lr{29} اعتبار/ثانیه (\lr{1} اعتبار=\lr{0.01}\$) & \href{https://apiframe.ai/models/seedance-2.5/pricing}{لینک} \\
+	\hline
+	6 & \lr{Kling 2.5/2.6 Turbo} & \lr{fal.ai} — \lr{Standard} & رسمی/شریک & \lr{720p}، بدون صدا & \lr{\$0.084} & \lr{\$0.672} &  & \href{https://aivideobootcamp.com/blog/kling-ai-complete-guide-pricing-features-prompts-tips/}{لینک} \\
+	\hline
+	7 & \lr{Kling 2.5/2.6 Turbo} & \lr{fal.ai} — \lr{Pro} & رسمی/شریک & \lr{720p}، بدون صدا & \lr{\$0.112} & \lr{\$0.896} &  & \href{https://aivideobootcamp.com/blog/kling-ai-complete-guide-pricing-features-prompts-tips/}{لینک} \\
+	\hline
+	8 & \lr{Kling 3.0} (\lr{V3/O3}) & \lr{fal.ai} — \lr{Standard}، صدا خاموش & رسمی/شریک & \lr{720p} & \lr{\$0.168} & \lr{\$1.344} &  & \href{https://fal.ai/kling-3}{لینک} \\
+	\hline
+	9 & \lr{Kling 3.0} & \lr{fal.ai} — \lr{Pro} با کنترل صدا & رسمی/شریک & \lr{720p} & \lr{\$0.392} & \lr{\$3.136} & بالاترین رده کیفی \lr{Kling 3.0} روی \lr{fal.ai} & \href{https://fal.ai/kling-3}{لینک} \\
+	\hline
+	10 & \lr{Kling v2.5 Turbo} & \lr{Renderful} & آگریگیتور & \lr{720p} & \lr{\$0.062} & \lr{\$0.496} & زیر نرخ رسمی \lr{fal.ai}؛ ارزان‌ترین برای این نسخه & \href{https://renderful.ai/blog/kling-api-pricing}{لینک} \\
+	\hline
+	11 & \lr{Kling v3 Standard} & \lr{Renderful} & آگریگیتور & \lr{720p} & \lr{\$0.084} & \lr{\$0.672} &  & \href{https://renderful.ai/blog/kling-api-pricing}{لینک} \\
+	\hline
+	12 & \lr{Kling 3.0 Turbo} (صدای بومی) & \lr{Renderful} & آگریگیتور & \lr{720p} & \lr{\$0.112} & \lr{\$0.896} &  & \href{https://renderful.ai/blog/kling-api-pricing}{لینک} \\
+	\hline
+	13 & \lr{Kling 3.0} & \lr{Apiframe} — پرداخت آنی & آگریگیتور & \lr{720p}، استاندارد & \lr{\$0.29} & \lr{\$2.32} & \lr{29} اعتبار/ثانیه بدون اشتراک & \href{https://apiframe.ai/blog/kling-3-0-api-providers}{لینک} \\
+	\hline
+	14 & \lr{Kling 3.0} & \lr{Apiframe} — پلن \lr{Growth} (\lr{199}\$/ماه) & آگریگیتور & \lr{720p}، استاندارد & \lr{\$0.11} & \lr{\$0.88} & نرخ مؤثر با خرید حجمی اعتبار & \href{https://apiframe.ai/blog/kling-3-0-api-providers}{لینک} \\
+	\hline
+	15 & \lr{Veo 3.1 Lite} & \lr{Google Gemini API} & رسمی & \lr{720p} & \lr{\$0.05} & \lr{\$0.4} & ارزان‌ترین رده رسمی گوگل & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+	\hline
+	16 & \lr{Veo 3.1 Lite} & \lr{Google Gemini API} & رسمی & \lr{1080p} & \lr{\$0.08} & \lr{\$0.64} &  & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+	\hline
+	17 & \lr{Veo 3.1 Fast} & \lr{Google Gemini API} & رسمی & \lr{720p} & \lr{\$0.1} & \lr{\$0.8} &  & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+	\hline
+	18 & \lr{Veo 3.1 Fast} & \lr{Google Gemini API} & رسمی & \lr{1080p} & \lr{\$0.12} & \lr{\$0.96} &  & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+	\hline
+	19 & \lr{Veo 3.1 Fast} & \lr{Google Gemini API} & رسمی & \lr{4K} & \lr{\$0.3} & \lr{\$2.4} &  & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+	\hline
+	20 & \lr{Veo 3.1 Standard} & \lr{Google Gemini API} & رسمی & \lr{720p/1080p} & \lr{\$0.4} & \lr{\$3.2} & کیفیت کامل/پرچمدار \lr{Veo 3.1} & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+	\hline
+	21 & \lr{Veo 3.1 Standard} & \lr{Google Gemini API} & رسمی & \lr{4K} & \lr{\$0.6} & \lr{\$4.8} &  & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+	\hline
+	22 & \lr{Veo 3.1 Fast} & \lr{APIYI} (کانال بازفروش، غیررسمی) & آگریگیتور غیررسمی & نرخ ثابت هر درخواست: \lr{0.3}\$ & \lr{\$0.0375} & \lr{\$0.3} & معادل‌سازی برای کلیپ \lr{8}ثانیه‌ای؛ نرخ ثابت مستقل از کیفیت/مدت. ریسک پایداری/رسمی‌نبودن کانال. & \href{https://docs.apiyi.com/en/api-capabilities/veo-3-1-official/overview}{لینک} \\
+	\hline
+	23 & \lr{Veo 3.1 Standard} & \lr{APIYI} (کانال بازفروش، غیررسمی) & آگریگیتور غیررسمی & نرخ ثابت هر درخواست: \lr{1.2}\$ & \lr{\$0.15} & \lr{\$1.2} & معادل‌سازی برای کلیپ \lr{8}ثانیه‌ای؛ نرخ ثابت حتی برای \lr{4K} & \href{https://docs.apiyi.com/en/api-capabilities/veo-3-1-official/overview}{لینک} \\
+	\hline
+	24 & \lr{Sora 2} & \lr{OpenAI API} — تعاملی & رسمی & \lr{720p} & \lr{\$0.1} & \lr{\$0.8} &  & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	25 & \lr{Sora 2} & \lr{OpenAI API} — حالت \lr{Batch} & رسمی & \lr{720p} & \lr{\$0.05} & \lr{\$0.4} & ارزان‌ترین رده رسمی \lr{OpenAI} & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	26 & \lr{Sora 2 Pro} & \lr{OpenAI API} — تعاملی & رسمی & \lr{720p} & \lr{\$0.3} & \lr{\$2.4} &  & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	27 & \lr{Sora 2 Pro} & \lr{OpenAI API} — تعاملی & رسمی & \lr{1024p} & \lr{\$0.5} & \lr{\$4} &  & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	28 & \lr{Sora 2 Pro} & \lr{OpenAI API} — تعاملی & رسمی & \lr{1080p} & \lr{\$0.7} & \lr{\$5.6} & بالاترین نرخ رسمی در این مقایسه & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	29 & \lr{Sora 2 Pro} & \lr{OpenAI API} — حالت \lr{Batch} & رسمی & \lr{720p} & \lr{\$0.15} & \lr{\$1.2} &  & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	30 & \lr{Sora 2 Pro} & \lr{OpenAI API} — حالت \lr{Batch} & رسمی & \lr{1024p} & \lr{\$0.25} & \lr{\$2} &  & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	31 & \lr{Sora 2 Pro} & \lr{OpenAI API} — حالت \lr{Batch} & رسمی & \lr{1080p} & \lr{\$0.35} & \lr{\$2.8} &  & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	32 & \lr{Runway Gen-4.5} & \lr{Runway Developer API} & رسمی & \lr{HD} & \lr{\$0.12} & \lr{\$0.96} & \lr{12} اعتبار/ثانیه × \lr{0.01}\$ هر اعتبار & \href{https://runway.com/pricing}{لینک} \\
+	\hline
+	33 & \lr{Runway Gen-4 Turbo} & \lr{Runway Developer API} & رسمی & \lr{HD} (رده ارزان‌تر) & \lr{\$0.05} & \lr{\$0.4} & \lr{5} اعتبار/ثانیه؛ برای پیش‌نویس/تست سریع‌تر & \href{https://unifically.com/blogs/runway-gen-4}{لینک} \\
+	\hline
+	34 & \lr{Luma Ray3.2} & \lr{Luma API} & رسمی & \lr{720p} (کلیپ \lr{5}ثانیه‌ای ≈\lr{0.30}\$) & \lr{\$0.06} & \lr{\$0.48} &  & \href{https://lumalabs.ai/api}{لینک} \\
+	\hline
+	35 & \lr{Luma Ray3.2} & \lr{Luma API} & رسمی & \lr{1080p} (کلیپ \lr{10}ثانیه‌ای ≈\lr{3.60}\$) & \lr{\$0.36} & \lr{\$2.88} &  & \href{https://lumalabs.ai/api}{لینک} \\
+	\hline
+	36 & \lr{MiniMax H3 Max} & \lr{fal.ai} (عرضه مشترک رسمی) & رسمی/شریک & \lr{480p} & \lr{\$0.05} & \lr{\$0.4} & جدیدترین مدل ویدیوی \lr{MiniMax} (\lr{2} سپتامبر \lr{2026}) & \href{https://openrouter.ai/minimax/hailuo-3-max}{لینک} \\
+	\hline
+	37 & \lr{MiniMax H3 Max} & \lr{fal.ai} (عرضه مشترک رسمی) & رسمی/شریک & \lr{768p} & \lr{\$0.08} & \lr{\$0.64} & نزدیک‌ترین رده به \lr{720p} در این مدل & \href{https://openrouter.ai/minimax/hailuo-3-max}{لینک} \\
+	\hline
+	38 & \lr{Hailuo 2.3} (نسل قبل) & \lr{OpenRouter} & آگریگیتور & نرخ ثابت & \lr{\$0.0817} & \lr{\$0.654} & مدل قبلی \lr{MiniMax}، هنوز در دسترس & \href{https://openrouter.ai/minimax/hailuo-2.3}{لینک} \\
+	\hline
+	39 & \lr{Wan 3.0} & \lr{fal.ai} & رسمی/شریک & \lr{480p} & \lr{\$0.05} & \lr{\$0.4} &  & \href{https://fal.ai/wan-3}{لینک} \\
+	\hline
+	40 & \lr{Wan 3.0} & \lr{fal.ai} & رسمی/شریک & \lr{720p} & \lr{\$0.1} & \lr{\$0.8} & ارزان‌ترین گزینه یافت‌شده برای \lr{Wan 3.0} در \lr{720p} & \href{https://fal.ai/wan-3}{لینک} \\
+	\hline
+	41 & \lr{Wan 3.0} & \lr{fal.ai} & رسمی/شریک & \lr{1080p} & \lr{\$0.2} & \lr{\$1.6} &  & \href{https://fal.ai/wan-3}{لینک} \\
+	\hline
+	42 & \lr{Wan 3.0} & \lr{EvoLink} & آگریگیتور & \lr{480p} & \lr{\$0.055} & \lr{\$0.44} &  & \href{https://evolink.ai/blog/wan-api-pricing-guide}{لینک} \\
+	\hline
+	43 & \lr{Wan 3.0} & \lr{EvoLink} & آگریگیتور & \lr{720p} & \lr{\$0.11} & \lr{\$0.88} &  & \href{https://evolink.ai/blog/wan-api-pricing-guide}{لینک} \\
+	\hline
+	44 & \lr{Wan 3.0} & \lr{EvoLink} & آگریگیتور & \lr{1080p} & \lr{\$0.22} & \lr{\$1.76} &  & \href{https://evolink.ai/blog/wan-api-pricing-guide}{لینک} \\
+	\hline
+	45 & \lr{Pika 2.5} & \lr{Pika API} — \lr{dev.pika.art / mcp.pika.art} & رسمی & \lr{720p} & \lr{\$0.04} & \lr{\$0.32} & ارزان‌ترین رده رسمی \lr{Pika} & \href{https://mcp.pika.art/pricing}{لینک} \\
+	\hline
+	46 & \lr{Pika 2.5} & \lr{Pika API} — \lr{dev.pika.art / mcp.pika.art} & رسمی & \lr{1080p} & \lr{\$0.06} & \lr{\$0.48} &  & \href{https://mcp.pika.art/pricing}{لینک} \\
+	\hline
+	47 & \lr{Grok Imagine Video} & \lr{xAI API} & رسمی & \lr{480p} & \lr{\$0.05} & \lr{\$0.4} &  & \href{https://mem0.ai/blog/xai-grok-api-pricing}{لینک} \\
+	\hline
+	48 & \lr{Grok Imagine Video} & \lr{xAI API} & رسمی & \lr{720p} & \lr{\$0.07} & \lr{\$0.56} &  & \href{https://mem0.ai/blog/xai-grok-api-pricing}{لینک} \\
+	\hline
+	49 & \lr{Grok Imagine Video 1.5} & \lr{xAI API} & رسمی & \lr{720p} (نسخه جدیدتر و گران‌تر) & \lr{\$0.14} & \lr{\$1.12} & نسخه \lr{1.5} گران‌تر از نرخ پایه اولیه \lr{1.0} است & \href{https://www.llmreference.com/model/grok-imagine-video-1-5-preview}{لینک} \\
+	\hline
+	50 & \lr{Grok Imagine Video} & \lr{CometAPI} (آگریگیتور غیررسمی) & آگریگیتور غیررسمی & \lr{480p} & \lr{\$0.04} & \lr{\$0.32} & کانال بازفروش؛ پایداری/رسمی‌بودن تضمین‌شده نیست & \href{https://www.cometapi.com/how-to-get-grok-imagine-for-free-access-pricing-and-alternatives/}{لینک} \\
+	\hline
+	\end{longtable}
+	}
+	
+
+	\subsection*{د-2. پلن‌های اشتراک ماهانه مصرف‌کننده}
+	{\small\color{mci-gray}ستون «ویدیو در ماه» با فرض موفقیت در تلاش اول محاسبه شده است؛ در عمل به‌دلیل تولید مجدد، عدد واقعی کمتر است.}
+
+	{\scriptsize
+	\setlength{\tabcolsep}{2pt}
+	\renewcommand{\arraystretch}{1.25}
+	\begin{longtable}{|>{\centering\arraybackslash}p{0.5cm}|>{\raggedleft\arraybackslash}p{1.9cm}|>{\raggedleft\arraybackslash}p{2.0cm}|>{\centering\arraybackslash}p{1.2cm}|>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.3cm}|>{\centering\arraybackslash}p{1.3cm}|>{\raggedleft\arraybackslash}p{3.3cm}|>{\centering\arraybackslash}p{0.9cm}|}
+	\hline
+	\rowcolor{mci-light}\textbf{\#} & \textbf{پلتفرم} & \textbf{پلن} & \textbf{\$/ماه} & \textbf{اعتبار ماهانه} & \textbf{اعتبار برای هر ویدیوی 8 ثانیه‌ای} & \textbf{ویدیو در ماه (تقریبی)} & \textbf{یادداشت} & \textbf{منبع} \\
+	\hline
+	\endfirsthead
+	\hline
+	\rowcolor{mci-light}\textbf{\#} & \textbf{پلتفرم} & \textbf{پلن} & \textbf{\$/ماه} & \textbf{اعتبار ماهانه} & \textbf{اعتبار برای هر ویدیوی 8 ثانیه‌ای} & \textbf{ویدیو در ماه (تقریبی)} & \textbf{یادداشت} & \textbf{منبع} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	1 & \lr{Kling AI} & \lr{Standard} & \lr{\$6.99} & 660 & 48 & \lr{13.8} & قیمت ماه اول؛ تمدید \lr{8.80}\$. کمترین پلن پولی که واترمارک را حذف و استفاده تجاری را مجاز می‌کند. & \href{https://kling.ai/explore/kling_ai_pricing}{لینک} \\
+	\hline
+	2 & \lr{Kling AI} & \lr{Pro} & \lr{\$23.99} & 3000 & 48 & \lr{62.5} & قیمت‌های \lr{23.99}\$ تا \lr{25.99}\$ در منابع مختلف دیده شد. & \href{https://kling.ai/explore/kling_ai_pricing}{لینک} \\
+	\hline
+	3 & \lr{Kling AI} & \lr{Premier} & \lr{\$64.99} & 8000 & 48 & \lr{166.7} &  & \href{https://kling.ai/explore/kling_ai_pricing}{لینک} \\
+	\hline
+	4 & \lr{Kling AI} & \lr{Ultra} & \lr{\$127.99} & 26000 & 48 & \lr{541.7} & بدون گزینه فاکتور سالانه (تا میانه \lr{2026}). & \href{https://kling.ai/explore/kling_ai_pricing}{لینک} \\
+	\hline
+	5 & \lr{Runway} & \lr{Standard} & \lr{\$15} & 625 & 96 & \lr{6.5} & با فاکتور سالانه معادل \lr{12}\$/ماه؛ اعتبار لازم = \lr{12} اعتبار/ثانیه × \lr{8} ثانیه. & \href{https://runway.com/pricing}{لینک} \\
+	\hline
+	6 & \lr{Runway} & \lr{Pro} & \lr{\$35} & 2250 & 96 & \lr{23.4} &  & \href{https://runway.com/pricing}{لینک} \\
+	\hline
+	7 & \lr{Runway} & \lr{Max} & \lr{\$95} & 9500 & 96 & \lr{99.0} & جایگزین پلن قدیمی \lr{Unlimited} از سال \lr{2026.} & \href{https://runway.com/pricing}{لینک} \\
+	\hline
+	8 & \lr{Luma AI} & \lr{Plus} & \lr{\$30} & 10000 & 160 & \lr{62.5} & اعتبار لازم بر مبنای نرخ \lr{Ray3.14} در \lr{720p} (\lr{20} اعتبار/ثانیه). & \href{https://lumalabs.ai/api}{لینک} \\
+	\hline
+	9 & \lr{Luma AI} & \lr{Pro} & \lr{\$90} & 40000 & 160 & 250 &  & \href{https://lumalabs.ai/api}{لینک} \\
+	\hline
+	10 & \lr{Luma AI} & \lr{Ultra} & \lr{\$300} & 150000 & 160 & \lr{937.5} &  & \href{https://lumalabs.ai/api}{لینک} \\
+	\hline
+	11 & \lr{Pika} & \lr{Standard} & \lr{\$8} & 700 & 32 & \lr{21.9} & قیمت با فاکتور سالانه؛ اعتبار لازم = \lr{4} اعتبار/ثانیه (\lr{720p}) × \lr{8} ثانیه. & \href{https://pika.art/pricing}{لینک} \\
+	\hline
+	12 & \lr{Pika API Club} & عضویت توسعه‌دهنده & \lr{\$10} & نامشخص & --- & نامشخص & این یک پلن مصرفی نیست؛ عضویت \lr{10}\$/ماه دسترسی عمده‌فروشی به قیمت‌های \lr{API} روی \lr{100+} مدل (از جمله مدل‌های دیگر شرکت‌ها) را باز می‌کند. & \href{https://dev.pika.art/}{لینک} \\
+	\hline
+	13 & \lr{Google AI} & \lr{Google AI Pro} & \lr{\$19.99} & نامشخص & --- & نامشخص & شامل استفاده محدود از \lr{Veo} در \lr{Flow/Gemini}؛ سهمیه دقیق توسط گوگل اعلام عمومی نشده است. & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+	\hline
+	14 & \lr{Google AI} & \lr{Google AI Ultra} & \lr{\$249.99} & نامشخص & --- & نامشخص & سهمیه \lr{Veo/Flow} به‌مراتب بیشتر از \lr{Pro}؛ عدد دقیق اعلام نشده. & \href{https://benchlm.ai/media-pricing/veo}{لینک} \\
+	\hline
+	15 & \lr{OpenAI} & \lr{ChatGPT Plus} & \lr{\$20} & نامشخص & --- & نامشخص & دسترسی به اپ \lr{Sora} با صف و محدودیت روزانه؛ تعداد دقیق اعلام عمومی نشده. & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	16 & \lr{OpenAI} & \lr{ChatGPT Pro} & \lr{\$200} & نامشخص & --- & نامشخص & اولویت صف و سهمیه بیشتر نسبت به \lr{Plus.} & \href{https://benchlm.ai/media-pricing/sora}{لینک} \\
+	\hline
+	17 & \lr{xAI} & \lr{X Premium} & \lr{\$8} & نامشخص & --- & نامشخص & محدودیت «\lr{fair use}» گزارش‌شده توسط کاربران: تقریباً \lr{10} تا \lr{15} ویدیوی \lr{720p} در روز (غیررسمی، بدون تضمین از سوی \lr{xAI}). & \href{https://x.ai/api}{لینک} \\
+	\hline
+	18 & \lr{xAI} & \lr{SuperGrok} & \lr{\$30} & نامشخص & --- & نامشخص & سهمیه تولید ویدیو بیشتر از \lr{X Premium.} & \href{https://x.ai/api}{لینک} \\
+	\hline
+	19 & \lr{MiniMax} (\lr{Hailuo AI}) & پلن ورودی & \lr{\$10} & نامشخص & --- & نامشخص & جزئیات دقیق اعتبار/سهمیه برای مدل جدید \lr{H3 Max} هنوز در منابع عمومی منتشر نشده است. & \href{https://minimax-ai.chat/pricing/}{لینک} \\
+	\hline
+	\end{longtable}
+	}
+	
+
+	\subsection*{د-3. مقایسه هزینه Seedance 2.5 در سایت‌های مختلف}
+	{\small\color{mci-gray}واحد مقایسه: یک کلیپ 8 ثانیه‌ای با کیفیت 720p (به‌همراه صدا، در صورت وجود). به‌روزرسانی: شهریور 1405.}
+
+	{\scriptsize
+	\setlength{\tabcolsep}{2pt}
+	\renewcommand{\arraystretch}{1.25}
+	\begin{longtable}{|>{\raggedleft\arraybackslash}p{2.0cm}|>{\raggedleft\arraybackslash}p{2.8cm}|>{\centering\arraybackslash}p{1.1cm}|>{\centering\arraybackslash}p{1.3cm}|>{\centering\arraybackslash}p{1.4cm}|>{\centering\arraybackslash}p{1.4cm}|>{\centering\arraybackslash}p{1.1cm}|>{\raggedleft\arraybackslash}p{3.0cm}|}
+	\hline
+	\rowcolor{mci-light}\textbf{سایت} & \textbf{پلن} & \textbf{\$/ماه} & \textbf{کردیت پلن} & \textbf{کردیت برای 8 ثانیه / 720p} & \textbf{\$ برای 8 ثانیه / 720p} & \textbf{ویدیو با پلن} & \textbf{یادداشت} \\
+	\hline
+	\endhead
+	\hline
+	\endfoot
+	\href{https://dreamina.capcut.com/seedance/seedance-2-5}{\lr{Dreamina} (\lr{CapCut})} & ماهانه (معادل \lr{Advanced}) & \lr{\$19} & 1575 & 296 & \lr{\$3.57} & 5 & در همه مناطق \lr{Seedance} را ارائه نمی‌دهد \\
+	\hline
+	\href{https://higgsfield.ai/seedance/2.5}{\lr{Higgsfield}} & ارزان‌ترین پلن شامل \lr{Seedance 2.5} & \lr{\$49} & 1000 & 52 & \lr{\$2.55} & 19 & پلن‌های ارزان‌تر شامل \lr{Seedance 2.5} نیستند؛ در \lr{480p} هزینه نصف می‌شود \\
+	\hline
+	\href{https://help.runwayml.com/hc/en-us/articles/53542207042323-Creating-with-Seedance-2-5}{\lr{Runway}} & \lr{Standard} & \lr{\$15} & 625 & 240 & \lr{\$5.76} & 2 & کردیت‌ها رول‌آور نمی‌شوند \\
+	\hline
+	\href{https://openart.ai/ai-model/seedance-2-5/}{\lr{OpenArt}} & پلن ورودی & \lr{\$14} & 4000 & 1040 & \lr{\$3.64} & 3 & استفاده تجاری از پلن دوم به بعد \\
+	\hline
+	\href{https://magnific.ai/}{\lr{Magnific}} & \lr{Premium} & \lr{\$2} & 20000 & 3520 & \lr{\$3.52} & 5 & صورتحساب به‌صورت بلوک‌های \lr{4} ثانیه‌ای \\
+	\hline
+	\href{https://picsart.com/api-platform/models/seedance-2.5/pricing}{\lr{Picsart} (\lr{API})} & اشتراک \lr{1000} کردیتی (\lr{API}) & \lr{\$5} & 1000 & 48 & \lr{\$0.24} & 20 & پلتفرم \lr{API}؛ عدد کردیت میانگین بازه \lr{40} تا \lr{56} است \\
+	\hline
+	\href{https://www.jxp.com/seedance/seedance-2-5}{\lr{JXP}} & \lr{Starter} & \lr{\$1} & 120 & 6 & \lr{\$0.5} & 20 & تخمینی؛ جدول دقیق کردیت منتشر نشده \\
+	\hline
+	\end{longtable}
+	}
+	
+
 	% ════════════════════════════════════════════════════════
 	%  صفحه پایانی
 	% ════════════════════════════════════════════════════════
