@@ -1,0 +1,33 @@
+% !TeX program = xelatex
+% Build: xelatex -> xelatex   (دو بار برای فهرست‌ها؛ BibTeX لازم نیست)
+% ساختار: template/ = قالب و تنظیمات | content/ = متن هر بخش
+\documentclass[12pt,a4paper]{article}
+\input{template/meta}
+\input{template/preamble}
+
+\begin{document}
+\input{template/titlepage}
+
+\clearpage
+{\small\linespread{1.05}\selectfont\setlength{\parskip}{0pt}\tableofcontents}
+\clearpage
+
+\input{content/01-executive-summary}
+\input{content/02-background}
+\input{content/03-objectives}
+\input{content/04-phasing-gates}
+\input{content/05-phase0-infrastructure}
+\input{content/06-phase1-pqc}
+\input{content/07-phase2-cvqkd}
+\input{content/08-phase3-sensing}
+\input{content/09-team}
+\input{content/10-budget}
+\input{content/11-schedule}
+\input{content/13-metrics}
+\input{content/14-procurement}
+\input{content/15-conclusion}
+
+\input{content/16-appendix}
+\input{content/refs}
+
+\end{document}
