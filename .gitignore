@@ -1,0 +1,34 @@
+# LaTeX auxiliary and build files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.xdv
+*.dvi
+*.bcf
+*.bbl
+*.blg
+*.run.xml
+*.nav
+*.snm
+*.vrb
+
+# Editor backups and operating system metadata
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Local agent configuration and credentials
+/.agents/
+/.gapcode/
+/.aws/
+
+# Keep the ready-to-read proposal PDF under version control.
