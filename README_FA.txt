@@ -19,4 +19,5 @@ template/meta.tex       عنوان، نهاد، مسئول طرح، نسخه و 
 template/preamble.tex   بسته‌ها، قلم، رنگ‌ها، سربرگ، سبک جدول‌ها، ماکروها
 template/titlepage.tex  صفحهٔ عنوان
 content/NN-*.tex        متن هر بخش (با \input از فایل اصلی فراخوانی می‌شود)
+content/17-price-sources.tex  پیوست ب: منبع و وضعیت تطبیق قیمت‌ها
 content/refs.tex        منابع
