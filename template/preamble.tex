@@ -1,0 +1,56 @@
+% ===== قالب: بسته‌ها، قلم، رنگ‌ها، سربرگ، ماکروها =====
+\usepackage[margin=2.5cm,headheight=16pt]{geometry}
+\usepackage{amsmath,booktabs,longtable,array,fancyhdr,needspace,etoolbox}
+\usepackage[table]{xcolor}
+\usepackage{enumitem,url}
+
+% رنگ‌ها
+\definecolor{accent}{HTML}{1B5E6B}
+\definecolor{linkblue}{HTML}{1F4E9E}
+\definecolor{hdrbg}{HTML}{DCEBEE}
+\definecolor{rowalt}{HTML}{F3F8F9}
+
+\usepackage[unicode,colorlinks=true,linkcolor=accent,citecolor=accent,urlcolor=linkblue,bookmarksnumbered=true]{hyperref}
+\usepackage{xepersian}
+\settextfont[Path=fonts/,BoldFont=ParsiMatn-Bold.ttf]{ParsiMatn-Regular.ttf}
+\setlatintextfont{Latin Modern Roman}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\setmathfont[range={\mathup/{num}}]{Yas}
+
+\hypersetup{pdftitle={\pdftitletext},pdfauthor={\orgname}}
+
+% فاصله‌گذاری
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\linespread{1.3}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{4pt}
+\setlength{\emergencystretch}{3em}
+\Urlmuskip=0mu plus 3mu
+\raggedbottom
+\setlist{leftmargin=*,itemsep=2pt}
+
+% جدول‌ها: ستون‌های راست‌چین/وسط، سطر زبرا (سطر هدر در محتوا با \rowcolor{hdrbg})
+\newcolumntype{R}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\AtBeginEnvironment{longtable}{\rowcolors{2}{}{rowalt}}
+
+% سربرگ و پابرگ
+\makeatletter
+\renewcommand{\headrule}{{\color{accent}\hrule\@height\headrulewidth\@width\headwidth}}
+\makeatother
+\renewcommand{\headrulewidth}{0.5pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[R]{\small\docshorttitle}
+\fancyhead[L]{\small\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+
+% ماکروها
+\newcommand{\usd}[1]{\lr{#1 USD}}
+\newcommand{\eur}[1]{\lr{#1 EUR}}
+\newcommand{\gbp}[1]{\lr{#1 GBP}}
+\newcommand{\status}[1]{\lr{#1}}
+% جای‌نگهدار؛ پیش از ارسال تکمیل شود
+\newcommand{\tbd}[1]{\textbf{[#1]}}
+\newcommand{\verify}{$^{\ast}$}
