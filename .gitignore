@@ -31,4 +31,5 @@ Thumbs.db
 /.gapcode/
 /.aws/
 
-# Keep the ready-to-read proposal PDF under version control.
+# Generated proposal PDF
+/Quantum_Lab_Proposal_FA.pdf
