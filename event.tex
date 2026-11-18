@@ -1,5 +1,5 @@
 % ============================================================
-%  رویداد روز کوانتوم - برنامه‌ی یک‌روزه
+%  رویداد روز کوانتوم - برنامه‌ی رویداد (یک‌روزه یا دو‌روزه) و روز کارگاه
 %  کامپایلر: XeLaTeX
 % ============================================================
 \documentclass[a4paper,12pt]{article}
@@ -66,7 +66,7 @@
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{mci-blue}\leaders\hrule height \headrulewidth\hfill}}
 \fancyhead[R]{\small\color{mci-gray} رویداد روز کوانتوم}
-\fancyhead[L]{\small\color{mci-gray} برنامه‌ی یک‌روزه}
+\fancyhead[L]{\small\color{mci-gray} برنامه‌ی رویداد}
 \fancyfoot[C]{\small\color{mci-gray}\thepage}
 
 % ── عنوان‌بندی بخش‌ها ─────────────────────────────────────
@@ -118,7 +118,7 @@
 
 	\begin{tabularx}{\textwidth}{>{\bfseries\color{mci-blue}}r X}
 		\toprule
-		تاریخ پیشنهادی & چهارشنبه ۲۵ آذر ۱۴۰۵ (۱۶ دسامبر ۲۰۲۶)؛ یک روز، از ساعت ۰۸:۳۰ تا ۱۸:۰۰ \\
+		تاریخ پیشنهادی & همایش: یک روز (چهارشنبه ۲۵ آذر ۱۴۰۵، ۱۶ دسامبر ۲۰۲۶) یا دو روز (چهارشنبه و پنجشنبه ۲۵ و ۲۶ آذر ۱۴۰۵)؛ روز کارگاه: \placeholder{تاریخ} \\
 		\midrule
 		مکان & سالن همایش‌های ساختمان ستاره ونک \\
 		\midrule
@@ -128,7 +128,7 @@
 		\midrule
 		ظرفیت و قالب & ۱۵۰ نفر؛ حضوری با پخش زنده‌ی آنلاین؛ ثبت‌نام رایگان با تأیید قبلی؛ زبان فارسی با اسلایدهای انگلیسی؛ سخنرانان خارجی حضوری یا آنلاین \\
 		\midrule
-		پذیرایی & دو وقفه‌ی پذیرایی (ساعت ۱۰:۳۰ و ۱۵:۳۰) و یک وعده ناهار \\
+		پذیرایی & در هر روز همایش: دو وقفه‌ی پذیرایی (ساعت ۱۰:۳۰ و ۱۵:۳۰) و یک وعده ناهار \\
 		\midrule
 		مسئول رویداد & اسماعیل اسکندری \\
 		\midrule
@@ -184,12 +184,17 @@
 	آن‌گاه مسئله چند روز اختلال نیست، از دست رفتن پایه‌ی اعتماد است.
 	به همین دلیل رویداد با طرح نیازهای بانک مرکزی آغاز می‌شود و استارتاپ‌ها، صنعت و پژوهشگران برای پاسخ به آن‌ها در کنار هم قرار می‌گیرند.
 
+	\subsection*{قالب برگزاری}
+	هنوز قطعی نیست که همایش در یک روز برگزار شود یا در دو روز؛ به همین دلیل برنامه برای هر دو حالت نوشته شده است (بخش \ref{sec:schedule}).
+	علاوه بر همایش، یک روز کارگاه کوانتوم هم در نظر گرفته‌ایم که در بخش \ref{sec:workshop} توضیح داده شده است.
+	اگر همایش در دو روز برگزار شود، پیشنهاد می‌شود روز کارگاه دست‌کم یک هفته با آن فاصله داشته باشد؛ با این حال برگزاری هر سه روز پشت سر هم هم ممکن است.
+
 	% ════════════════════════════════════════════════════════
 	%  ۲. هدف و محورها
 	% ════════════════════════════════════════════════════════
 	\section{هدف و محورها}
 
-	رویداد روز کوانتوم یک گردهمایی یک‌روزه برای نزدیک‌کردن سه گروه به هم است:
+	رویداد روز کوانتوم یک گردهمایی (یک‌روزه یا دو‌روزه) برای نزدیک‌کردن سه گروه به هم است:
 	\textbf{نیازمندان} (بانک مرکزی، بانک‌ها و صنایع بزرگ)، \textbf{توانمندان} (استارتاپ‌ها و شرکت‌های فعال در حوزه‌ی امنیت کوانتومی) و
 	\textbf{پژوهشگران} (دانشگاه‌ها و پژوهشگاه‌ها).
 	تمرکز رویداد بر کسب‌وکار و صنعت است: چه نیازی وجود دارد، چه راه‌حلی در دسترس است، و چه چیزی تا امروز عملاً اجرا شده است.
@@ -208,15 +213,50 @@
 	\end{itemize}
 
 	% ════════════════════════════════════════════════════════
-	%  ۲. جدول برنامه
+	%  ۳. برنامه‌ی رویداد (حالت یک‌روزه / دو‌روزه)
 	% ════════════════════════════════════════════════════════
-	\section{جدول زمانی برنامه}
+	\section{برنامه‌ی رویداد}\label{sec:schedule}
+
+	% ── بازه‌های سخنرانی: عنوان (ttl) و کاندیدها (cnd) برای هر دو حالت مشترک است ──
+	\newcommand{\ttlPA}{\textbf{رمزنگاری پساکوانتومی} \newline مهاجرت به \lr{PQC}: نیاز بانکداری و چشم‌انداز فنی}
+	\newcommand{\cndPA}{\cands{بانک مرکزی \tg{نیاز}؛ بانک‌های بزرگ، با هماهنگی بانک مرکزی \tg{نیاز}؛ \lr{PQShield} \tg{پیچ، آنلاین}؛ \lr{Post-Quantum} \tg{پیچ، آنلاین}}{دکتر اقلیدس (شریف)؛ دکتر پیلارام (شریف)}}
+
+	\newcommand{\ttlPB}{\textbf{رمزنگاری پساکوانتومی} \newline پیاده‌سازی \lr{PQC} روی سخت‌افزار: \lr{VPN}، \lr{HSM} و تراشه}
+	\newcommand{\cndPB}{\cands{نوآوران امن‌اندیش شریف (نآد) \tg{پیچ}؛ \lr{Crypto4A} \tg{پیچ، آنلاین}؛ \lr{Utimaco} \tg{پیچ، آنلاین}؛ \lr{SEALSQ} \tg{پیچ، آنلاین}}{\lr{Mahnaz Namazi Rizi} (\lr{Leiden}) \tg{آنلاین}؛ \lr{Kiarash Sedghi} \tg{آنلاین}}}
+
+	\newcommand{\ttlPC}{\textbf{رمزنگاری پساکوانتومی} \newline مدیریت ریسک و نقشه‌ی مهاجرت در زیرساخت‌های حیاتی}
+	\newcommand{\cndPC}{\cands{مهندسان همراه اول (تجربه‌ی اپراتور) \tg{نیاز}؛ \lr{QuSecure} \tg{پیچ، آنلاین}؛ \lr{evolutionQ} \tg{پیچ، آنلاین}؛ \lr{Leila Taghizadeh} (\lr{PKI Consortium}، \lr{ETSI}) \tg{آنلاین}}{دکتر صفوی‌نائینی (\lr{Calgary}) \tg{آنلاین}؛ \lr{Rachid El Bansarkhani} \tg{آنلاین}}}
+
+	\newcommand{\ttlPD}{\textbf{رمزنگاری پساکوانتومی} \newline پیچ استارتاپ‌ها: کشف رمزنگاری (\lr{CBOM}) و خدمات مهاجرت}
+	\newcommand{\cndPD}{\cands{\lr{PortyQ} \tg{پیچ، آنلاین}؛ \lr{SecureQuantum} \tg{پیچ، آنلاین}؛ \lr{AllSecurex} \tg{پیچ، آنلاین}؛ \lr{CryptoNext Security} \tg{پیچ، آنلاین}}{\lr{Soundes Marzougui} \tg{آنلاین}؛ \lr{Saleh Darzi} \tg{آنلاین}}}
+
+	\newcommand{\ttlQA}{\textbf{مخابرات کوانتومی} \newline شبکه‌ی \lr{QKD} در ایران: پایلوت‌ها و نیاز بهره‌برداران}
+	\newcommand{\cndQA}{\cands{پژوهشگاه ارتباطات و فناوری اطلاعات \tg{پایلوت}؛ شرکت ارتباطات زیرساخت \tg{نیاز}؛ \lr{Parsa Quantum} \tg{پیچ}؛ دکتر رنجبر رفیع (پژوهشگاه ارتباطات) \tg{پایلوت}}{دکتر صالحی (شریف)؛ دکتر واحدی (علم و صنعت)}}
+
+	\newcommand{\ttlQB}{\textbf{مخابرات کوانتومی} \newline \lr{QRNG} و محصولات بومی امنیت کوانتومی}
+	\newcommand{\cndQB}{\cands{فرهیختگان حامی علم و صنعت \tg{پیچ}؛ \lr{QuintessenceLabs} \tg{پیچ، آنلاین}؛ \lr{KETS Quantum Security} \tg{پیچ، آنلاین}}{دکتر بهرامپور (شریف)؛ نماینده‌ی مرکز علوم و فناوری‌های کوانتومی دانشگاه اصفهان}}
+
+	\newcommand{\ttlQC}{\textbf{مخابرات کوانتومی} \newline \lr{QKD} در شبکه‌های مخابراتی و مالی: تجربه‌ی بین‌المللی}
+	\newcommand{\cndQC}{\cands{\lr{ID Quantique} \tg{پیچ، آنلاین}؛ \lr{QNu Labs} \tg{پیچ، آنلاین}؛ \lr{LuxQuanta} \tg{پیچ، آنلاین}؛ \lr{Bahman Rashidi} (\lr{Comcast}) \tg{تجربه، آنلاین}}{دکتر رضوی (\lr{Leeds}) \tg{آنلاین}؛ \lr{Simon Devitt} (\lr{UTS}) \tg{آنلاین}}}
+
+	\newcommand{\ttlQD}{\textbf{مخابرات کوانتومی} \newline پیچ استارتاپ‌ها: مدیریت شبکه‌ی کوانتوم‌ایمن و \lr{QKD} تجاری}
+	\newcommand{\cndQD}{\cands{\lr{Qoolnet} \tg{پیچ، آنلاین}؛ \lr{Falqon Systems} \tg{پیچ، آنلاین}؛ \lr{QSECDEF} \tg{پیچ، آنلاین}}{\lr{Takuya Ikuta} (\lr{NTT}) \tg{آنلاین}؛ \lr{Ali Nawaz Ranjha} (\lr{Carleton}) \tg{آنلاین}}}
+
+	\newcommand{\ttlPanel}{\textbf{پنل گفت‌وگو} \newline از نیاز تا محصول: بومی‌سازی امنیت پساکوانتومی و ارتباطات کوانتومی}
+	\newcommand{\cndPanel}{\small
+		\textbf{\textcolor{mci-blue}{مجری:}}~\placeholder{مجری پنل}\par\smallskip
+		\textbf{\textcolor{mci-blue}{پنلیست‌های صنعت (۲ نفر):}}~نماینده‌ی بانک مرکزی؛ مدیرعامل نآد؛ جایگزین‌ها: \lr{Parsa Quantum}، یکی از بانک‌های بزرگ\par\smallskip
+		\textbf{\textcolor{mci-blue}{پنلیست‌های دانشگاه (۲ نفر):}}~دکتر صالحی (شریف)؛ دکتر اقلیدس (شریف)؛ جایگزین‌ها: دکتر واحدی، دکتر بهرامپور}
+
+	چون هنوز قطعی نیست رویداد یک روز باشد یا دو روز، برنامه برای هر دو حالت نوشته شده و پس از تصمیم‌گیری، حالت دیگر حذف می‌شود.
+	بازه‌های سخنرانی و کاندیدهای هر بازه در هر دو حالت یکی است؛ فقط چینش آن‌ها فرق می‌کند.
 
 	{\small\color{mci-gray}
 	در هر بازه‌ی سخنرانی دست‌کم چهار کاندید پیشنهاد شده است (بیشتر از صنعت و کمتر از دانشگاه)؛ از میان آن‌ها یک سخنران انتخاب می‌شود.
 	دعوت رسمی منوط به هماهنگی و تأیید سمت و وابستگی فعلی هر نفر است.}
 
-	\vspace{4pt}
+	% ───────────────── حالت الف: یک‌روزه ─────────────────
+	\subsection{حالت الف: همایش یک‌روزه}
 
 	{\small
 	\setlength{\tabcolsep}{4pt}
@@ -233,10 +273,8 @@
 		\hline
 		\endfoot
 
-		% ── صبح ──
 		۰۸:۳۰ تا ۰۹:۰۰ & ثبت‌نام & پذیرش مهمانان \\
 		\hline
-
 		\rowcolor{mci-light}
 		۰۹:۰۰ تا ۰۹:۱۵ \newline {\footnotesize\color{mci-gray}۱۵ دقیقه} & افتتاحیه & دکتر اخوان \\
 		\hline
@@ -247,83 +285,205 @@
 		۰۹:۳۰ تا ۰۹:۴۵ \newline {\footnotesize\color{mci-gray}۱۵ دقیقه} & افتتاحیه \newline (اعلام نیاز) & یکی از معاونین بانک مرکزی؛ معاونتی که به حوزه‌ی فناوری‌های نوین و کوانتوم نزدیک‌تر است \tg{نیاز} \\
 		\hline
 
-		۰۹:۴۵ تا ۱۰:۳۰ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} &
-		\textbf{رمزنگاری پساکوانتومی} \newline مهاجرت به \lr{PQC}: نیاز بانکداری و چشم‌انداز فنی &
-		\cands{بانک مرکزی \tg{نیاز}؛ بانک‌های بزرگ، با هماهنگی بانک مرکزی \tg{نیاز}؛ \lr{PQShield} \tg{پیچ، آنلاین}؛ \lr{Post-Quantum} \tg{پیچ، آنلاین}}
-		{دکتر اقلیدس (شریف)؛ دکتر پیلارام (شریف)} \\
+		۰۹:۴۵ تا ۱۰:۳۰ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlPA & \cndPA \\
 		\hline
-
 		\rowcolor{mci-gold!15}
 		۱۰:۳۰ تا ۱۱:۰۰ & پذیرایی اول & وقفه‌ی چای و شبکه‌سازی \\
 		\hline
-
-		۱۱:۰۰ تا ۱۱:۴۵ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} &
-		\textbf{مخابرات کوانتومی} \newline شبکه‌ی \lr{QKD} در ایران: پایلوت‌ها و نیاز بهره‌برداران &
-		\cands{پژوهشگاه ارتباطات و فناوری اطلاعات \tg{پایلوت}؛ شرکت ارتباطات زیرساخت \tg{نیاز}؛ \lr{Parsa Quantum} \tg{پیچ}؛ دکتر رنجبر رفیع (پژوهشگاه ارتباطات) \tg{پایلوت}}
-		{دکتر صالحی (شریف)؛ دکتر واحدی (علم و صنعت)} \\
+		۱۱:۰۰ تا ۱۱:۴۵ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlQA & \cndQA \\
 		\hline
-
-		۱۱:۴۵ تا ۱۲:۱۵ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} &
-		\textbf{رمزنگاری پساکوانتومی} \newline پیاده‌سازی \lr{PQC} روی سخت‌افزار: \lr{VPN}، \lr{HSM} و تراشه &
-		\cands{نوآوران امن‌اندیش شریف (نآد) \tg{پیچ}؛ \lr{Crypto4A} \tg{پیچ، آنلاین}؛ \lr{Utimaco} \tg{پیچ، آنلاین}؛ \lr{SEALSQ} \tg{پیچ، آنلاین}}
-		{\lr{Mahnaz Namazi Rizi} (\lr{Leiden}) \tg{آنلاین}؛ \lr{Kiarash Sedghi} \tg{آنلاین}} \\
+		۱۱:۴۵ تا ۱۲:۱۵ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} & \ttlPB & \cndPB \\
 		\hline
-
-		۱۲:۱۵ تا ۱۲:۴۵ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} &
-		\textbf{مخابرات کوانتومی} \newline \lr{QRNG} و محصولات بومی امنیت کوانتومی &
-		\cands{فرهیختگان حامی علم و صنعت \tg{پیچ}؛ \lr{QuintessenceLabs} \tg{پیچ، آنلاین}؛ \lr{KETS Quantum Security} \tg{پیچ، آنلاین}}
-		{دکتر بهرامپور (شریف)؛ نماینده‌ی مرکز علوم و فناوری‌های کوانتومی دانشگاه اصفهان} \\
+		۱۲:۱۵ تا ۱۲:۴۵ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} & \ttlQB & \cndQB \\
 		\hline
-
 		\rowcolor{mci-gold!15}
 		۱۲:۴۵ تا ۱۴:۰۰ & ناهار و نماز & ناهار \\
 		\hline
-
-		% ── عصر ──
-		۱۴:۰۰ تا ۱۴:۴۵ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} &
-		\textbf{رمزنگاری پساکوانتومی} \newline مدیریت ریسک و نقشه‌ی مهاجرت در زیرساخت‌های حیاتی &
-		\cands{مهندسان همراه اول (تجربه‌ی اپراتور) \tg{نیاز}؛ \lr{QuSecure} \tg{پیچ، آنلاین}؛ \lr{evolutionQ} \tg{پیچ، آنلاین}؛ \lr{Leila Taghizadeh} (\lr{PKI Consortium}، \lr{ETSI}) \tg{آنلاین}}
-		{دکتر صفوی‌نائینی (\lr{Calgary}) \tg{آنلاین}؛ \lr{Rachid El Bansarkhani} \tg{آنلاین}} \\
+		۱۴:۰۰ تا ۱۴:۴۵ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlPC & \cndPC \\
 		\hline
-
-		۱۴:۴۵ تا ۱۵:۳۰ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} &
-		\textbf{مخابرات کوانتومی} \newline \lr{QKD} در شبکه‌های مخابراتی و مالی: تجربه‌ی بین‌المللی &
-		\cands{\lr{ID Quantique} \tg{پیچ، آنلاین}؛ \lr{QNu Labs} \tg{پیچ، آنلاین}؛ \lr{LuxQuanta} \tg{پیچ، آنلاین}؛ \lr{Bahman Rashidi} (\lr{Comcast}) \tg{تجربه، آنلاین}}
-		{دکتر رضوی (\lr{Leeds}) \tg{آنلاین}؛ \lr{Simon Devitt} (\lr{UTS}) \tg{آنلاین}} \\
+		۱۴:۴۵ تا ۱۵:۳۰ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlQC & \cndQC \\
 		\hline
-
 		\rowcolor{mci-gold!15}
 		۱۵:۳۰ تا ۱۶:۰۰ & پذیرایی دوم & وقفه‌ی چای و شبکه‌سازی \\
 		\hline
-
-		۱۶:۰۰ تا ۱۶:۳۰ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} &
-		\textbf{رمزنگاری پساکوانتومی} \newline پیچ استارتاپ‌ها: کشف رمزنگاری (\lr{CBOM}) و خدمات مهاجرت &
-		\cands{\lr{PortyQ} \tg{پیچ، آنلاین}؛ \lr{SecureQuantum} \tg{پیچ، آنلاین}؛ \lr{AllSecurex} \tg{پیچ، آنلاین}؛ \lr{CryptoNext Security} \tg{پیچ، آنلاین}}
-		{\lr{Soundes Marzougui} \tg{آنلاین}؛ \lr{Saleh Darzi} \tg{آنلاین}} \\
+		۱۶:۰۰ تا ۱۶:۳۰ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} & \ttlPD & \cndPD \\
 		\hline
-
-		۱۶:۳۰ تا ۱۷:۰۰ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} &
-		\textbf{مخابرات کوانتومی} \newline پیچ استارتاپ‌ها: مدیریت شبکه‌ی کوانتوم‌ایمن و \lr{QKD} تجاری &
-		\cands{\lr{Qoolnet} \tg{پیچ، آنلاین}؛ \lr{Falqon Systems} \tg{پیچ، آنلاین}؛ \lr{QSECDEF} \tg{پیچ، آنلاین}}
-		{\lr{Takuya Ikuta} (\lr{NTT}) \tg{آنلاین}؛ \lr{Ali Nawaz Ranjha} (\lr{Carleton}) \tg{آنلاین}} \\
+		۱۶:۳۰ تا ۱۷:۰۰ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} & \ttlQD & \cndQD \\
 		\hline
-
 		\rowcolor{mci-light}
-		۱۷:۰۰ تا ۱۷:۴۵ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} &
-		\textbf{پنل گفت‌وگو} \newline از نیاز تا محصول: بومی‌سازی امنیت پساکوانتومی و ارتباطات کوانتومی &
-		\small
-		\textbf{\textcolor{mci-blue}{مجری:}}~\placeholder{مجری پنل}\par\smallskip
-		\textbf{\textcolor{mci-blue}{پنلیست‌های صنعت (۲ نفر):}}~نماینده‌ی بانک مرکزی؛ مدیرعامل نآد؛ جایگزین‌ها: \lr{Parsa Quantum}، یکی از بانک‌های بزرگ\par\smallskip
-		\textbf{\textcolor{mci-blue}{پنلیست‌های دانشگاه (۲ نفر):}}~دکتر صالحی (شریف)؛ دکتر اقلیدس (شریف)؛ جایگزین‌ها: دکتر واحدی، دکتر بهرامپور \\
+		۱۷:۰۰ تا ۱۷:۴۵ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlPanel & \cndPanel \\
 		\hline
+		۱۷:۴۵ تا ۱۸:۰۰ & جمع‌بندی & جمع‌بندی رویداد و اعلام برنامه‌ی روز کارگاه \\
+		\hline
+	\end{longtable}
+	}
 
-		۱۷:۴۵ تا ۱۸:۰۰ & جمع‌بندی & جمع‌بندی رویداد و اعلام برنامه‌ی کارگاه‌های بعدی \\
+	% ───────────────── حالت ب: دو‌روزه ─────────────────
+	\subsection{حالت ب: همایش دو‌روزه}
+
+	در این حالت روز اول به رمزنگاری پساکوانتومی و روز دوم به مخابرات کوانتومی اختصاص دارد.
+	همان هشت سخنرانی و پنل حالت الف را داریم، اما ریتم برنامه سبک‌تر است و در هر روز زمانی برای جلسات دوجانبه‌ی (\lr{B2B}) صنعت و استارتاپ‌ها در نظر گرفته شده است:
+	بانک مرکزی، بانک‌ها و صنایع نیازهای خود را مطرح می‌کنند و استارتاپ‌ها و شرکت‌های سخنران همان محور توانمندی‌های خود را ارائه می‌دهند.
+
+	\medskip
+	\textbf{\textcolor{mci-blue}{روز اول: رمزنگاری پساکوانتومی}}
+
+	{\small
+	\setlength{\tabcolsep}{4pt}
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{|>{\centering\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{3.3cm}|>{\raggedright\arraybackslash}p{9.2cm}|}
+		\hline
+		\rowcolor{mci-blue}\textcolor{white}{\textbf{ساعت}} & \textcolor{white}{\textbf{محور / عنوان}} & \textcolor{white}{\textbf{سخنران‌های کاندید}} \\
+		\hline
+		\endfirsthead
+		\hline
+		\rowcolor{mci-blue}\textcolor{white}{\textbf{ساعت}} & \textcolor{white}{\textbf{محور / عنوان}} & \textcolor{white}{\textbf{سخنران‌های کاندید}} \\
+		\hline
+		\endhead
+		\hline
+		\endfoot
+
+		۰۸:۳۰ تا ۰۹:۰۰ & ثبت‌نام & پذیرش مهمانان \\
+		\hline
+		\rowcolor{mci-light}
+		۰۹:۰۰ تا ۰۹:۱۵ \newline {\footnotesize\color{mci-gray}۱۵ دقیقه} & افتتاحیه & دکتر اخوان \\
+		\hline
+		\rowcolor{mci-light}
+		۰۹:۱۵ تا ۰۹:۳۰ \newline {\footnotesize\color{mci-gray}۱۵ دقیقه} & افتتاحیه & دکتر افشین \\
+		\hline
+		\rowcolor{mci-light}
+		۰۹:۳۰ تا ۰۹:۴۵ \newline {\footnotesize\color{mci-gray}۱۵ دقیقه} & افتتاحیه \newline (اعلام نیاز) & یکی از معاونین بانک مرکزی؛ معاونتی که به حوزه‌ی فناوری‌های نوین و کوانتوم نزدیک‌تر است \tg{نیاز} \\
+		\hline
+		۰۹:۴۵ تا ۱۰:۳۰ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlPA & \cndPA \\
+		\hline
+		\rowcolor{mci-gold!15}
+		۱۰:۳۰ تا ۱۱:۰۰ & پذیرایی اول & وقفه‌ی چای و شبکه‌سازی \\
+		\hline
+		۱۱:۰۰ تا ۱۱:۳۰ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} & \ttlPB & \cndPB \\
+		\hline
+		۱۱:۳۰ تا ۱۲:۱۵ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlPC & \cndPC \\
+		\hline
+		\rowcolor{mci-gold!15}
+		۱۲:۱۵ تا ۱۳:۱۵ & ناهار و نماز & ناهار \\
+		\hline
+		۱۳:۱۵ تا ۱۳:۴۵ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} & \ttlPD & \cndPD \\
+		\hline
+		\rowcolor{mci-light}
+		۱۳:۴۵ تا ۱۵:۳۰ \newline {\footnotesize\color{mci-gray}۱۰۵ دقیقه} & \textbf{جلسات دوجانبه (\lr{B2B})} \newline محور رمزنگاری پساکوانتومی & {\small بانک مرکزی و بانک‌ها (طرح نیاز) با استارتاپ‌ها و شرکت‌های سخنران همین محور (معرفی توانمندی)؛ ملاقات‌های کوتاه از پیش زمان‌بندی‌شده} \\
+		\hline
+		\rowcolor{mci-gold!15}
+		۱۵:۳۰ تا ۱۶:۰۰ & پذیرایی دوم & وقفه‌ی چای و پایان روز اول \\
+		\hline
+	\end{longtable}
+	}
+
+	\medskip
+	\textbf{\textcolor{mci-blue}{روز دوم: مخابرات کوانتومی}}
+
+	{\small
+	\setlength{\tabcolsep}{4pt}
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{|>{\centering\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{3.3cm}|>{\raggedright\arraybackslash}p{9.2cm}|}
+		\hline
+		\rowcolor{mci-blue}\textcolor{white}{\textbf{ساعت}} & \textcolor{white}{\textbf{محور / عنوان}} & \textcolor{white}{\textbf{سخنران‌های کاندید}} \\
+		\hline
+		\endfirsthead
+		\hline
+		\rowcolor{mci-blue}\textcolor{white}{\textbf{ساعت}} & \textcolor{white}{\textbf{محور / عنوان}} & \textcolor{white}{\textbf{سخنران‌های کاندید}} \\
+		\hline
+		\endhead
+		\hline
+		\endfoot
+
+		۰۸:۳۰ تا ۰۹:۰۰ & ثبت‌نام & پذیرش مهمانان \\
+		\hline
+		\rowcolor{mci-light}
+		۰۹:۰۰ تا ۰۹:۱۵ \newline {\footnotesize\color{mci-gray}۱۵ دقیقه} & گشایش روز دوم & نماینده‌ی معاونت علمی ریاست جمهوری (در صورت تأیید مشارکت) \\
+		\hline
+		۰۹:۱۵ تا ۱۰:۰۰ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlQA & \cndQA \\
+		\hline
+		۱۰:۰۰ تا ۱۰:۳۰ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} & \ttlQB & \cndQB \\
+		\hline
+		\rowcolor{mci-gold!15}
+		۱۰:۳۰ تا ۱۱:۰۰ & پذیرایی اول & وقفه‌ی چای و شبکه‌سازی \\
+		\hline
+		۱۱:۰۰ تا ۱۱:۴۵ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlQC & \cndQC \\
+		\hline
+		۱۱:۴۵ تا ۱۲:۱۵ \newline {\footnotesize\color{mci-gray}۳۰ دقیقه} & \ttlQD & \cndQD \\
+		\hline
+		\rowcolor{mci-gold!15}
+		۱۲:۱۵ تا ۱۳:۱۵ & ناهار و نماز & ناهار \\
+		\hline
+		\rowcolor{mci-light}
+		۱۳:۱۵ تا ۱۴:۰۰ \newline {\footnotesize\color{mci-gray}۴۵ دقیقه} & \ttlPanel & \cndPanel \\
+		\hline
+		\rowcolor{mci-light}
+		۱۴:۰۰ تا ۱۵:۳۰ \newline {\footnotesize\color{mci-gray}۹۰ دقیقه} & \textbf{جلسات دوجانبه (\lr{B2B})} \newline محور مخابرات کوانتومی & {\small پژوهشگاه، شرکت ارتباطات زیرساخت، اپراتورها و بانک‌ها (طرح نیاز) با استارتاپ‌ها و شرکت‌های سخنران همین محور (معرفی توانمندی)؛ ملاقات‌های کوتاه از پیش زمان‌بندی‌شده} \\
+		\hline
+		\rowcolor{mci-gold!15}
+		۱۵:۳۰ تا ۱۶:۰۰ & پذیرایی دوم & وقفه‌ی چای و شبکه‌سازی \\
+		\hline
+		۱۶:۰۰ تا ۱۶:۱۵ & جمع‌بندی & جمع‌بندی رویداد و اعلام برنامه‌ی روز کارگاه \\
 		\hline
 	\end{longtable}
 	}
 
 	% ════════════════════════════════════════════════════════
-	%  ۴. جامعه‌ی کوانتومی
+	%  ۴. روز کارگاه
+	% ════════════════════════════════════════════════════════
+	\section{روز کارگاه کوانتوم}\label{sec:workshop}
+
+	علاوه بر همایش، یک روز کارگاه عملی برگزار می‌شود. چهار کارگاه در دو سالن موازی و در دو نوبت اجرا می‌شود و در هر نوبت یکی از دو کارگاه را می‌توان انتخاب کرد؛
+	در میانه‌ی هر نوبت یک وقفه‌ی چای کوتاه هست. کارگاه‌ها همراه با تمرین کد است و به شرکت‌کنندگان گواهی حضور با شماره‌ی یکتا (امکان استعلام آنلاین) ارائه می‌شود.
+	شرط دریافت گواهی، حضور کامل و انجام تمرین نهایی است.
+
+	{\small
+	\setlength{\tabcolsep}{4pt}
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{|>{\centering\arraybackslash}p{2.7cm}|>{\raggedright\arraybackslash}p{9.6cm}|>{\raggedright\arraybackslash}p{2.7cm}|}
+		\hline
+		\rowcolor{mci-blue}\textcolor{white}{\textbf{زمان و سالن}} & \textcolor{white}{\textbf{کارگاه و محتوا}} & \textcolor{white}{\textbf{مدرس}} \\
+		\hline
+		\endfirsthead
+		\hline
+		\rowcolor{mci-blue}\textcolor{white}{\textbf{زمان و سالن}} & \textcolor{white}{\textbf{کارگاه و محتوا}} & \textcolor{white}{\textbf{مدرس}} \\
+		\hline
+		\endhead
+		\hline
+		\endfoot
+
+		۰۸:۳۰ تا ۰۹:۰۰ & ثبت‌نام & \\
+		\hline
+		۰۹:۰۰ تا ۱۲:۳۰ \newline سالن ۱ &
+		\textbf{الگوریتم‌های \lr{PQC}} \newline استانداردهای \lr{NIST}: \lr{ML-KEM}، \lr{ML-DSA} و \lr{SLH-DSA} (\lr{FIPS 203/204/205})؛ حالت ترکیبی (\lr{Hybrid}) در \lr{TLS}؛ چابکی رمزنگاری و برنامه‌ی مهاجرت &
+		\placeholder{مدرس} \\
+		\hline
+		۰۹:۰۰ تا ۱۲:۳۰ \newline سالن ۲ &
+		\textbf{اینترنت کوانتومی} \newline درهم‌تنیدگی و تله‌پورتیشن، پروتکل‌های \lr{BB84} و \lr{E91}، تکرارکننده‌های کوانتومی و شبیه‌سازی شبکه‌های کوانتومی &
+		\placeholder{مدرس} \\
+		\hline
+		\rowcolor{mci-gold!15}
+		۱۲:۳۰ تا ۱۳:۴۵ & ناهار و نماز & \\
+		\hline
+		۱۳:۴۵ تا ۱۷:۱۵ \newline سالن ۱ &
+		\textbf{مقدمه‌ای عملی بر \lr{Qiskit}} \newline مدارهای کوانتومی، الگوریتم‌های پایه (\lr{Grover}، \lr{QFT}، \lr{VQE}) و اجرا روی شبیه‌ساز و سخت‌افزار واقعی &
+		محمد رضیئی \\
+		\hline
+		۱۳:۴۵ تا ۱۷:۱۵ \newline سالن ۲ &
+		\textbf{یادگیری ماشین کوانتومی (\lr{QML})} \newline مدارهای پارامتری، \lr{Variational Classifiers} و \lr{Quantum Kernels} با \lr{PennyLane}؛ آشنایی با محدودیت‌ها و کاربردهای واقعی &
+		\placeholder{مدرس} \\
+		\hline
+		۱۷:۱۵ تا ۱۷:۳۰ & جمع‌بندی و اعطای گواهی & \\
+		\hline
+	\end{longtable}
+	}
+
+	\subsection*{فاصله‌ی روز کارگاه از همایش}
+	اگر همایش در دو روز برگزار شود، پیشنهاد می‌شود روز کارگاه دست‌کم یک هفته با آن فاصله داشته باشد؛
+	با این حال برگزاری هر سه روز پشت سر هم هم ممکن است.
+
+	% ════════════════════════════════════════════════════════
+	%  ۵. جامعه‌ی کوانتومی
 	% ════════════════════════════════════════════════════════
 	\section{جامعه‌ی کوانتومی پس از رویداد}
 
@@ -337,7 +497,7 @@
 		\item \textbf{گروه گفت‌وگو:} گروهی در کنار کانال برای بحث آزاد درباره‌ی اخبار، پرسش و پاسخ و آشنایی اعضا با یکدیگر
 		\item \textbf{حضور حرفه‌ای:} صفحه‌ی \lr{LinkedIn} با انتشار اخبار، مقاله‌ها و دستاوردهای کوانتومی به فارسی و انگلیسی
 		\item \textbf{حافظه‌ی رویداد:} ضبط و انتشار ویدئوی سخنرانی‌ها و پنل، و خبرنامه‌ی ماهانه
-		\item \textbf{شبکه‌ی اعضا:} بانک افراد و شرکت‌ها (پیوست ب و ج) به‌عنوان هسته‌ی اولیه‌ی جامعه، که پس از رویداد با اعضای جدید تکمیل می‌شود
+		\item \textbf{شبکه‌ی اعضا:} بانک افراد و شرکت‌ها (پیوست الف و ب) به‌عنوان هسته‌ی اولیه‌ی جامعه، که پس از رویداد با اعضای جدید تکمیل می‌شود
 		\item \textbf{عضویت باز:} مهندسان، پژوهشگران و توسعه‌دهندگان بیرون از سازمان‌های برگزارکننده هم بتوانند بدون هزینه‌ی مستقیم به جامعه بپیوندند
 		\item \textbf{دوره‌ی بعد:} دستاوردهای جامعه (مقاله، پروژه، پایلوت) در رویداد بعدی معرفی می‌شود و دایره‌ی جامعه را بزرگ‌تر می‌کند
 	\end{itemize}
@@ -349,43 +509,10 @@
 	\bibliography{refs}
 
 	% ════════════════════════════════════════════════════════
-	%  پیوست الف: کارگاه‌ها
+	%  پیوست الف: بانک افراد
 	% ════════════════════════════════════════════════════════
 	\newpage
-	\section*{پیوست الف: کارگاه‌های تخصصی (روزی جدا از رویداد)}
-
-	کارگاه‌ها در روزی جدا از رویداد برگزار می‌شوند (\placeholder{روز کارگاه})؛ هر کارگاه ۱ تا ۲ روزه، عملی و همراه با تمرین کد است
-	و به شرکت‌کنندگان گواهی حضور با شماره‌ی یکتا (امکان استعلام آنلاین) ارائه می‌شود. شرط دریافت گواهی، حضور کامل و انجام تمرین نهایی است.
-
-	\begin{center}
-	\begin{tabularx}{\textwidth}{>{\bfseries\color{mci-blue}}r X >{\raggedright\arraybackslash}p{3.2cm}}
-		\toprule
-		\textbf{کارگاه} & \textbf{محتوا} & \textbf{مدرس} \\
-		\midrule
-		الگوریتم‌های \lr{PQC} &
-		استانداردهای \lr{NIST}: \lr{ML-KEM}، \lr{ML-DSA} و \lr{SLH-DSA} (\lr{FIPS 203/204/205})؛ حالت ترکیبی (\lr{Hybrid}) در \lr{TLS}؛ چابکی رمزنگاری و برنامه‌ی مهاجرت &
-		\placeholder{مدرس} \\
-		\midrule
-		اینترنت کوانتومی &
-		درهم‌تنیدگی و تله‌پورتیشن، پروتکل‌های \lr{BB84} و \lr{E91}، تکرارکننده‌های کوانتومی و شبیه‌سازی شبکه‌های کوانتومی &
-		\placeholder{مدرس} \\
-		\midrule
-		مقدمه‌ای عملی بر \lr{Qiskit} &
-		مدارهای کوانتومی، الگوریتم‌های پایه (\lr{Grover}، \lr{QFT}، \lr{VQE}) و اجرا روی شبیه‌ساز و سخت‌افزار واقعی &
-		محمد رضیئی \\
-		\midrule
-		یادگیری ماشین کوانتومی (\lr{QML}) &
-		مدارهای پارامتری، \lr{Variational Classifiers} و \lr{Quantum Kernels} با \lr{PennyLane}؛ آشنایی با محدودیت‌ها و کاربردهای واقعی &
-		\placeholder{مدرس} \\
-		\bottomrule
-	\end{tabularx}
-	\end{center}
-
-	% ════════════════════════════════════════════════════════
-	%  پیوست ب: بانک افراد
-	% ════════════════════════════════════════════════════════
-	\newpage
-	\section*{پیوست ب: بانک افراد}
+	\section*{پیوست الف: بانک افراد}
 
 	{\small\color{mci-gray}
 	منبع انتخاب سخنران، مدرس و پنلیست. اطلاعات از صفحات عمومی دانشگاهی و پروفایل‌های حرفه‌ای گردآوری شده است؛
@@ -463,10 +590,10 @@
 	}
 
 	% ════════════════════════════════════════════════════════
-	%  پیوست ج: بانک شرکت‌ها و مراکز
+	%  پیوست ب: بانک شرکت‌ها و مراکز
 	% ════════════════════════════════════════════════════════
 	\newpage
-	\section*{پیوست ج: بانک شرکت‌ها و مراکز}
+	\section*{پیوست ب: بانک شرکت‌ها و مراکز}
 
 	{\small\color{mci-gray}
 	منبع شناسایی ارائه‌دهندگان پیچ، بازیگران همتا و شرکای اجرایی. شرکت‌های ایرانی و خارجی جدا شده‌اند.
